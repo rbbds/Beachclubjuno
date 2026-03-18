@@ -91,7 +91,6 @@ export function Bruiloften() {
       <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] mb-4 tracking-wide"
               style={{ 
@@ -102,6 +101,7 @@ export function Bruiloften() {
             >
               WAT WIJ BIEDEN
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -110,7 +110,6 @@ export function Bruiloften() {
                 key={index}
                 className="bg-[#f6f4db] p-8 rounded-xl border-2 border-[#9fbaae]/30 hover:border-[#9fbaae] transition-all hover:shadow-lg cursor-pointer text-left w-full"
               >
-                <WaveDecoration variant="special" className="w-12 h-3 mb-4" />
                 <feature.icon className="w-10 h-10 text-[#3d7183] mb-4" />
                 <h3 
                   className="text-[#3d7183] mb-3 tracking-wide"
@@ -165,7 +164,6 @@ export function Bruiloften() {
       <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] tracking-wide"
               style={{ 
@@ -176,6 +174,7 @@ export function Bruiloften() {
             >
               PRAKTISCHE INFORMATIE
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 bg-white p-10 rounded-xl shadow-sm">

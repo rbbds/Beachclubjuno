@@ -14,8 +14,6 @@ export function Restaurant() {
           />
           
           <div className="absolute bottom-0 left-0 right-0 md:relative md:max-w-xl md:-mt-32 md:ml-auto md:mr-12 bg-[#f6f4db] p-10 rounded-xl">
-            <WaveDecoration variant="special" className="w-24 h-4 mb-4" />
-            
             <h2 
               className="text-[#3d7183] mb-4 tracking-wide"
               style={{ 
@@ -26,6 +24,8 @@ export function Restaurant() {
             >
               RESTAURANT
             </h2>
+            
+            <WaveDecoration variant="special" className="w-24 h-6 mt-4 mb-6" />
             
             <p className="text-[#3d7183] text-lg mb-6 leading-relaxed">
               Onze keuken combineert verse lokale ingrediënten met internationale 

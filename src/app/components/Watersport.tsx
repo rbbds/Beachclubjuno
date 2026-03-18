@@ -74,18 +74,18 @@ export function Watersport() {
     <>
       <section id="watersport" className="relative py-20 px-6 bg-[#f6f4db]" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
+          <div className="text-center mb-12">
             <h2 
-              className="text-[#3d7183] mb-4 tracking-wide"
+              className="text-[#3d7183] mb-2 tracking-wide"
               style={{ 
                 fontFamily: 'Bebas Neue, sans-serif',
                 fontSize: 'clamp(2.5rem, 6vw, 4rem)',
                 lineHeight: '1'
               }}
             >
-              WATERSPORT AAN ZEE
+              WATERSPORT
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
             <p className="text-[#3d7183] text-lg max-w-3xl mx-auto">
               Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl.
             </p>
@@ -171,7 +171,7 @@ export function Watersport() {
               </h2>
 
               {/* Wave divider */}
-              <WaveDecoration variant="special" className={`w-24 h-4 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
+              <WaveDecoration variant="special" className={`w-24 h-6 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
 
               {/* Description */}
               <p className={`text-[#3d7183] text-lg leading-relaxed mb-4 ${selectedActivity ? 'drawer-content-4' : ''}`}>

@@ -38,7 +38,6 @@ export function VolledigProgramma() {
       {/* Hero */}
       <section className="pt-32 pb-16 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto text-center">
-          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-6" />
           <h1 
             className="text-[#3d7183] mb-4 tracking-wider"
             style={{ 
@@ -49,6 +48,7 @@ export function VolledigProgramma() {
           >
             VOLLEDIG PROGRAMMA
           </h1>
+          <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           <p className="text-[#3d7183] text-xl max-w-3xl mx-auto">
             Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno
           </p>
@@ -167,7 +167,7 @@ export function VolledigProgramma() {
             EEN EVENEMENT ORGANISEREN<br />BIJ JUNO?
           </h2>
           
-          <WaveDecoration variant="inverted" className="w-32 h-5 mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-32 h-6 mx-auto mb-8" />
           
           <button 
             className="inline-block bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors"

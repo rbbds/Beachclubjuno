@@ -6,10 +6,9 @@ export function Events() {
   return (
     <section id="events" className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
       <div className="max-w-[1400px] mx-auto">
-        <div className="text-center mb-16">
-          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
+        <div className="text-center mb-12">
           <h2 
-            className="text-[#3d7183] mb-4 tracking-wide"
+            className="text-[#3d7183] mb-2 tracking-wide"
             style={{ 
               fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
@@ -18,6 +17,7 @@ export function Events() {
           >
             EVENTS & VERHUUR
           </h2>
+          <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
             De perfecte locatie voor uw bijzondere moment
           </p>

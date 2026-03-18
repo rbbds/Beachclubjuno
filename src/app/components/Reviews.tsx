@@ -54,9 +54,8 @@ export function Reviews() {
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
           <h2 
-            className="text-[#3d7183] mb-4 tracking-wide"
+            className="text-[#3d7183] mb-2 tracking-wide"
             style={{ 
               fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
@@ -65,6 +64,7 @@ export function Reviews() {
           >
             WAT ONZE GASTEN ZEGGEN
           </h2>
+          <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           <div className="flex items-center justify-center gap-2 text-[#3d7183]">
             <span className="text-lg">Gebaseerd op Google Reviews</span>
             <GoogleIcon className="w-5 h-5" />

@@ -75,7 +75,7 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
           </h2>
 
           {/* Wave Divider */}
-          <WaveDecoration variant="special" className={`w-16 h-3 mb-6 ${isOpen ? 'drawer-content-3' : ''}`} />
+          <WaveDecoration variant="special" className={`w-16 h-6 mb-6 ${isOpen ? 'drawer-content-3' : ''}`} />
 
           {/* Description */}
           <p className={`text-[#3d7183] leading-relaxed mb-8 ${isOpen ? 'drawer-content-4' : ''}`}>

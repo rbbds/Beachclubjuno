@@ -98,7 +98,6 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] mb-4 tracking-wide"
               style={{ 
@@ -109,6 +108,7 @@ export function Bedrijfsfeesten() {
             >
               DRIE SMAKEN
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
             <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
               Van inspirerende teambuilding tot formele vergaderingen — kies wat bij u past
             </p>
@@ -147,7 +147,6 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] tracking-wide"
               style={{ 
@@ -158,6 +157,7 @@ export function Bedrijfsfeesten() {
             >
               HOE HET WERKT
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           </div>
 
           {/* Desktop Timeline */}
@@ -233,7 +233,6 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] tracking-wide"
               style={{ 
@@ -244,6 +243,7 @@ export function Bedrijfsfeesten() {
             >
               PRAKTISCHE INFORMATIE
             </h2>
+            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
