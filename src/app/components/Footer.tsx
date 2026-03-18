@@ -1,4 +1,3 @@
-import { WaveDecoration } from './WaveDecoration';
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { JunoLogo } from './JunoLogo';
@@ -36,8 +35,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Tagline */}
           <div>
-            <JunoLogo variant="special" className="h-12 w-auto mb-4" onClick={handleLogoClick} />
-            <WaveDecoration variant="special" className="w-16 h-2 mb-4" />
+            <JunoLogo variant="special" className="h-24 w-auto mb-4" onClick={handleLogoClick} />
             <p className="text-[#f6f4db]/80">
               Zon. Strand. Cultuur.
               <br />
@@ -122,31 +120,11 @@ export function Footer() {
             >
               Openingstijden
             </h4>
-            <p className="text-[#f6f4db]/80 mb-6">
+            <p className="text-[#f6f4db]/80">
               Ma - Do: 10:00 - 22:00<br />
               Vr - Za: 10:00 - 01:00<br />
               Zo: 10:00 - 22:00
             </p>
-            
-            <h4 
-              className="mb-3 tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: '1.25rem'
-              }}
-            >
-              Nieuwsbrief
-            </h4>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="E-mailadres"
-                className="flex-1 px-4 py-2 rounded-lg bg-[#f6f4db]/10 border border-[#f6f4db]/20 text-[#f6f4db] placeholder:text-[#f6f4db]/50 focus:outline-none focus:border-[#cc6435]"
-              />
-              <button className="bg-[#cc6435] px-4 py-2 rounded-lg hover:bg-[#b55730] transition-colors">
-                →
-              </button>
-            </div>
           </div>
         </div>
 
