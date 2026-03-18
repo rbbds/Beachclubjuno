@@ -276,3 +276,20 @@
 .drawer-scroll::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+@keyframes wave-float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+.wave-decoration {
+  display: block;
+  animation: wave-float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-decoration {
+    animation: none;
+  }
+}

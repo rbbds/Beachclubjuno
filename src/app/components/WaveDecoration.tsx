@@ -19,7 +19,7 @@ export function WaveDecoration({ variant = 'special', className = '' }: WaveDeco
       viewBox="0 0 92 9"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`wave-decoration ${className}`}
       preserveAspectRatio="xMidYMid meet"
     >
       <path d={wavePath} fill={fill} />
