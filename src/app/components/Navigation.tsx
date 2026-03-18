@@ -178,7 +178,7 @@ export function Navigation() {
               className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
               style={{
                 backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
-                transform: isMenuOpen ? 'rotate(45deg)' : 'translateY(-5px)',
+                transform: isMenuOpen ? 'translateY(0) rotate(45deg)' : 'translateY(-5px)',
                 transformOrigin: 'center',
               }}
             />
@@ -194,7 +194,7 @@ export function Navigation() {
               className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
               style={{
                 backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
-                transform: isMenuOpen ? 'rotate(-45deg)' : 'translateY(5px)',
+                transform: isMenuOpen ? 'translateY(0) rotate(-45deg)' : 'translateY(5px)',
                 transformOrigin: 'center',
               }}
             />
