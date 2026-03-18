@@ -1,59 +1,37 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 declare global {
   interface Window {
     FT?: {
-      load: (module: string) => void;
+      load: (module?: string) => void;
       Widget?: {
         open: () => void;
+        toggle: () => void;
       };
     };
   }
 }
 
 export function FormitableWidget() {
-  const widgetRef = useRef<HTMLDivElement>(null);
-  const initStarted = useRef(false);
-
   useEffect(() => {
-    if (initStarted.current) return;
-    initStarted.current = true;
+    // Voorkom dubbele SDK-initialisatie
+    const existing = document.getElementById('formitable-sdk');
+    if (existing) return;
 
-    const initSDK = () => {
-      if (document.getElementById('formitable-sdk')) {
-        if (window.FT) window.FT.load('Analytics');
-        return;
-      }
-
-      const script = document.createElement('script');
-      script.id = 'formitable-sdk';
-      script.src = 'https://cdn.formitable.com/sdk/v1/ft.sdk.min.js';
-      script.async = true;
-      script.onload = () => {
-        if (window.FT) window.FT.load('Analytics');
-      };
-      script.onerror = () => {
-        console.error('Failed to load Formitable SDK');
-      };
-
-      try {
-        document.head.appendChild(script);
-      } catch (error) {
-        console.error('Error appending Formitable SDK script:', error);
-      }
+    const script = document.createElement('script');
+    script.id = 'formitable-sdk';
+    script.src = 'https://cdn.formitable.com/sdk/v1/ft.sdk.min.js';
+    script.async = true;
+    script.onerror = () => {
+      console.error('Formitable SDK kon niet worden geladen');
     };
-
-    const timer = setTimeout(initSDK, 100);
-    return () => clearTimeout(timer);
+    document.head.appendChild(script);
   }, []);
 
   return (
     <div
-      ref={widgetRef}
       className="ft-widget-b2"
       data-restaurant="af51ddeb"
-      data-open="false"
-      data-open-mobile="false"
       data-color="#cc6435"
       data-language="nl"
       data-tag="Website"
@@ -64,20 +42,28 @@ export function FormitableWidget() {
 }
 
 export function openFormitableWidget() {
-  // Method 1: use FT.Widget.open() if available
-  if (window.FT?.Widget?.open) {
-    window.FT.Widget.open();
-    return;
-  }
-  // Method 2: find the toolbar button and click it natively
-  const toolbarBtn = document.querySelector('.ft-toolbar-btn, [class*="ft-toolbar"], [class*="formitable-btn"]') as HTMLElement;
-  if (toolbarBtn) {
-    toolbarBtn.click();
-    return;
-  }
-  // Method 3: dispatch a native click on the widget div
-  const widget = document.querySelector('.ft-widget-b2') as HTMLElement;
-  if (widget) {
-    widget.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  const tryOpen = () => {
+    if (window.FT?.Widget?.open) {
+      window.FT.Widget.open();
+      return true;
+    }
+    if (window.FT?.Widget?.toggle) {
+      window.FT.Widget.toggle();
+      return true;
+    }
+    // Zoek naar Formitable's geïnjecteerde toolbar button
+    const btn = document.querySelector<HTMLElement>(
+      '[class*="ft-"][class*="btn"], [class*="ft-"][class*="open"], [data-formitable]'
+    );
+    if (btn) {
+      btn.click();
+      return true;
+    }
+    return false;
+  };
+
+  if (!tryOpen()) {
+    // SDK nog niet klaar — wacht en probeer opnieuw
+    setTimeout(tryOpen, 500);
   }
 }
