@@ -170,35 +170,34 @@ export function Navigation() {
           {/* Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden relative w-8 h-8 flex items-center justify-center focus:outline-none"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none"
             aria-label={isMenuOpen ? 'Menu sluiten' : 'Menu openen'}
             aria-expanded={isMenuOpen}
           >
-            <span
-              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
-                transform: isMenuOpen ? 'translateY(0px) rotate(45deg)' : 'translateY(-5px) rotate(0deg)',
-                transformOrigin: 'center center',
-              }}
-            />
-            <span
-              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: '#3d7183',
-                opacity: isMenuOpen ? 0 : 1,
-                transform: isMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
-                transformOrigin: 'center center',
-              }}
-            />
-            <span
-              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
-                transform: isMenuOpen ? 'translateY(0px) rotate(-45deg)' : 'translateY(5px) rotate(0deg)',
-                transformOrigin: 'center center',
-              }}
-            />
+            <div className="w-6 flex flex-col gap-[5px]">
+              <span
+                className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out origin-center"
+                style={{
+                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  transform: isMenuOpen ? 'translateY(7px) rotate(45deg)' : 'none',
+                }}
+              />
+              <span
+                className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
+                style={{
+                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  opacity: isMenuOpen ? 0 : 1,
+                  transform: isMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
+                }}
+              />
+              <span
+                className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out origin-center"
+                style={{
+                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  transform: isMenuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
+                }}
+              />
+            </div>
           </button>
         </div>
       </nav>
