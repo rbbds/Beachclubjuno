@@ -170,24 +170,31 @@ export function Navigation() {
           {/* Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden flex flex-col gap-[5px] w-6 h-6 justify-center"
-            aria-label="Menu"
+            className="lg:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-0 focus:outline-none"
+            aria-label={isMenuOpen ? 'Menu sluiten' : 'Menu openen'}
             aria-expanded={isMenuOpen}
           >
-            <span 
-              className={`h-[2px] w-6 rounded transition-all duration-300 ${hamburgerColor} ${
-                isMenuOpen ? 'translate-y-[7px] rotate-45' : ''
-              }`}
+            <span
+              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
+              style={{
+                backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
+                transform: isMenuOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-5px)',
+              }}
             />
-            <span 
-              className={`h-[2px] w-6 rounded transition-all duration-300 ${hamburgerColor} ${
-                isMenuOpen ? 'opacity-0 scale-x-0' : ''
-              }`}
+            <span
+              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
+              style={{
+                backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
+                opacity: isMenuOpen ? 0 : 1,
+                transform: isMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
+              }}
             />
-            <span 
-              className={`h-[2px] w-6 rounded transition-all duration-300 ${hamburgerColor} ${
-                isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''
-              }`}
+            <span
+              className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
+              style={{
+                backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
+                transform: isMenuOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(5px)',
+              }}
             />
           </button>
         </div>

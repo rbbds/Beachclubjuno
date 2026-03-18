@@ -1,4 +1,5 @@
 import { images } from '../data/images';
+import { WaveDecoration } from './WaveDecoration';
 
 export function Intro() {
   return (
@@ -15,6 +16,7 @@ export function Intro() {
           >
             MEER DAN EEN<br />BEACHCLUB
           </h2>
+          <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
           <div className="space-y-4 text-[#3d7183] text-lg leading-relaxed">
             <p>
               Beachclub Juno is een ontmoetingsplek voor liefhebbers van goed eten, 
