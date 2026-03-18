@@ -1,18 +1,28 @@
-import DefaultWave from '../../imports/Default-wave.svg';
-import InvertedWave from '../../imports/Inverted-wave.svg';
-import SpecialWave from '../../imports/Special-wave.svg';
-
 interface WaveDecorationProps {
   variant?: 'default' | 'inverted' | 'special';
   className?: string;
 }
 
-export function WaveDecoration({ variant = 'special', className = '' }: WaveDecorationProps) {
-  const WaveComponent = {
-    default: DefaultWave,
-    inverted: InvertedWave,
-    special: SpecialWave,
-  }[variant];
+const colors = {
+  default: '#3D7183',
+  inverted: '#F6F4DB',
+  special: '#CC6435',
+};
 
-  return <img src={WaveComponent} alt="" className={className} />;
+const wavePath = "M6.14003 6.45217C7.26078 7.01066 8.90562 6.98291 10.0453 6.53162C14.456 4.78457 16.1049 0.6905 21.3735 0.396753C25.2929 0.178234 27.2511 1.89391 30.3995 3.91665C33.5775 5.95829 37.3479 6.54764 40.97 5.45336C43.0972 4.66312 45.3147 2.97798 47.2757 1.92056C50.37 0.251692 56.5281 0.278762 59.4958 2.03593C65.4058 5.53543 69.1684 7.44238 74.7738 1.86844C77.474 -0.816692 83.3537 -0.327114 86.4328 1.56887C87.3517 2.06916 90.5227 4.03928 91.1092 5.08287C91.1556 5.16476 91.105 5.49849 91.0864 5.61293C91.0223 5.69432 90.9548 5.81897 90.8814 5.79569C89.6435 5.40099 88.1111 3.93428 87.0462 3.3386C86.0075 2.75752 85.3046 2.37817 84.3081 1.94291C83.514 1.59611 82.4407 1.41572 81.6965 1.31544C75.6455 0.500319 75.2641 4.39628 70.5109 6.10799C69.7928 6.36632 68.5735 6.68402 67.8124 6.64961C62.0576 6.3896 59.1726 1.59763 52.9369 1.76091C47.096 1.9139 45.4345 5.44662 40.3611 6.92725C39.2718 7.24511 37.1124 7.22158 35.9345 7.1515C32.8234 6.96638 30.1621 5.23991 27.6294 3.59322C26.6018 2.9251 25.4027 2.23674 24.219 1.88252C23.4275 1.64562 22.8157 1.68745 22.0334 1.65102C16.2794 1.38325 14.1532 7.4482 8.87819 8.05543C7.41266 8.2241 6.12982 7.7239 4.8058 7.15605C4.68631 7.10478 4.18188 6.84755 4.10121 6.84797C3.02738 6.16619 -0.623286 3.35176 0.092181 1.99005C0.316972 1.90723 0.542945 1.94274 0.703607 2.12617C2.4611 4.13214 3.63171 5.40234 6.14003 6.45217Z";
+
+export function WaveDecoration({ variant = 'special', className = '' }: WaveDecorationProps) {
+  const fill = colors[variant];
+
+  return (
+    <svg
+      viewBox="0 0 92 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d={wavePath} fill={fill} />
+    </svg>
+  );
 }
