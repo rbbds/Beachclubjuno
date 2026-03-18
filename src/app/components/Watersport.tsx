@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
+import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
 
 interface WatersportActivity {
@@ -133,22 +134,8 @@ export function Watersport() {
 
       {/* Drawer */}
       {selectedActivity && (
-        <>
-          {/* Overlay */}
-          <div 
-            className={`fixed inset-0 bg-[#3d7183]/50 z-[100] transition-opacity ${
-              selectedActivity ? 'opacity-100 duration-300' : 'opacity-0 duration-250'
-            }`}
-            style={{ 
-              transitionTimingFunction: selectedActivity ? 'ease-out' : 'ease-in'
-            }}
-            onClick={() => setSelectedActivity(null)}
-          />
-          
-          {/* Drawer */}
-          <div className={`fixed top-0 right-0 h-full w-full md:w-[500px] md:max-w-[33%] bg-[#f6f4db] z-[101] drawer-scroll ${
-            selectedActivity ? 'drawer-open' : 'drawer-close'
-          }`}>
+        <BaseDrawer isOpen={!!selectedActivity} onClose={() => setSelectedActivity(null)}>
+          <div style={{ fontFamily: 'Museo, sans-serif' }}>
             {/* Activity Photo */}
             <div className="relative w-full aspect-video">
               <img 
@@ -213,7 +200,7 @@ export function Watersport() {
               </a>
             </div>
           </div>
-        </>
+        </BaseDrawer>
       )}
     </>
   );

@@ -40,7 +40,7 @@ export function Restaurant() {
       </div>
 
       {/* Wave transition to Programma section - Sage green #9fbaae */}
-      <WaveTransition key="restaurant-wave" fillColor="#E6E8D4" />
+      <WaveTransition key="restaurant-wave" fillColor="#9fbaae" />
     </section>
   );
 }

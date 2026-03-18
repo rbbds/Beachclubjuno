@@ -1,5 +1,6 @@
 import { X, Calendar, Clock, MapPin, Euro } from 'lucide-react';
 import { WaveDecoration } from './WaveDecoration';
+import { BaseDrawer } from './BaseDrawer';
 
 export interface EventData {
   id: number;
@@ -29,25 +30,8 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
   if (!event) return null;
 
   return (
-    <>
-      {/* Overlay */}
-      <div 
-        className={`fixed inset-0 bg-[#3d7183]/50 z-[60] transition-opacity ${
-          isOpen ? 'opacity-100 duration-300' : 'opacity-0 duration-250 pointer-events-none'
-        }`}
-        style={{ 
-          transitionTimingFunction: isOpen ? 'ease-out' : 'ease-in'
-        }}
-        onClick={onClose}
-      />
-
-      {/* Drawer */}
-      <div 
-        className={`fixed top-0 right-0 h-full w-full md:w-[480px] bg-[#f6f4db] z-[70] shadow-2xl drawer-scroll ${
-          isOpen ? 'drawer-open' : 'drawer-close'
-        }`}
-        style={{ fontFamily: 'Museo, sans-serif' }}
-      >
+    <BaseDrawer isOpen={isOpen} onClose={onClose}>
+      <div style={{ fontFamily: 'Museo, sans-serif' }}>
         {/* Event Photo */}
         <div className="relative w-full h-64">
           <img 
@@ -169,6 +153,6 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
           </div>
         </div>
       </div>
-    </>
+    </BaseDrawer>
   );
 }

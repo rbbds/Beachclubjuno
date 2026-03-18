@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { JunoLogo } from './JunoLogo';
+import { scrollToSection as scrollToSectionUtil } from '../utils/scroll';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,31 +22,11 @@ export function Navigation() {
       navigate('/');
       // Wait for navigation to complete before scrolling
       setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+        scrollToSectionUtil(id);
       }, 100);
     } else {
       // Already on homepage, just scroll
-      const element = document.getElementById(id);
-      if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      scrollToSectionUtil(id);
     }
   };
 

@@ -2,6 +2,7 @@ import { WaveDecoration } from './WaveDecoration';
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { JunoLogo } from './JunoLogo';
+import { scrollToSection as scrollToSectionUtil, scrollToTop } from '../utils/scroll';
 
 export function Footer() {
   const navigate = useNavigate();
@@ -13,31 +14,19 @@ export function Footer() {
       navigate('/');
       // Wait for navigation to complete before scrolling
       setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+        scrollToSectionUtil(id);
       }, 100);
     } else {
       // Already on homepage, just scroll
-      const element = document.getElementById(id);
-      if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      scrollToSectionUtil(id);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      scrollToTop();
     }
   };
 
@@ -47,7 +36,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Tagline */}
           <div>
-            <JunoLogo variant="special" className="h-12 w-auto mb-4" />
+            <JunoLogo variant="special" className="h-12 w-auto mb-4" onClick={handleLogoClick} />
             <WaveDecoration className="w-16 h-3 text-[#cc6435] mb-4" />
             <p className="text-[#f6f4db]/80">
               Zon. Strand. Cultuur.

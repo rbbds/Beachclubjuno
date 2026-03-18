@@ -16,13 +16,6 @@ export function WaveTransition({ fillColor, className = '' }: WaveTransitionProp
         <path 
           d="M0,40 Q150,0 300,40 T600,40 T900,40 T1200,40 L1200,80 L0,80 Z" 
           fill={fillColor}
-          className="md:hidden"
-          style={{ animation: 'none' }}
-        />
-        <path 
-          d="M0,40 Q150,0 300,40 T600,40 T900,40 T1200,40 L1200,80 L0,80 Z" 
-          fill={fillColor}
-          className="hidden md:block"
           style={{ animation: 'none' }}
         />
       </svg>

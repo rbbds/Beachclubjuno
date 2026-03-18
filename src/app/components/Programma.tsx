@@ -74,7 +74,7 @@ export function Programma() {
 
   return (
     <>
-      <section id="programma" className="relative py-20 px-6 bg-[#E6E8D4]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section id="programma" className="relative py-20 px-6 bg-[#9fbaae]" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
             <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
