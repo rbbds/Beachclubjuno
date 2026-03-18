@@ -50,7 +50,7 @@ export function Bruiloften() {
             TROUWEN AAN ZEE
           </h1>
           
-          <WaveDecoration variant="inverted" className="w-48 h-8 mb-6" />
+          <WaveDecoration variant="inverted" className="w-32 h-4 mb-6" />
           
           <p 
             className="text-[#f6f4db] text-xl md:text-2xl"
@@ -101,7 +101,7 @@ export function Bruiloften() {
             >
               WAT WIJ BIEDEN
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -174,7 +174,7 @@ export function Bruiloften() {
             >
               PRAKTISCHE INFORMATIE
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 bg-white p-10 rounded-xl shadow-sm">
@@ -233,7 +233,7 @@ export function Bruiloften() {
             JULLIE VERHAAL,<br />ONS PODIUM
           </h2>
           
-          <WaveDecoration variant="inverted" className="w-48 h-6 mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
           <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
             Klaar om jullie droombruiloft aan zee werkelijkheid te maken? 

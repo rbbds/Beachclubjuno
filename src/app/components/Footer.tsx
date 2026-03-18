@@ -37,7 +37,7 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div>
             <JunoLogo variant="special" className="h-12 w-auto mb-4" onClick={handleLogoClick} />
-            <WaveDecoration variant="special" className="w-16 h-6 mb-4" />
+            <WaveDecoration variant="special" className="w-16 h-2 mb-4" />
             <p className="text-[#f6f4db]/80">
               Zon. Strand. Cultuur.
               <br />

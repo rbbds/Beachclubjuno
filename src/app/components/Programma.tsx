@@ -34,7 +34,7 @@ export function Programma() {
             >
               CULTUREEL PROGRAMMA
             </h2>
-            <WaveDecoration variant="inverted" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-3 mb-4" />
             <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
               Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod
             </p>

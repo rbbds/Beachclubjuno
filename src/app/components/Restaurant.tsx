@@ -25,7 +25,7 @@ export function Restaurant() {
               RESTAURANT
             </h2>
             
-            <WaveDecoration variant="special" className="w-24 h-6 mt-4 mb-6" />
+            <WaveDecoration variant="special" className="w-24 h-3 mt-4 mb-6" />
             
             <p className="text-[#3d7183] text-lg mb-6 leading-relaxed">
               Onze keuken combineert verse lokale ingrediënten met internationale 

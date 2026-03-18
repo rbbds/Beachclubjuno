@@ -17,7 +17,7 @@ export function Events() {
           >
             EVENTS & VERHUUR
           </h2>
-          <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+          <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
           <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
             De perfecte locatie voor uw bijzondere moment
           </p>

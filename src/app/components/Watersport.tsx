@@ -85,7 +85,7 @@ export function Watersport() {
             >
               WATERSPORT
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
             <p className="text-[#3d7183] text-lg max-w-3xl mx-auto">
               Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl.
             </p>
@@ -171,7 +171,7 @@ export function Watersport() {
               </h2>
 
               {/* Wave divider */}
-              <WaveDecoration variant="special" className={`w-24 h-6 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
+              <WaveDecoration variant="special" className={`w-20 h-3 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
 
               {/* Description */}
               <p className={`text-[#3d7183] text-lg leading-relaxed mb-4 ${selectedActivity ? 'drawer-content-4' : ''}`}>

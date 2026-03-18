@@ -58,12 +58,9 @@ export function Bedrijfsfeesten() {
             ZAKELIJK AAN ZEE
           </h1>
           
-          <WaveDecoration variant="inverted" className="w-48 h-8 mb-6" />
+          <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
-          <p 
-            className="text-[#f6f4db] text-xl md:text-2xl"
-            style={{ fontFamily: 'Museo, sans-serif' }}
-          >
+          <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
             Vergaderen, vieren of teambuilding — altijd met uitzicht.
           </p>
         </div>
@@ -108,7 +105,7 @@ export function Bedrijfsfeesten() {
             >
               DRIE SMAKEN
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
             <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
               Van inspirerende teambuilding tot formele vergaderingen — kies wat bij u past
             </p>
@@ -157,7 +154,7 @@ export function Bedrijfsfeesten() {
             >
               HOE HET WERKT
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
           </div>
 
           {/* Desktop Timeline */}
@@ -243,7 +240,7 @@ export function Bedrijfsfeesten() {
             >
               PRAKTISCHE INFORMATIE
             </h2>
-            <WaveDecoration variant="special" className="w-24 h-6 mx-auto mt-3 mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -318,7 +315,7 @@ export function Bedrijfsfeesten() {
             MAAK ER EEN DAG<br />OM NOOIT TE VERGETEN
           </h2>
           
-          <WaveDecoration variant="inverted" className="w-48 h-6 mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
           <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
             Klaar om uw volgende zakelijke evenement naar een hoger niveau te tillen? 
