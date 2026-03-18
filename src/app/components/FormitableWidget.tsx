@@ -1,45 +1,71 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-/**
- * Formitable Reserveringswidget Component
- * 
- * TODO: Vervang data-restaurant="af51ddeb" door het Formitable restaurant-ID van Beachclub Juno.
- * Te vinden in Formitable dashboard > Instellingen > Widget.
- */
+declare global {
+  interface Window {
+    FT?: {
+      load: (module: string) => void;
+    };
+  }
+}
+
 export function FormitableWidget() {
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const initStarted = useRef(false);
+
   useEffect(() => {
-    // Load Formitable SDK
-    const loadFormitableSDK = () => {
-      // Check if script already exists
-      if (document.getElementById('formitable-sdk')) {
+    // Prevent multiple initializations
+    if (initStarted.current) return;
+    initStarted.current = true;
+
+    const initSDK = () => {
+      // Check if SDK script already exists
+      const existingScript = document.getElementById('formitable-sdk');
+      
+      if (existingScript) {
+        // Script already loaded, just initialize if FT is available
+        if (window.FT) {
+          window.FT.load('Analytics');
+        }
         return;
       }
 
+      // Create and inject the SDK script
       const script = document.createElement('script');
       script.id = 'formitable-sdk';
       script.src = 'https://cdn.formitable.com/sdk/v1/ft.sdk.min.js';
       script.async = true;
       script.onload = () => {
-        // Initialize Formitable Analytics after SDK loads
         if (window.FT) {
           window.FT.load('Analytics');
         }
       };
+      script.onerror = () => {
+        console.error('Failed to load Formitable SDK');
+      };
 
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      if (firstScriptTag && firstScriptTag.parentNode) {
-        firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+      // Safely append to head
+      try {
+        document.head.appendChild(script);
+      } catch (error) {
+        console.error('Error appending Formitable SDK script:', error);
       }
     };
 
-    loadFormitableSDK();
+    // Small delay to ensure React has fully rendered the widget div
+    const timer = setTimeout(initSDK, 100);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
     <div
+      ref={widgetRef}
       className="ft-widget-b2"
       data-restaurant="af51ddeb"
-      data-open="1500"
+      data-open="false"
       data-open-mobile="false"
       data-color="#cc6435"
       data-language="nl"
@@ -48,13 +74,4 @@ export function FormitableWidget() {
       data-toolbar-mobile="true"
     />
   );
-}
-
-// TypeScript declaration for Formitable global
-declare global {
-  interface Window {
-    FT?: {
-      load: (module: string) => void;
-    };
-  }
 }
