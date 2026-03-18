@@ -118,7 +118,7 @@ export function Navigation() {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-[80]' : 'z-50'} ${
           isScrolled ? 'bg-[#f6f4db]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
         }`}
         style={{ fontFamily: 'Museo, sans-serif' }}
@@ -218,13 +218,24 @@ export function Navigation() {
         style={{ fontFamily: 'Museo, sans-serif' }}
       >
         {/* Zone 1: Top Branding Strip */}
-        <div className="px-6 flex items-center" style={{ height: '72px' }}>
+        <div className="px-6 flex items-center justify-between" style={{ height: '72px' }}>
           <div>
             <JunoLogo variant="default" className="h-10 w-auto mb-1" />
             <p className="text-[#3d7183]/40 text-xs" style={{ fontFamily: 'Museo, sans-serif' }}>
               Kijkduin · Den Haag
             </p>
           </div>
+          
+          {/* X sluitknop */}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="w-10 h-10 flex items-center justify-center text-[#3d7183] hover:text-[#cc6435] transition-colors"
+            aria-label="Menu sluiten"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M2 2L18 18M18 2L2 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
         </div>
 
         {/* Zone 2: Nav List */}
