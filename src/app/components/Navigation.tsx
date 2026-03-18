@@ -178,7 +178,8 @@ export function Navigation() {
               className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
               style={{
                 backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
-                transform: isMenuOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-5px)',
+                transform: isMenuOpen ? 'rotate(45deg)' : 'translateY(-5px)',
+                transformOrigin: 'center',
               }}
             />
             <span
@@ -186,14 +187,15 @@ export function Navigation() {
               style={{
                 backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
                 opacity: isMenuOpen ? 0 : 1,
-                transform: isMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
+                transformOrigin: 'center',
               }}
             />
             <span
               className="absolute block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
               style={{
                 backgroundColor: (isTransparent && !isMenuOpen) ? 'white' : '#3d7183',
-                transform: isMenuOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(5px)',
+                transform: isMenuOpen ? 'rotate(-45deg)' : 'translateY(5px)',
+                transformOrigin: 'center',
               }}
             />
           </button>
@@ -216,11 +218,13 @@ export function Navigation() {
         style={{ fontFamily: 'Museo, sans-serif' }}
       >
         {/* Zone 1: Top Branding Strip */}
-        <div className="px-6 pt-10 pb-8">
-          <JunoLogo variant="default" className="h-10 w-auto mb-2" />
-          <p className="text-[#3d7183]/40 text-xs" style={{ fontFamily: 'Museo, sans-serif' }}>
-            Kijkduin · Den Haag
-          </p>
+        <div className="px-6 flex items-center" style={{ height: '72px' }}>
+          <div>
+            <JunoLogo variant="default" className="h-10 w-auto mb-1" />
+            <p className="text-[#3d7183]/40 text-xs" style={{ fontFamily: 'Museo, sans-serif' }}>
+              Kijkduin · Den Haag
+            </p>
+          </div>
         </div>
 
         {/* Zone 2: Nav List */}
