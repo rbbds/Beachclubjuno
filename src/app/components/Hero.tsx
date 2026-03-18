@@ -1,12 +1,13 @@
 import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
 import { scrollToSection } from '../utils/scroll';
+import { images } from '../data/images';
 
 export function Hero() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <img 
-        src="https://images.unsplash.com/photo-1677166475617-0ac52090362a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHN1bnNldCUyMGdvbGRlbiUyMGhvdXIlMjBhdG1vc3BoZXJpY3xlbnwxfHx8fDE3NzM4MzY4OTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        src={images.hero.main}
         alt="Beach sunset"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -24,7 +25,7 @@ export function Hero() {
           ZON. STRAND.<br />CULTUUR.
         </h1>
         
-        <WaveDecoration className="w-48 h-8 text-[#cc6435] mb-8" />
+        <WaveDecoration variant="special" className="w-48 h-8 mb-8" />
         
         <p 
           className="text-[#f6f4db] max-w-2xl mb-10 text-lg md:text-xl"

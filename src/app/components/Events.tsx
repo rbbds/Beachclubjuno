@@ -1,12 +1,13 @@
 import { WaveDecoration } from './WaveDecoration';
 import { Link } from 'react-router';
+import { images } from '../data/images';
 
 export function Events() {
   return (
     <section id="events" className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-16">
-          <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
           <h2 
             className="text-[#3d7183] mb-4 tracking-wide"
             style={{ 
@@ -27,7 +28,7 @@ export function Events() {
           <div className="group">
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1766735654268-0753b49f7b45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHdlZGRpbmclMjBlbGVnYW50JTIwY2VyZW1vbnl8ZW58MXx8fHwxNzczODM2ODk2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src={images.events.bruiloften}
                 alt="Beach wedding"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -62,7 +63,7 @@ export function Events() {
           <div className="group">
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1571645163064-77faa9676a46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMGNvbmZlcmVuY2V8ZW58MXx8fHwxNzczNzk1NTY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src={images.events.bedrijfsfeesten}
                 alt="Corporate event"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

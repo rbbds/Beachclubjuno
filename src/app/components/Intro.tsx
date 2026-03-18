@@ -1,3 +1,5 @@
+import { images } from '../data/images';
+
 export function Intro() {
   return (
     <section id="verhaal" className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
@@ -30,7 +32,7 @@ export function Intro() {
         
         <div className="relative">
           <img 
-            src="https://images.unsplash.com/photo-1767667995308-639861440ffc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMGNsdWIlMjB0ZXJyYWNlJTIwb2NlYW4lMjB2aWV3fGVufDF8fHx8MTc3MzgzNjg5Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src={images.intro.terrace}
             alt="Beach club terrace"
             className="w-full h-[500px] object-cover rounded-xl shadow-sm"
           />

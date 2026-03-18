@@ -3,6 +3,7 @@ import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
 import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
+import { images } from '../data/images';
 
 interface WatersportActivity {
   id: string;
@@ -20,7 +21,7 @@ const activities: WatersportActivity[] = [
     id: 'kiten',
     title: 'KITE SURFEN',
     cardTitle: 'Kiten',
-    image: 'https://images.unsplash.com/photo-1684082750351-26e3fa5afc89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraXRlc3VyZmluZyUyMGFjdGlvbiUyMG9jZWFufGVufDF8fHx8MTc3Mzg0MjYwMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: images.watersport.kiten,
     description: 'Net als Juno is onze kitesurfschool voor iedereen en alle leeftijden. Met trots en plezier leren wij jou kitesurfen. Kiteboardschool.nl is een begrip in de kitesurfwereld en naast een van de beste vlak water kitesurflocaties van Nederland, de Zandmotor, hebben wij nu een Beachclub met alle faciliteiten die je maar kan wensen! Onze instructeurs zijn IKO gecertificeerd en echte professionals.',
     extraLine: 'Onze kitesurflessen worden verzorgd door Kiteboardschool.nl',
     buttonText: 'DIRECT BOEKEN',
@@ -30,7 +31,7 @@ const activities: WatersportActivity[] = [
     id: 'surfen',
     title: 'SURFEN',
     cardTitle: 'Surfen',
-    image: 'https://images.unsplash.com/photo-1664860792203-80345685f214?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJmZXIlMjB3b29kZW4lMjBmZW5jZSUyMGJlYWNoJTIwYm9hcmR8ZW58MXx8fHwxNzczODQyNjAzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: images.watersport.surfen,
     description: 'Er is niks zoals je eerste keer surfen op een golf. Jou leren surfen zodat je die eerste golf kan pakken is dus ook het beste gevoel voor onze surf pro\'s. Alle surf instructeurs zijn ISA en lifeguard gecertificeerd zodat je bij onze spot in Kijkduin veilig kan leren surfen. Ervaar de unieke fun van het surfen terwijl je begeleiding krijgt van mensen die oog hebben voor al je sterktes en zwaktes.',
     extraLine: 'Surflessen worden verzorgd door onze eigen Juno Boardriders.',
     buttonText: 'LEES MEER EN BOEK',
@@ -40,7 +41,7 @@ const activities: WatersportActivity[] = [
     id: 'wingfoilen',
     title: 'WINGFOILEN',
     cardTitle: 'Wingfoilen',
-    image: 'https://images.unsplash.com/photo-1666175497804-e28c2d800ab9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5nZm9pbCUyMHdhdGVyJTIwc3BvcnR8ZW58MXx8fHwxNzczODQyNjAzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: images.watersport.wingfoilen,
     description: 'Een van de snelst groeiende watersporten in Nederland! Onze kitesurfschool geeft nu ook Wingfoil lessen. Met ervaren instructeurs leer je alle tips en trucs om deze opwindende sport onder de knie te krijgen. Vanaf dag één sta je al op het board, een unieke ervaring vergeleken met traditioneel kitesurfen.',
     extraLine: 'Onze Wingfoil lessen worden verzorgd door Kiteboardschool.nl',
     buttonText: 'DIRECT BOEKEN',
@@ -50,7 +51,7 @@ const activities: WatersportActivity[] = [
     id: 'suppen',
     title: 'SUPPEN',
     cardTitle: 'SUPpen',
-    image: 'https://images.unsplash.com/photo-1758672707216-9b7f14c8d766?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXJpYWwlMjBTVVAlMjBwYWRkbGVib2FyZCUyMHR1cnF1b2lzZXxlbnwxfHx8fDE3NzM4NDI2MDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: images.watersport.suppen,
     description: 'Van alle watersporten in de wereld is SUPpen (Stand Up Paddle boarding) één van de snelst groeiende. Het gave aan SUPpen is dat ook sportief en minder sportief, beginner en gevorderde, en ook zowel jong als oud er de tijd van zijn leven er mee kan ervaren. SUPpen is gegarandeerd plezier!',
     buttonText: 'LEES MEER EN BOEK',
     buttonLink: 'https://kiteboardschool.nl'
@@ -59,7 +60,7 @@ const activities: WatersportActivity[] = [
     id: 'kids',
     title: 'KIDS & CAMPS',
     cardTitle: 'Kids & Camps',
-    image: 'https://images.unsplash.com/photo-1640860044746-0c3efdf859f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJmJTIwaW5zdHJ1Y3RvciUyMGtpZHMlMjBiZWFjaHxlbnwxfHx8fDE3NzM4NDI2MDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: images.watersport.kids,
     description: 'Juno is een nieuwe Beachclub, maar wij hebben gecombineerd al ruim 40 jaar ervaring in het geven van watersportlessen en kamps. Wij hebben een te gek kitesurf kamp wat wij samen organiseren met Kiteboardschool.nl en een surfcamp wat wij samen organiseren met SurfBlend. Onze instructeurs hebben een speciale opleiding doorlopen om kids op een veilige, maar vooral ook leuke manier te leren surfen. De week wordt traditiegetrouw afgesloten met een bbq waarbij de ouders ook welkom zijn.',
     buttonText: 'LEES MEER EN BOEK',
     buttonLink: 'https://kiteboardschool.nl'
@@ -74,7 +75,7 @@ export function Watersport() {
       <section id="watersport" className="relative py-20 px-6 bg-[#f6f4db]" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] mb-4 tracking-wide"
               style={{ 
@@ -170,7 +171,7 @@ export function Watersport() {
               </h2>
 
               {/* Wave divider */}
-              <WaveDecoration className={`w-24 h-4 text-[#cc6435] mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
+              <WaveDecoration variant="special" className={`w-24 h-4 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
 
               {/* Description */}
               <p className={`text-[#3d7183] text-lg leading-relaxed mb-4 ${selectedActivity ? 'drawer-content-4' : ''}`}>

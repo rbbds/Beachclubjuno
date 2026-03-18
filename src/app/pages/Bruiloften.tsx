@@ -2,6 +2,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
 import { Heart, Users, Sparkles } from 'lucide-react';
+import { images } from '../data/images';
 
 export function Bruiloften() {
   const features = [
@@ -22,12 +23,7 @@ export function Bruiloften() {
     },
   ];
 
-  const sfeerPhotos = [
-    'https://images.unsplash.com/photo-1766735654268-0753b49f7b45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHdlZGRpbmclMjBjZXJlbW9ueSUyMGVsZWdhbnR8ZW58MXx8fHwxNzczODM3NDY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    'https://images.unsplash.com/photo-1751891076185-cced7f1cc007?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwZGlubmVyJTIwdGFibGUlMjBlbGVnYW50JTIwc2V0dXB8ZW58MXx8fHwxNzczODM3NDcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    'https://images.unsplash.com/photo-1769674844118-88ce2c223ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3VwbGUlMjBiZWFjaCUyMGdvbGRlbiUyMGhvdXIlMjByb21hbnRpY3xlbnwxfHx8fDE3NzM4Mzc0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    'https://images.unsplash.com/photo-1768611260776-d813ccb93a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHdlZGRpbmclMjByZWNlcHRpb24lMjBlbGVnYW50fGVufDF8fHx8MTc3MzgzNzQ3MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-  ];
+  const sfeerPhotos = images.bruiloften.sfeer;
 
   return (
     <div className="min-h-screen bg-[#f6f4db]">
@@ -36,7 +32,7 @@ export function Bruiloften() {
       {/* Hero */}
       <div className="relative h-screen w-full overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1747258822417-637630d2b9c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkZSUyMGdyb29tJTIwYmVhY2glMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzM4Mzc0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src={images.bruiloften.hero}
           alt="Beach wedding"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -54,7 +50,7 @@ export function Bruiloften() {
             TROUWEN AAN ZEE
           </h1>
           
-          <WaveDecoration className="w-48 h-8 text-[#cc6435] mb-6" />
+          <WaveDecoration variant="inverted" className="w-48 h-8 mb-6" />
           
           <p 
             className="text-[#f6f4db] text-xl md:text-2xl"
@@ -83,7 +79,7 @@ export function Bruiloften() {
           
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1766735654268-0753b49f7b45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHdlZGRpbmclMjBjZXJlbW9ueSUyMGVsZWdhbnR8ZW58MXx8fHwxNzczODM3NDY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src={images.bruiloften.intro}
               alt="Beach ceremony"
               className="w-full h-[500px] object-cover rounded-xl shadow-sm"
             />
@@ -114,7 +110,7 @@ export function Bruiloften() {
                 key={index}
                 className="bg-[#f6f4db] p-8 rounded-xl border-2 border-[#9fbaae]/30 hover:border-[#9fbaae] transition-all hover:shadow-lg cursor-pointer text-left w-full"
               >
-                <WaveDecoration className="w-12 h-3 text-[#cc6435] mb-4" />
+                <WaveDecoration variant="special" className="w-12 h-3 mb-4" />
                 <feature.icon className="w-10 h-10 text-[#3d7183] mb-4" />
                 <h3 
                   className="text-[#3d7183] mb-3 tracking-wide"
@@ -169,7 +165,7 @@ export function Bruiloften() {
       <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] tracking-wide"
               style={{ 
@@ -238,7 +234,7 @@ export function Bruiloften() {
             JULLIE VERHAAL,<br />ONS PODIUM
           </h2>
           
-          <WaveDecoration className="w-48 h-6 text-[#cc6435] mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-48 h-6 mx-auto mb-8" />
           
           <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
             Klaar om jullie droombruiloft aan zee werkelijkheid te maken? 

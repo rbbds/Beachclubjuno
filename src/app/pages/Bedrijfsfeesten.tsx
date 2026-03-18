@@ -1,7 +1,8 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
-import { Users, Presentation, PartyPopper, Quote } from 'lucide-react';
+import { Users, Coffee, Lightbulb, Quote } from 'lucide-react';
+import { images } from '../data/images';
 
 export function Bedrijfsfeesten() {
   const formats = [
@@ -12,13 +13,13 @@ export function Bedrijfsfeesten() {
       price: 'Vanaf €45 p.p.',
     },
     {
-      icon: Presentation,
+      icon: Coffee,
       title: 'Vergaderen met uitzicht',
       description: 'Dagarrangement inclusief vergaderruimte met zeezicht, professionele AV-faciliteiten, koffie/thee den gehele dag en een verzorgde lunch.',
       price: 'Vanaf €65 p.p.',
     },
     {
-      icon: PartyPopper,
+      icon: Lightbulb,
       title: 'Bedrijfsfeest',
       description: 'Avondprogramma met uitgebreid diner, welkomstdrankjes en entertainment naar keuze. Van live muziek tot DJ — wij regelen het allemaal.',
       price: 'Vanaf €85 p.p.',
@@ -39,7 +40,7 @@ export function Bedrijfsfeesten() {
       {/* Hero */}
       <div className="relative h-screen w-full overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1698365494155-77bb3c602d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvdXRkb29yJTIwbWVldGluZyUyMGJlYWNofGVufDF8fHx8MTc3MzgzNzYxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src={images.bedrijfsfeesten.hero}
           alt="Corporate event by the beach"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -57,7 +58,7 @@ export function Bedrijfsfeesten() {
             ZAKELIJK AAN ZEE
           </h1>
           
-          <WaveDecoration className="w-48 h-8 text-[#cc6435] mb-6" />
+          <WaveDecoration variant="inverted" className="w-48 h-8 mb-6" />
           
           <p 
             className="text-[#f6f4db] text-xl md:text-2xl"
@@ -85,7 +86,7 @@ export function Bedrijfsfeesten() {
           
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1771924368428-e71c68d17a08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBidWlsZGluZyUyMG91dGRvb3J8ZW58MXx8fHwxNzczODM3NjExfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src={images.bedrijfsfeesten.team}
               alt="Team building outdoors"
               className="w-full h-[500px] object-cover rounded-xl shadow-sm"
             />
@@ -97,7 +98,7 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] mb-4 tracking-wide"
               style={{ 
@@ -232,7 +233,7 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+            <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
             <h2 
               className="text-[#3d7183] tracking-wide"
               style={{ 
@@ -301,6 +302,8 @@ export function Bedrijfsfeesten() {
         </div>
       </section>
 
+      <div className="bg-[#3d7183] px-6"><hr className="border-[#f6f4db]/20 max-w-[1000px] mx-auto" /></div>
+
       {/* CTA Block */}
       <section className="py-20 px-6 bg-[#3d7183]" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1000px] mx-auto text-center">
@@ -315,7 +318,7 @@ export function Bedrijfsfeesten() {
             MAAK ER EEN DAG<br />OM NOOIT TE VERGETEN
           </h2>
           
-          <WaveDecoration className="w-48 h-6 text-[#cc6435] mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-48 h-6 mx-auto mb-8" />
           
           <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
             Klaar om uw volgende zakelijke evenement naar een hoger niveau te tillen? 

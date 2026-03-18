@@ -54,7 +54,7 @@ export function Reviews() {
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-4" />
+          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-4" />
           <h2 
             className="text-[#3d7183] mb-4 tracking-wide"
             style={{ 

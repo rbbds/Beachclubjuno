@@ -4,163 +4,9 @@ import { WaveDecoration } from '../components/WaveDecoration';
 import { EventDrawer, EventData } from '../components/EventDrawer';
 import { Calendar, Clock } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router';
-
-const allEvents: EventData[] = [
-  {
-    id: 1,
-    date: '15 APR',
-    title: 'Comedy Night met Emma Wortelboer',
-    category: 'Comedy',
-    image: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Zaterdag 15 april 2026',
-    time: '20:30',
-    doors: '19:30',
-    price: '€32,50',
-    description: 'Emma Wortelboer neemt je mee in een hilarische avond vol herkenbare verhalen over het dagelijks leven. Van awkward dates tot familiedramas — niemand blijft gespaard. Verwacht scherpe observaties, onverwachte wendingen en een avond vol lachen.',
-    artist: {
-      name: 'Emma Wortelboer',
-      photo: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Stand-up comedian en cabaretier. Bekend van haar shows op Comedy Central en vele optredens in theaters door heel Nederland.',
-    },
-  },
-  {
-    id: 2,
-    date: '22 APR',
-    title: 'Jazz aan Zee — The Amsterdam Trio',
-    category: 'Jazz',
-    image: 'https://images.unsplash.com/photo-1768935434604-2301398d92d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXp6JTIwbGl2ZSUyMG11c2ljJTIwcGVyZm9ybWFuY2V8ZW58MXx8fHwxNzczODM2ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Zaterdag 22 april 2026',
-    time: '21:00',
-    doors: '20:00',
-    price: '€27,50',
-    description: 'Het Amsterdam Trio brengt een mix van klassieke jazz standards en moderne composities. Met hun unieke sound en virtuoze spel toveren ze een intieme sfeer die perfect past bij de zee.',
-    artist: {
-      name: 'The Amsterdam Trio',
-      photo: 'https://images.unsplash.com/photo-1768935434604-2301398d92d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXp6JTIwbGl2ZSUyMG11c2ljJTIwcGVyZm9ybWFuY2V8ZW58MXx8fHwxNzczODM2ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Gerenommeerd jazztrio uit Amsterdam. Winnaar van de Dutch Jazz Competition 2024.',
-    },
-  },
-  {
-    id: 3,
-    date: '29 APR',
-    title: 'Theatervoorstelling: Zout & Zilver',
-    category: 'Theater',
-    image: 'https://images.unsplash.com/photo-1761229660731-891484da5c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVhdGVyJTIwcGVyZm9ybWFuY2UlMjBkcmFtYXRpY3xlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Zaterdag 29 april 2026',
-    time: '20:00',
-    doors: '19:30',
-    price: '€35,00',
-    description: 'Een poëtische voorstelling over de kracht van herinneringen en de zee als metafoor voor het leven. Zout & Zilver combineert theater, live muziek en projecties tot een meeslepende belevenis.',
-    artist: {
-      name: 'Theatergroep De Kust',
-      photo: 'https://images.unsplash.com/photo-1761229660731-891484da5c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVhdGVyJTIwcGVyZm9ybWFuY2UlMjBkcmFtYXRpY3xlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Experimenteel theatergezelschap gespecialiseerd in voorstellingen op bijzondere locaties.',
-    },
-  },
-  {
-    id: 4,
-    date: '6 MEI',
-    title: 'Stand-up Avond: De Beste van Nederland',
-    category: 'Comedy',
-    image: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Dinsdag 6 mei 2026',
-    time: '20:30',
-    doors: '19:30',
-    price: '€29,50',
-    description: 'Een avond met drie veelbelovende Nederlandse stand-up comedians die je laten zien waarom comedy in Nederland bloeit. Verwacht scherpe observaties en actuele humor.',
-    artist: {
-      name: 'Various Artists',
-      photo: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Een line-up van de beste nieuwe talenten uit de Nederlandse comedyscene.',
-    },
-  },
-  {
-    id: 5,
-    date: '13 MEI',
-    title: 'Drama: Tussen Eb en Vloed',
-    category: 'Theater',
-    image: 'https://images.unsplash.com/photo-1761229660731-891484da5c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVhdGVyJTIwcGVyZm9ybWFuY2UlMjBkcmFtYXRpY3xlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Dinsdag 13 mei 2026',
-    time: '20:00',
-    doors: '19:30',
-    price: '€32,00',
-    description: 'Een ontroerend verhaal over familie, loyaliteit en de keuzes die we maken. Gespeeld door een getalenteerd ensemble in een intieme setting.',
-    artist: {
-      name: 'Theatergroep Noord',
-      photo: 'https://images.unsplash.com/photo-1761229660731-891484da5c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVhdGVyJTIwcGVyZm9ybWFuY2UlMjBkcmFtYXRpY3xlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Bekroond theatergezelschap uit Noord-Holland.',
-    },
-  },
-  {
-    id: 6,
-    date: '20 MEI',
-    title: 'Latin Jazz Night',
-    category: 'Jazz',
-    image: 'https://images.unsplash.com/photo-1768935434604-2301398d92d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXp6JTIwbGl2ZSUyMG11c2ljJTIwcGVyZm9ybWFuY2V8ZW58MXx8fHwxNzczODM2ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Dinsdag 20 mei 2026',
-    time: '21:00',
-    doors: '20:00',
-    price: '€28,00',
-    description: 'Vurige Latin jazz vol passie en ritme. Laat je meevoeren door de klanken van Cuba en Brazilië met dit gepassioneerde kwartet.',
-    artist: {
-      name: 'Caliente Quartet',
-      photo: 'https://images.unsplash.com/photo-1768935434604-2301398d92d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXp6JTIwbGl2ZSUyMG11c2ljJTIwcGVyZm9ybWFuY2V8ZW58MXx8fHwxNzczODM2ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Internationaal befaamd Latin jazz ensemble.',
-    },
-  },
-  {
-    id: 7,
-    date: '27 MEI',
-    title: 'Pop & Soul Avond',
-    category: 'Pop & Dans',
-    image: 'https://images.unsplash.com/photo-1594182878737-c3e6be99669b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3AlMjBjb25jZXJ0JTIwZGFuY2UlMjBwZXJmb3JtYW5jZXxlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Dinsdag 27 mei 2026',
-    time: '21:30',
-    doors: '20:30',
-    price: '€25,00',
-    description: 'Een avond vol uptempo pop en soul classics. Perfect om te dansen of gewoon te genieten van de muziek met een drankje in de hand.',
-    artist: {
-      name: 'The Soul Collective',
-      photo: 'https://images.unsplash.com/photo-1594182878737-c3e6be99669b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3AlMjBjb25jZXJ0JTIwZGFuY2UlMjBwZXJmb3JtYW5jZXxlbnwxfHx8fDE3NzM4MzgxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Een energieke band die soul, pop en R&B combineert tot een feest.',
-    },
-  },
-  {
-    id: 8,
-    date: '3 JUN',
-    title: 'Improvisatie Comedy Battle',
-    category: 'Comedy',
-    image: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Woensdag 3 juni 2026',
-    time: '20:30',
-    doors: '19:30',
-    price: '€24,00',
-    description: 'Twee teams improviseren op basis van suggesties uit het publiek. Geen script, geen vangnet — alleen pure creativiteit en hilariteit. Elke show is uniek!',
-    artist: {
-      name: 'Improv Collective',
-      photo: 'https://images.unsplash.com/photo-1762537132884-cc6bbde0667a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21lZHklMjBwZXJmb3JtZXIlMjBzdGFnZSUyMHNob3d8ZW58MXx8fHwxNzczODM4MTIzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Nederlands beste improvisatietheater met meer dan 10 jaar ervaring.',
-    },
-  },
-  {
-    id: 9,
-    date: '10 JUN',
-    title: 'Zomerfestival Opening Night',
-    category: 'Speciaal',
-    image: 'https://images.unsplash.com/photo-1761229661411-7bdfab62e05f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVjaWFsJTIwY3VsdHVyYWwlMjBldmVudCUyMHBlcmZvcm1hbmNlfGVufDF8fHx8MTc3MzgzODEyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDate: 'Woensdag 10 juni 2026',
-    time: '19:00',
-    doors: '18:00',
-    price: '€45,00',
-    description: 'De opening van ons zomerfestival! Een hele avond vol live muziek, theater, kunst en culinaire verrassingen. Inclusief welkomstdrankje en bites.',
-    artist: {
-      name: 'Various Artists',
-      photo: 'https://images.unsplash.com/photo-1761229661411-7bdfab62e05f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVjaWFsJTIwY3VsdHVyYWwlMjBldmVudCUyMHBlcmZvcm1hbmNlfGVufDF8fHx8MTc3MzgzODEyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bio: 'Een samenwerking van verschillende artiesten en performers.',
-    },
-  },
-];
+import { useNavigate } from 'react-router';
+import { allEvents } from '../data/events';
+import { scrollToSection } from '../utils/scroll';
 
 const categories = ['Alles', 'Comedy', 'Theater', 'Live Muziek', 'Jazz', 'Pop & Dans', 'Speciaal'];
 
@@ -183,6 +29,8 @@ export function VolledigProgramma() {
     setTimeout(() => setSelectedEvent(null), 300);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#f6f4db]">
       <Navigation />
@@ -190,7 +38,7 @@ export function VolledigProgramma() {
       {/* Hero */}
       <section className="pt-32 pb-16 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
         <div className="max-w-[1200px] mx-auto text-center">
-          <WaveDecoration className="w-24 h-4 text-[#cc6435] mx-auto mb-6" />
+          <WaveDecoration variant="special" className="w-24 h-4 mx-auto mb-6" />
           <h1 
             className="text-[#3d7183] mb-4 tracking-wider"
             style={{ 
@@ -319,19 +167,18 @@ export function VolledigProgramma() {
             EEN EVENEMENT ORGANISEREN<br />BIJ JUNO?
           </h2>
           
-          <WaveDecoration className="w-32 h-5 text-[#9fbaae] mx-auto mb-8" />
+          <WaveDecoration variant="inverted" className="w-32 h-5 mx-auto mb-8" />
           
-          <Link 
-            to="/#events"
+          <button 
             className="inline-block bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors"
             style={{ fontFamily: 'Museo, sans-serif' }}
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = '/#events';
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => scrollToSection('events'), 100);
             }}
           >
             Bekijk Events & Verhuur
-          </Link>
+          </button>
         </div>
       </section>
 

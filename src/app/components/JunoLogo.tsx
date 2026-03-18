@@ -20,7 +20,7 @@ export function JunoLogo({ variant, className = '', onClick }: JunoLogoProps) {
       viewBox="0 0 173 70" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
       onClick={onClick}
     >
       {/* O */}
