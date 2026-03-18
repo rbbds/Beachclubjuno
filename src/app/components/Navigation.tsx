@@ -118,7 +118,7 @@ export function Navigation() {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-[80]' : 'z-50'} ${
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 z-[60] ${
           isScrolled ? 'bg-[#f6f4db]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
         }`}
         style={{ fontFamily: 'Museo, sans-serif' }}
@@ -154,8 +154,8 @@ export function Navigation() {
               Watersport
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors"
+              data-formitable="open"
+              className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors cursor-pointer"
             >
               Reserveren
             </button>
@@ -212,21 +212,13 @@ export function Navigation() {
 
       {/* Slide-in Panel */}
       <div 
-        className={`fixed top-0 right-0 bottom-0 w-[88vw] max-w-[360px] bg-[#f6f4db] border-l border-[#3d7183]/10 z-50 lg:hidden transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 bottom-0 w-full bg-[#f6f4db] border-l border-[#3d7183]/10 z-50 lg:hidden transition-transform duration-300 ease-in-out flex flex-col ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ fontFamily: 'Museo, sans-serif' }}
       >
-        {/* Zone 1: Top Branding Strip */}
-        <div className="px-6 flex items-center justify-between" style={{ height: '72px' }}>
-          <div>
-            <JunoLogo variant="default" className="h-10 w-auto mb-1" />
-            <p className="text-[#3d7183]/40 text-xs" style={{ fontFamily: 'Museo, sans-serif' }}>
-              Kijkduin · Den Haag
-            </p>
-          </div>
-          
-          {/* X sluitknop */}
+        {/* Zone 1: Sluitknop alleen, flush aan top */}
+        <div className="flex items-center justify-end px-4 py-4">
           <button
             onClick={() => setIsMenuOpen(false)}
             className="w-10 h-10 flex items-center justify-center text-[#3d7183] hover:text-[#cc6435] transition-colors"
@@ -334,8 +326,8 @@ export function Navigation() {
         {/* Zone 3: Footer CTA */}
         <div className="px-6 pb-10 pt-6">
           <button 
-            onClick={() => handleMobileNavClick('contact')}
-            className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors"
+            data-formitable="open"
+            className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors cursor-pointer"
             style={{ fontFamily: 'Museo, sans-serif', fontSize: '1rem', fontWeight: 500 }}
           >
             Reserveren

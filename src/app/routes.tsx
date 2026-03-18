@@ -4,11 +4,13 @@ import { Bruiloften } from "./pages/Bruiloften";
 import { Bedrijfsfeesten } from "./pages/Bedrijfsfeesten";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { FormitableWidget } from "./components/FormitableWidget";
 
 function Layout() {
   return (
     <>
       <ScrollToTop />
+      <FormitableWidget />
       <Outlet />
     </>
   );
