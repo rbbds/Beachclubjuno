@@ -83,7 +83,7 @@ export function Navigation() {
   };
 
   const navItems = [
-    { label: 'Ons verhaal', section: 'intro' },
+    { label: 'Ons verhaal', section: 'verhaal' },
     { label: 'Restaurant', section: 'restaurant' },
     { 
       label: 'Programma', 
@@ -196,14 +196,14 @@ export function Navigation() {
       {/* Overlay */}
       {isMenuOpen && (
         <div 
-          className="fixed inset-0 bg-[#3d7183]/20 z-40 lg:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-[#3d7183]/20 z-50 lg:hidden transition-opacity duration-300"
           onClick={() => setIsMenuOpen(false)}
         />
       )}
 
       {/* Slide-in Panel */}
       <div 
-        className={`fixed top-0 right-0 bottom-0 w-[88vw] max-w-[360px] bg-[#f6f4db] border-l border-[#3d7183]/10 z-40 lg:hidden transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 bottom-0 w-[88vw] max-w-[360px] bg-[#f6f4db] border-l border-[#3d7183]/10 z-50 lg:hidden transition-transform duration-300 ease-in-out flex flex-col ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ fontFamily: 'Museo, sans-serif' }}
