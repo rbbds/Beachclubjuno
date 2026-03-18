@@ -1,3 +1,11 @@
+Make the following two changes to fix the Formitable reservation widget.
+
+---
+
+### Change 1: src/app/components/FormitableWidget.tsx
+
+Replace the entire file with this version. The key fix is that we use a native DOM click handler to open the widget, instead of relying on data-formitable="open" which doesn't work reliably with React's synthetic events.
+
 import { useEffect, useRef } from 'react';
 
 declare global {
@@ -32,15 +40,7 @@ export function FormitableWidget() {
       script.onload = () => {
         if (window.FT) window.FT.load('Analytics');
       };
-      script.onerror = () => {
-        console.error('Failed to load Formitable SDK');
-      };
-
-      try {
-        document.head.appendChild(script);
-      } catch (error) {
-        console.error('Error appending Formitable SDK script:', error);
-      }
+      document.head.appendChild(script);
     };
 
     const timer = setTimeout(initSDK, 100);
@@ -81,3 +81,51 @@ export function openFormitableWidget() {
     widget.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   }
 }
+
+---
+
+### Change 2: src/app/components/Navigation.tsx
+
+At the top of the file, add this import after the existing imports:
+
+import { openFormitableWidget } from './FormitableWidget';
+
+Then find the desktop "Reserveren" button:
+
+<button 
+  data-formitable="open"
+  className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors cursor-pointer"
+>
+  Reserveren
+</button>
+
+Replace it with:
+
+<button 
+  onClick={() => openFormitableWidget()}
+  className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors cursor-pointer"
+>
+  Reserveren
+</button>
+
+Then find the mobile "Reserveren" button at the bottom of the slide-in panel:
+
+<button 
+  data-formitable="open"
+  className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors cursor-pointer"
+  style={{ fontFamily: 'Museo, sans-serif', fontSize: '1rem', fontWeight: 500 }}
+>
+  Reserveren
+</button>
+
+Replace it with:
+
+<button 
+  onClick={() => { setIsMenuOpen(false); setTimeout(openFormitableWidget, 300); }}
+  className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors cursor-pointer"
+  style={{ fontFamily: 'Museo, sans-serif', fontSize: '1rem', fontWeight: 500 }}
+>
+  Reserveren
+</button>
+
+Do not change any other files.

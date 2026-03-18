@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router';
 import { JunoLogo } from './JunoLogo';
 import { scrollToSection as scrollToSectionUtil } from '../utils/scroll';
 import { ChevronDown } from 'lucide-react';
+import { openFormitableWidget } from './FormitableWidget';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -154,7 +155,7 @@ export function Navigation() {
               Watersport
             </button>
             <button 
-              data-formitable="open"
+              onClick={() => openFormitableWidget()}
               className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors cursor-pointer"
             >
               Reserveren
@@ -326,7 +327,7 @@ export function Navigation() {
         {/* Zone 3: Footer CTA */}
         <div className="px-6 pb-10 pt-6">
           <button 
-            data-formitable="open"
+            onClick={() => { setIsMenuOpen(false); setTimeout(openFormitableWidget, 300); }}
             className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors cursor-pointer"
             style={{ fontFamily: 'Museo, sans-serif', fontSize: '1rem', fontWeight: 500 }}
           >
