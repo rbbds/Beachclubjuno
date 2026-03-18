@@ -1,9 +1,10 @@
 interface JunoLogoProps {
   variant: 'default' | 'inverted' | 'special';
   className?: string;
+  onClick?: () => void;
 }
 
-export function JunoLogo({ variant, className = '' }: JunoLogoProps) {
+export function JunoLogo({ variant, className = '', onClick }: JunoLogoProps) {
   const colors = {
     default: '#3D7183',
     inverted: '#F6F4DB',
@@ -20,6 +21,7 @@ export function JunoLogo({ variant, className = '' }: JunoLogoProps) {
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      onClick={onClick}
     >
       {/* O */}
       <path 

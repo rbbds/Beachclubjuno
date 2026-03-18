@@ -1,21 +1,8 @@
 import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
+import { scrollToSection } from '../utils/scroll';
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <img 
