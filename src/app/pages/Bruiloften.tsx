@@ -140,12 +140,13 @@ export function Bruiloften() {
       </section>
 
       {/* SECTION 2 — HOE WIJ HET REGELEN */}
-      <section className="py-20 px-6 font-body bg-secondary/10">
+      <section className="py-28 px-6 font-body bg-primary">
         <div className="max-w-[1200px] mx-auto">
           <SectionHeader
             title="HOE WIJ HET REGELEN"
             subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
-            waveVariant="special"
+            waveVariant="inverted"
+            className="text-background"
           />
 
           <div className="grid md:grid-cols-3 gap-8 mt-4">
@@ -154,7 +155,7 @@ export function Bruiloften() {
               return (
                 <div 
                   key={index}
-                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
+                  className="bg-white p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
                 >
                   <Icon className="w-10 h-10 text-primary mb-4" />
                   <h3 
@@ -185,7 +186,7 @@ export function Bruiloften() {
       />
 
       {/* SECTION 4 — SFEER FOTO STRIP */}
-      <section className="relative overflow-hidden h-[450px]">
+      <section className="relative overflow-hidden h-[500px]">
         <img 
           src={images.bruiloften.hero}
           alt="De Noordzee als getuige"
@@ -204,7 +205,7 @@ export function Bruiloften() {
       </section>
 
       {/* SECTION 5 — MOMENTEN (horizontal scroll) */}
-      <section className="py-20 px-6 font-body bg-background">
+      <section className="py-28 px-6 font-body bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="VAN CEREMONIE TOT FEEST"

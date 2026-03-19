@@ -10,11 +10,17 @@ interface EventFaqSectionProps {
   items: Array<{ question: string; answer: string }>;
   image: string;
   imageAlt?: string;
+  bgColor?: 'cream' | 'navy';
 }
 
-export function EventFaqSection({ items, image, imageAlt = 'FAQ' }: EventFaqSectionProps) {
+export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cream' }: EventFaqSectionProps) {
+  const bgClass = bgColor === 'cream' ? 'bg-background' : 'bg-primary';
+  const textClass = bgColor === 'cream' ? 'text-primary' : 'text-background';
+  const textOpacityClass = bgColor === 'cream' ? 'text-primary/80' : 'text-background/80';
+  const waveVariant = bgColor === 'cream' ? 'special' : 'inverted';
+
   return (
-    <section className="py-20 px-6 font-body bg-background">
+    <section className={`py-28 px-6 font-body ${bgClass}`}>
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left column - Image */}
         <div>
@@ -30,8 +36,8 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ' }: EventFaqSect
           <SectionHeader
             title="VEELGESTELDE VRAGEN"
             align="left"
-            waveVariant="special"
-            className="mb-8"
+            waveVariant={waveVariant}
+            className={`mb-8 ${bgColor === 'navy' ? 'text-background' : ''}`}
           />
 
           <Accordion type="multiple">
@@ -41,10 +47,10 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ' }: EventFaqSect
                 value={`item-${index}`}
                 className="border-b border-secondary/30 last:border-b-0"
               >
-                <AccordionTrigger className="text-primary font-bold text-left hover:text-accent hover:no-underline">
+                <AccordionTrigger className={`${textClass} font-bold text-left hover:text-accent hover:no-underline`}>
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-primary/80 leading-relaxed pb-2">
+                <AccordionContent className={`${textOpacityClass} leading-relaxed pb-2`}>
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

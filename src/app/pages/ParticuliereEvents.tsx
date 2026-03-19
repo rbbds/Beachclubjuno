@@ -73,7 +73,7 @@ export function ParticuliereEvents() {
       />
 
       {/* SECTION 2 — AANBOD INTRO */}
-      <section className="py-20 px-6 font-body bg-background">
+      <section className="py-28 px-6 font-body bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="ONS AANBOD"
@@ -130,7 +130,7 @@ export function ParticuliereEvents() {
       </section>
 
       {/* SECTION 3 — SFEER FOTO STRIP */}
-      <section className="relative overflow-hidden h-[400px]">
+      <section className="relative overflow-hidden h-[500px]">
         <img 
           src={images.events.bruiloften} 
           alt="Jouw feest, ons strand"
@@ -160,28 +160,29 @@ export function ParticuliereEvents() {
       />
 
       {/* SECTION 5 — WAAROM JUNO */}
-      <section className="py-20 px-6 font-body bg-secondary/10">
+      <section className="py-28 px-6 font-body bg-primary">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div>
             <SectionHeader
               title="WAAROM JUNO?"
               align="left"
-              waveVariant="special"
+              waveVariant="inverted"
+              className="text-background"
             />
-            <div className="flex gap-3 items-start text-primary text-lg mb-3">
+            <div className="flex gap-3 items-start text-background text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Unieke locatie direct aan het strand van Kijkduin</span>
             </div>
-            <div className="flex gap-3 items-start text-primary text-lg mb-3">
+            <div className="flex gap-3 items-start text-background text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Persoonlijk contact en maatwerk van A tot Z</span>
             </div>
-            <div className="flex gap-3 items-start text-primary text-lg mb-3">
+            <div className="flex gap-3 items-start text-background text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Ervaren team met oog voor elk detail</span>
             </div>
-            <JunoButton variant="primary" size="lg" className="mt-6">
+            <JunoButton variant="secondary" size="lg" className="mt-6">
               Stel jouw event samen
             </JunoButton>
           </div>
@@ -197,7 +198,7 @@ export function ParticuliereEvents() {
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}
-      <section className="relative overflow-hidden h-[400px]">
+      <section className="relative overflow-hidden h-[500px]">
         <img 
           src={images.bedrijfsfeesten.team} 
           alt="Maak er een dag om nooit te vergeten"
