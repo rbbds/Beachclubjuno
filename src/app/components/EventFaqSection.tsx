@@ -14,10 +14,7 @@ interface EventFaqSectionProps {
 }
 
 export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cream' }: EventFaqSectionProps) {
-  const bgClass = bgColor === 'cream' ? 'bg-background' : 'bg-primary';
-  const textClass = bgColor === 'cream' ? 'text-primary' : 'text-background';
-  const textOpacityClass = bgColor === 'cream' ? 'text-primary/80' : 'text-background/80';
-  const waveVariant = bgColor === 'cream' ? 'special' : 'inverted';
+  const bgClass = bgColor === 'cream' ? 'bg-background' : 'bg-navy-soft';
 
   return (
     <section className={`py-28 px-6 font-body ${bgClass}`}>
@@ -36,8 +33,8 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
           <SectionHeader
             title="VEELGESTELDE VRAGEN"
             align="left"
-            waveVariant={waveVariant}
-            className={`mb-8 ${bgColor === 'navy' ? 'text-background' : ''}`}
+            waveVariant="special"
+            className="mb-8 text-primary"
           />
 
           <Accordion type="multiple">
@@ -47,10 +44,10 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
                 value={`item-${index}`}
                 className="border-b border-secondary/30 last:border-b-0"
               >
-                <AccordionTrigger className={`${textClass} font-bold text-left hover:text-accent hover:no-underline`}>
+                <AccordionTrigger className="text-primary font-bold text-left hover:text-accent hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className={`${textOpacityClass} leading-relaxed pb-2`}>
+                <AccordionContent className="text-primary/80 leading-relaxed pb-2">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

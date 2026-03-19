@@ -18,7 +18,7 @@ export function SectionHeader({
   return (
     <div className={`${align === 'center' ? 'text-center' : 'text-left'} ${className}`}>
       <h2
-        className="text-primary uppercase tracking-wide font-display"
+        className="uppercase tracking-wide font-display"
         style={{
           fontSize: 'clamp(2.5rem, 6vw, 4rem)',
           lineHeight: '1',
@@ -33,7 +33,7 @@ export function SectionHeader({
       />
       
       {subtitle && (
-        <p className={`text-primary text-lg max-w-2xl font-body mb-8 ${align === 'center' ? 'mx-auto' : ''}`}>
+        <p className={`text-lg max-w-2xl font-body mb-8 opacity-80 ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}

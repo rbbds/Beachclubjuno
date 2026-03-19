@@ -1,4 +1,5 @@
 import { WaveDecoration } from './WaveDecoration';
+import { WaveTransition } from './WaveTransition';
 
 interface PageHeroProps {
   image: string;
@@ -7,6 +8,7 @@ interface PageHeroProps {
   altText?: string;
   waveVariant?: 'default' | 'inverted' | 'special';
   height?: string;
+  waveColor?: string;
 }
 
 export function PageHero({
@@ -16,6 +18,7 @@ export function PageHero({
   altText,
   waveVariant = 'inverted',
   height = 'h-[50vh] min-h-[320px]',
+  waveColor = '#f6f4db',
 }: PageHeroProps) {
   return (
     <div className={`relative overflow-hidden flex items-center justify-center ${height}`}>
@@ -49,6 +52,8 @@ export function PageHero({
           </p>
         )}
       </div>
+      
+      <WaveTransition fillColor={waveColor} />
     </div>
   );
 }

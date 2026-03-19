@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { SectionHeader } from '../components/SectionHeader';
 import { JunoButton } from '../components/JunoButton';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
 import { Heart, Users, Sparkles } from 'lucide-react';
@@ -89,7 +90,7 @@ export function Bruiloften() {
       <Navigation />
 
       {/* SECTION 1 — SPLIT HERO */}
-      <section className="min-h-screen grid md:grid-cols-2 font-body">
+      <section className="relative min-h-screen grid md:grid-cols-2 font-body">
         {/* Left column */}
         <div className="bg-background flex flex-col justify-center px-12 py-32 md:py-0">
           <div className="font-display text-accent text-xl tracking-wide mb-4">
@@ -137,16 +138,17 @@ export function Bruiloften() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
+        
+        <WaveTransition fillColor="#e8f0f3" />
       </section>
 
       {/* SECTION 2 — HOE WIJ HET REGELEN */}
-      <section className="py-28 px-6 font-body bg-primary">
+      <section className="relative py-28 px-6 font-body bg-navy-soft text-primary">
         <div className="max-w-[1200px] mx-auto">
           <SectionHeader
             title="HOE WIJ HET REGELEN"
             subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
-            waveVariant="inverted"
-            className="text-background"
+            waveVariant="special"
           />
 
           <div className="grid md:grid-cols-3 gap-8 mt-4">
@@ -155,7 +157,7 @@ export function Bruiloften() {
               return (
                 <div 
                   key={index}
-                  className="bg-white p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
+                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
                 >
                   <Icon className="w-10 h-10 text-primary mb-4" />
                   <h3 
@@ -172,6 +174,8 @@ export function Bruiloften() {
             })}
           </div>
         </div>
+        
+        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* SECTION 3 — EVENT MANAGER CONTACT */}
@@ -245,22 +249,28 @@ export function Bruiloften() {
       </section>
 
       {/* SECTION 6 — FAQ */}
-      <EventFaqSection
-        items={faqItems}
-        image={images.bruiloften.intro}
-        imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
-      />
+      <div className="relative">
+        <EventFaqSection
+          items={faqItems}
+          image={images.bruiloften.intro}
+          imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
+        />
+        <WaveTransition fillColor="#f0f5f3" />
+      </div>
 
       {/* SECTION 7 — EVENT MANAGER CONTACT (sage background) */}
-      <EventManagerContact
-        name="Sarah"
-        role="Wedding Coördinator bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="sage"
-      />
+      <div className="relative">
+        <EventManagerContact
+          name="Sarah"
+          role="Wedding Coördinator bij Juno"
+          photo={images.bruiloften.intro}
+          intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
+          phone="+31624734660"
+          email="info@clubjuno.nl"
+          bgColor="sage"
+        />
+        <WaveTransition fillColor="#3d7183" />
+      </div>
 
       <Footer />
     </div>

@@ -5,6 +5,7 @@ import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
 import { JunoButton } from '../components/JunoButton';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
 import { images } from '../data/images';
@@ -70,6 +71,7 @@ export function ParticuliereEvents() {
         subtitle="Verjaardag, jubileum, familiefeest of gewoon omdat het kan"
         waveVariant="inverted"
         height="h-screen"
+        waveColor="#f6f4db"
       />
 
       {/* SECTION 2 — AANBOD INTRO */}
@@ -149,40 +151,42 @@ export function ParticuliereEvents() {
       </section>
 
       {/* SECTION 4 — EVENT MANAGER CONTACT */}
-      <EventManagerContact
-        name="Sarah"
-        role="Event Manager bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Event Manager bij Juno. Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="cream"
-      />
+      <div className="relative">
+        <EventManagerContact
+          name="Sarah"
+          role="Event Manager bij Juno"
+          photo={images.bruiloften.intro}
+          intro="Ik ben Sarah, Event Manager bij Juno. Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
+          phone="+31624734660"
+          email="info@clubjuno.nl"
+          bgColor="cream"
+        />
+        <WaveTransition fillColor="#e8f0f3" />
+      </div>
 
       {/* SECTION 5 — WAAROM JUNO */}
-      <section className="py-28 px-6 font-body bg-primary">
+      <section className="relative py-28 px-6 font-body bg-navy-soft text-primary">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div>
             <SectionHeader
               title="WAAROM JUNO?"
               align="left"
-              waveVariant="inverted"
-              className="text-background"
+              waveVariant="special"
             />
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Unieke locatie direct aan het strand van Kijkduin</span>
             </div>
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Persoonlijk contact en maatwerk van A tot Z</span>
             </div>
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Ervaren team met oog voor elk detail</span>
             </div>
-            <JunoButton variant="secondary" size="lg" className="mt-6">
+            <JunoButton variant="primary" size="lg" className="mt-6">
               Stel jouw event samen
             </JunoButton>
           </div>
@@ -195,6 +199,8 @@ export function ParticuliereEvents() {
             />
           </div>
         </div>
+        
+        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}
@@ -212,27 +218,33 @@ export function ParticuliereEvents() {
           >
             MAAK ER EEN DAG OM NOOIT TE VERGETEN
           </h2>
-          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
+          <WaveTransition variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
       </section>
 
       {/* SECTION 7 — FAQ */}
-      <EventFaqSection
-        items={faqItems}
-        image={images.events.bruiloften}
-        imageAlt="Particuliere Events FAQ"
-      />
+      <div className="relative">
+        <EventFaqSection
+          items={faqItems}
+          image={images.events.bruiloften}
+          imageAlt="Particuliere Events FAQ"
+        />
+        <WaveTransition fillColor="#f0f5f3" />
+      </div>
 
       {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
-      <EventManagerContact
-        name="Sarah"
-        role="Event Manager bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="sage"
-      />
+      <div className="relative">
+        <EventManagerContact
+          name="Sarah"
+          role="Event Manager bij Juno"
+          photo={images.bruiloften.intro}
+          intro="Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
+          phone="+31624734660"
+          email="info@clubjuno.nl"
+          bgColor="sage"
+        />
+        <WaveTransition fillColor="#3d7183" />
+      </div>
 
       <Footer />
     </div>

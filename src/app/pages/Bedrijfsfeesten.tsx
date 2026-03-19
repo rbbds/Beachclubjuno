@@ -5,6 +5,7 @@ import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
 import { JunoButton } from '../components/JunoButton';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
 import { images } from '../data/images';
@@ -67,9 +68,10 @@ export function Bedrijfsfeesten() {
       <PageHero
         image={images.bedrijfsfeesten.hero}
         title="ZAKELIJKE EVENTS"
-        subtitle="Een onvergetelijke bedrijfsdag aan het strand van Kijkduin"
+        subtitle="Vergaderen, borrel of teambuilding — anders dan anders"
         waveVariant="inverted"
         height="h-screen"
+        waveColor="#f6f4db"
       />
 
       {/* SECTION 2 — AANBOD INTRO */}
@@ -149,40 +151,42 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* SECTION 4 — EVENT MANAGER CONTACT */}
-      <EventManagerContact
-        name="Sarah"
-        role="Event Manager bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="cream"
-      />
+      <div className="relative">
+        <EventManagerContact
+          name="Sarah"
+          role="Event Manager bij Juno"
+          photo={images.bruiloften.intro}
+          intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
+          phone="+31624734660"
+          email="info@clubjuno.nl"
+          bgColor="cream"
+        />
+        <WaveTransition fillColor="#e8f0f3" />
+      </div>
 
       {/* SECTION 5 — WAAROM JUNO */}
-      <section className="py-28 px-6 font-body bg-primary">
+      <section className="relative py-28 px-6 font-body bg-navy-soft text-primary">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div>
             <SectionHeader
               title="WAAROM KIEZEN VOOR JUNO EVENTS?"
               align="left"
-              waveVariant="inverted"
-              className="text-background"
+              waveVariant="special"
             />
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Unieke locatie direct aan het strand van Kijkduin</span>
             </div>
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Persoonlijk contact en maatwerk van A tot Z</span>
             </div>
-            <div className="flex gap-3 items-start text-background text-lg mb-3">
+            <div className="flex gap-3 items-start text-primary text-lg mb-3">
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Ervaren team met oog voor elk detail</span>
             </div>
-            <JunoButton variant="secondary" size="lg" className="mt-6">
+            <JunoButton variant="primary" size="lg" className="mt-6">
               Stel jouw event samen
             </JunoButton>
           </div>
@@ -195,6 +199,8 @@ export function Bedrijfsfeesten() {
             />
           </div>
         </div>
+        
+        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}
@@ -217,22 +223,28 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* SECTION 7 — FAQ */}
-      <EventFaqSection
-        items={faqItems}
-        image={images.bedrijfsfeesten.team}
-        imageAlt="Zakelijke Events FAQ"
-      />
+      <div className="relative">
+        <EventFaqSection
+          items={faqItems}
+          image={images.bedrijfsfeesten.team}
+          imageAlt="Zakelijke Events FAQ"
+        />
+        <WaveTransition fillColor="#f0f5f3" />
+      </div>
 
       {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
-      <EventManagerContact
-        name="Sarah"
-        role="Event Manager bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="sage"
-      />
+      <div className="relative">
+        <EventManagerContact
+          name="Sarah"
+          role="Event Manager bij Juno"
+          photo={images.bruiloften.intro}
+          intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
+          phone="+31624734660"
+          email="info@clubjuno.nl"
+          bgColor="sage"
+        />
+        <WaveTransition fillColor="#3d7183" />
+      </div>
 
       <Footer />
     </div>

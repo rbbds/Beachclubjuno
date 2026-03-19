@@ -23,12 +23,13 @@ export function Programma() {
 
   return (
     <>
-      <section id="programma" className="relative py-20 px-6 bg-secondary font-body">
+      <section id="programma" className="relative py-20 px-6 bg-sage-soft font-body">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="CULTUREEL PROGRAMMA"
             subtitle="Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod"
-            waveVariant="inverted"
+            waveVariant="special"
+            className="text-primary"
           />
 
           <div className="grid md:grid-cols-3 gap-8">
