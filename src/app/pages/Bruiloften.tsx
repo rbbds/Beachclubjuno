@@ -1,6 +1,9 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { PageHero } from '../components/PageHero';
+import { SectionHeader } from '../components/SectionHeader';
+import { JunoButton } from '../components/JunoButton';
 import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
 
@@ -26,51 +29,28 @@ export function Bruiloften() {
   const sfeerPhotos = images.bruiloften.sfeer;
 
   return (
-    <div className="min-h-screen bg-[#f6f4db]">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero */}
-      <div className="relative h-screen w-full overflow-hidden">
-        <img 
-          src={images.bruiloften.hero}
-          alt="Beach wedding"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
-        
-        <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
-          <h1 
-            className="text-[#f6f4db] mb-6 tracking-wider"
-            style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: 'clamp(3.5rem, 12vw, 8rem)',
-              lineHeight: '0.9'
-            }}
-          >
-            TROUWEN AAN ZEE
-          </h1>
-          
-          <WaveDecoration variant="inverted" className="w-32 h-4 mb-6" />
-          
-          <p 
-            className="text-[#f6f4db] text-xl md:text-2xl"
-            style={{ fontFamily: 'Museo, sans-serif' }}
-          >
-            De Noordzee als getuige. Juno als decor.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        image={images.bruiloften.hero}
+        title="TROUWEN AAN ZEE"
+        subtitle="De Noordzee als getuige. Juno als decor."
+        waveVariant="inverted"
+        height="h-screen"
+      />
 
       {/* Intro */}
-      <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 font-body">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-[#3d7183] text-lg leading-relaxed mb-6">
+            <p className="text-primary text-lg leading-relaxed mb-6">
               Bij Juno geloven we dat een bruiloft zo uniek moet zijn als jullie verhaal. 
               Op onze locatie in Kijkduin combineren we het ruige strand met warme gastvrijheid 
               en persoonlijke service.
             </p>
-            <p className="text-[#3d7183] text-lg leading-relaxed">
+            <p className="text-primary text-lg leading-relaxed">
               Of jullie nu dromen van een intieme ceremonie met twintig gasten of een groots 
               feest met tweehonderd man — wij zorgen ervoor dat jullie dag perfect verloopt, 
               van het eerste ja-woord tot de laatste dans.
@@ -88,40 +68,27 @@ export function Bruiloften() {
       </section>
 
       {/* Wat wij bieden */}
-      <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-secondary/10 font-body">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] mb-4 tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              WAT WIJ BIEDEN
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          </div>
+          <SectionHeader title="WAT WIJ BIEDEN" waveVariant="special" />
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <button 
                 key={index}
-                className="bg-[#f6f4db] p-8 rounded-xl border-2 border-[#9fbaae]/30 hover:border-[#9fbaae] transition-all hover:shadow-lg cursor-pointer text-left w-full"
+                className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg cursor-pointer text-left w-full"
               >
-                <feature.icon className="w-10 h-10 text-[#3d7183] mb-4" />
+                <feature.icon className="w-10 h-10 text-primary mb-4" />
                 <h3 
-                  className="text-[#3d7183] mb-3 tracking-wide"
+                  className="text-primary mb-3 tracking-wide font-display"
                   style={{ 
-                    fontFamily: 'Bebas Neue, sans-serif',
                     fontSize: '1.5rem',
                     lineHeight: '1.2'
                   }}
                 >
                   {feature.title}
                 </h3>
-                <p className="text-[#3d7183] leading-relaxed">
+                <p className="text-primary leading-relaxed">
                   {feature.description}
                 </p>
               </button>
@@ -135,9 +102,8 @@ export function Bruiloften() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <h2 
-              className="text-[#3d7183] tracking-wide"
+              className="text-primary tracking-wide font-display"
               style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
                 fontSize: 'clamp(2.5rem, 6vw, 4rem)',
                 lineHeight: '1'
               }}
@@ -161,34 +127,21 @@ export function Bruiloften() {
       </section>
 
       {/* Praktisch */}
-      <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 font-body">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              PRAKTISCHE INFORMATIE
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          </div>
+          <SectionHeader title="PRAKTISCHE INFORMATIE" waveVariant="special" />
 
           <div className="grid md:grid-cols-2 gap-12 bg-white p-10 rounded-xl shadow-sm">
             <div>
               <h3 
-                className="text-[#3d7183] mb-4 tracking-wide"
+                className="text-primary mb-4 tracking-wide font-display"
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: '1.75rem'
                 }}
               >
                 DE DETAILS
               </h3>
-              <ul className="space-y-3 text-[#3d7183] text-lg">
+              <ul className="space-y-3 text-primary text-lg">
                 <li><strong>Capaciteit:</strong> 20 tot 200 personen</li>
                 <li><strong>Beschikbaar:</strong> april t/m oktober</li>
                 <li><strong>Locatie:</strong> Kijkduin, Den Haag</li>
@@ -198,20 +151,19 @@ export function Bruiloften() {
 
             <div>
               <h3 
-                className="text-[#3d7183] mb-4 tracking-wide"
+                className="text-primary mb-4 tracking-wide font-display"
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: '1.75rem'
                 }}
               >
                 ONZE AANPAK
               </h3>
-              <p className="text-[#3d7183] text-lg leading-relaxed mb-4">
+              <p className="text-primary text-lg leading-relaxed mb-4">
                 Wij ontzorgen u volledig: van de tafelschikking tot de laatste dans. 
                 Elke bruiloft krijgt een persoonlijke weddingcoördinator die jullie 
                 wensen vertaalt naar een onvergetelijke dag.
               </p>
-              <p className="text-[#3d7183] text-lg leading-relaxed">
+              <p className="text-primary text-lg leading-relaxed">
                 Neem vrijblijvend contact op en we denken graag met u mee.
               </p>
             </div>
@@ -220,12 +172,11 @@ export function Bruiloften() {
       </section>
 
       {/* CTA Block */}
-      <section className="py-20 px-6 bg-[#3d7183]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-primary font-body">
         <div className="max-w-[1000px] mx-auto text-center">
           <h2 
-            className="text-[#f6f4db] mb-6 tracking-wider"
+            className="text-background mb-6 tracking-wider font-display"
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2.5rem, 8vw, 5rem)',
               lineHeight: '1'
             }}
@@ -235,18 +186,18 @@ export function Bruiloften() {
           
           <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
-          <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
+          <p className="text-background text-xl mb-10 max-w-2xl mx-auto">
             Klaar om jullie droombruiloft aan zee werkelijkheid te maken? 
             We horen graag jullie verhaal.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors">
+            <JunoButton variant="primary" size="lg">
               Vraag offerte aan
-            </button>
-            <button className="border-2 border-[#f6f4db] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#f6f4db] hover:text-[#3d7183] transition-colors">
+            </JunoButton>
+            <JunoButton variant="outline-light" size="lg">
               Neem contact op
-            </button>
+            </JunoButton>
           </div>
         </div>
       </section>

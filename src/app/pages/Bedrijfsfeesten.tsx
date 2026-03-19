@@ -1,6 +1,9 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { PageHero } from '../components/PageHero';
+import { SectionHeader } from '../components/SectionHeader';
+import { JunoButton } from '../components/JunoButton';
 import { Users, Coffee, Lightbulb, Quote } from 'lucide-react';
 import { images } from '../data/images';
 
@@ -34,48 +37,28 @@ export function Bedrijfsfeesten() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4db]">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero */}
-      <div className="relative h-screen w-full overflow-hidden">
-        <img 
-          src={images.bedrijfsfeesten.hero}
-          alt="Corporate event by the beach"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
-        
-        <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
-          <h1 
-            className="text-[#f6f4db] mb-6 tracking-wider"
-            style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: 'clamp(3.5rem, 12vw, 8rem)',
-              lineHeight: '0.9'
-            }}
-          >
-            ZAKELIJK AAN ZEE
-          </h1>
-          
-          <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
-          
-          <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
-            Vergaderen, vieren of teambuilding — altijd met uitzicht.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        image={images.bedrijfsfeesten.hero}
+        title="ZAKELIJK AAN ZEE"
+        subtitle="Vergaderen, vieren of teambuilding — altijd met uitzicht."
+        waveVariant="inverted"
+        height="h-screen"
+      />
 
       {/* Intro */}
-      <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 font-body">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-[#3d7183] text-lg leading-relaxed mb-6">
+            <p className="text-primary text-lg leading-relaxed mb-6">
               Juno is de perfecte locatie voor bedrijven die iets bijzonders zoeken. Of het nu gaat 
               om een productlancering, een teamuitje of een eindejaarsfeest — wij zorgen voor een 
               onvergetelijke dag.
             </p>
-            <p className="text-[#3d7183] text-lg leading-relaxed">
+            <p className="text-primary text-lg leading-relaxed">
               Met de Noordzee als inspirerende achtergrond, professionele faciliteiten en een team 
               dat tot in de puntjes voor u zorgt, wordt elk zakelijk evenement een succes.
             </p>
@@ -92,24 +75,13 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* Drie smaken */}
-      <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-secondary/10 font-body">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] mb-4 tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              DRIE SMAKEN
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-            <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
-              Van inspirerende teambuilding tot formele vergaderingen — kies wat bij u past
-            </p>
-          </div>
+          <SectionHeader
+            title="DRIE SMAKEN"
+            subtitle="Van inspirerende teambuilding tot formele vergaderingen — kies wat bij u past"
+            waveVariant="special"
+          />
 
           <div className="grid md:grid-cols-3 gap-8">
             {formats.map((format, index) => (
@@ -117,21 +89,20 @@ export function Bedrijfsfeesten() {
                 key={index}
                 className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer text-left w-full hover:scale-105 duration-300"
               >
-                <format.icon className="w-12 h-12 text-[#3d7183] mb-4" />
+                <format.icon className="w-12 h-12 text-primary mb-4" />
                 <h3 
-                  className="text-[#3d7183] mb-3 tracking-wide"
+                  className="text-primary mb-3 tracking-wide font-display"
                   style={{ 
-                    fontFamily: 'Bebas Neue, sans-serif',
                     fontSize: '1.75rem',
                     lineHeight: '1.2'
                   }}
                 >
                   {format.title}
                 </h3>
-                <p className="text-[#3d7183] leading-relaxed mb-4">
+                <p className="text-primary leading-relaxed mb-4">
                   {format.description}
                 </p>
-                <p className="text-[#cc6435] font-medium text-lg">
+                <p className="text-accent font-medium text-lg">
                   {format.price}
                 </p>
               </button>
@@ -141,51 +112,37 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* Hoe het werkt */}
-      <section className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 font-body">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-[#3d7183] tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              HOE HET WERKT
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          </div>
+          <SectionHeader title="HOE HET WERKT" waveVariant="special" />
 
           {/* Desktop Timeline */}
           <div className="hidden md:block relative">
             {/* Wave connection line */}
             <div className="absolute top-12 left-0 right-0 h-1 flex items-center">
-              <WaveDecoration className="w-full h-8 text-[#9fbaae]" />
+              <WaveDecoration className="w-full h-8 text-secondary" />
             </div>
 
             <div className="grid grid-cols-4 gap-8 relative z-10">
               {steps.map((step) => (
                 <div key={step.number} className="text-center">
-                  <div className="bg-[#3d7183] text-[#f6f4db] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md"
+                  <div className="bg-primary text-background w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md font-display"
                     style={{ 
-                      fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.5rem'
                     }}
                   >
                     {step.number}
                   </div>
                   <h3 
-                    className="text-[#3d7183] mb-2 tracking-wide"
+                    className="text-primary mb-2 tracking-wide font-display"
                     style={{ 
-                      fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.25rem',
                       lineHeight: '1.2'
                     }}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-[#3d7183] text-sm">
+                  <p className="text-primary text-sm">
                     {step.description}
                   </p>
                 </div>
@@ -197,9 +154,8 @@ export function Bedrijfsfeesten() {
           <div className="md:hidden space-y-6">
             {steps.map((step) => (
               <div key={step.number} className="flex gap-4">
-                <div className="bg-[#3d7183] text-[#f6f4db] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                <div className="bg-primary text-background w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-display"
                   style={{ 
-                    fontFamily: 'Bebas Neue, sans-serif',
                     fontSize: '1.25rem'
                   }}
                 >
@@ -207,16 +163,15 @@ export function Bedrijfsfeesten() {
                 </div>
                 <div>
                   <h3 
-                    className="text-[#3d7183] mb-1 tracking-wide"
+                    className="text-primary mb-1 tracking-wide font-display"
                     style={{ 
-                      fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.25rem',
                       lineHeight: '1.2'
                     }}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-[#3d7183]">
+                  <p className="text-primary">
                     {step.description}
                   </p>
                 </div>
@@ -227,35 +182,22 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* Praktisch */}
-      <section className="py-20 px-6 bg-[#9fbaae]/10" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-secondary/10 font-body">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              PRAKTISCHE INFORMATIE
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          </div>
+          <SectionHeader title="PRAKTISCHE INFORMATIE" waveVariant="special" />
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Capaciteit & Beschikbaarheid */}
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h3 
-                className="text-[#3d7183] mb-4 tracking-wide"
+                className="text-primary mb-4 tracking-wide font-display"
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: '1.75rem'
                 }}
               >
                 CAPACITEIT & BESCHIKBAARHEID
               </h3>
-              <ul className="space-y-3 text-[#3d7183] text-lg">
+              <ul className="space-y-3 text-primary text-lg">
                 <li><strong>Capaciteit:</strong> 10 tot 200 personen</li>
                 <li><strong>Beschikbaar:</strong> Het hele jaar door</li>
                 <li><strong>Vergaderzalen:</strong> 2 aparte ruimtes beschikbaar</li>
@@ -266,15 +208,14 @@ export function Bedrijfsfeesten() {
             {/* Faciliteiten */}
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h3 
-                className="text-[#3d7183] mb-4 tracking-wide"
+                className="text-primary mb-4 tracking-wide font-display"
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: '1.75rem'
                 }}
               >
                 FACILITEITEN
               </h3>
-              <ul className="space-y-3 text-[#3d7183] text-lg">
+              <ul className="space-y-3 text-primary text-lg">
                 <li>✓ Gratis parkeren op eigen terrein</li>
                 <li>✓ Professionele AV-apparatuur (beamer, geluid, microfoons)</li>
                 <li>✓ Hoogwaardige catering & drankenpakketten</li>
@@ -286,28 +227,27 @@ export function Bedrijfsfeesten() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 px-6 bg-[#3d7183]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-primary font-body">
         <div className="max-w-[900px] mx-auto text-center">
-          <Quote className="w-16 h-16 text-[#cc6435] mx-auto mb-6" />
-          <blockquote className="text-[#f6f4db] text-2xl md:text-3xl leading-relaxed mb-8">
+          <Quote className="w-16 h-16 text-accent mx-auto mb-6" />
+          <blockquote className="text-background text-2xl md:text-3xl leading-relaxed mb-8">
             "Ons team had een fantastische dag bij Juno. De locatie, het eten en de service 
             waren subliem. Een aanrader voor ieder bedrijf dat iets bijzonders zoekt."
           </blockquote>
-          <p className="text-[#f6f4db]/80 text-lg">
+          <p className="text-background/80 text-lg">
             — Sarah van der Berg, Managing Director bij Coastal Innovation
           </p>
         </div>
       </section>
 
-      <div className="bg-[#3d7183] px-6"><hr className="border-[#f6f4db]/20 max-w-[1000px] mx-auto" /></div>
+      <div className="bg-primary px-6"><hr className="border-background/20 max-w-[1000px] mx-auto" /></div>
 
       {/* CTA Block */}
-      <section className="py-20 px-6 bg-[#3d7183]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section className="py-20 px-6 bg-primary font-body">
         <div className="max-w-[1000px] mx-auto text-center">
           <h2 
-            className="text-[#f6f4db] mb-6 tracking-wider"
+            className="text-background mb-6 tracking-wider font-display"
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2.5rem, 8vw, 5rem)',
               lineHeight: '1'
             }}
@@ -317,18 +257,18 @@ export function Bedrijfsfeesten() {
           
           <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
-          <p className="text-[#f6f4db] text-xl mb-10 max-w-2xl mx-auto">
+          <p className="text-background text-xl mb-10 max-w-2xl mx-auto">
             Klaar om uw volgende zakelijke evenement naar een hoger niveau te tillen? 
             Laten we samen bouwen aan een onvergetelijke ervaring.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors">
+            <JunoButton variant="primary" size="lg">
               Vraag offerte aan
-            </button>
-            <button className="border-2 border-[#f6f4db] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#f6f4db] hover:text-[#3d7183] transition-colors">
+            </JunoButton>
+            <JunoButton variant="outline-light" size="lg">
               Neem contact op
-            </button>
+            </JunoButton>
           </div>
         </div>
       </section>
