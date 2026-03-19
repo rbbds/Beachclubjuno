@@ -88,7 +88,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
         {/* Close button - top right */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-[#f6f4db] hover:text-[#cc6435] transition-colors"
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-background hover:text-accent transition-colors"
           aria-label="Close lightbox"
         >
           <X className="w-8 h-8" />
@@ -100,7 +100,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
             e.stopPropagation();
             onPrevious();
           }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#3d7183] flex items-center justify-center text-[#f6f4db] hover:bg-[#cc6435] transition-colors shadow-lg"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg"
           aria-label="Previous photo"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -112,7 +112,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
             e.stopPropagation();
             onNext();
           }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#3d7183] flex items-center justify-center text-[#f6f4db] hover:bg-[#cc6435] transition-colors shadow-lg"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg"
           aria-label="Next photo"
         >
           <ChevronRight className="w-6 h-6" />
@@ -120,8 +120,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
 
         {/* Photo counter - bottom center */}
         <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[#f6f4db] text-lg px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm"
-          style={{ fontFamily: 'Museo, sans-serif' }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-background text-lg px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm font-body"
         >
           {currentIndex + 1} / {images.length}
         </div>

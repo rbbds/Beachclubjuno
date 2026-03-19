@@ -1,4 +1,6 @@
 import { WaveDecoration } from './WaveDecoration';
+import { SectionHeader } from './SectionHeader';
+import { JunoButton } from './JunoButton';
 import { Calendar } from 'lucide-react';
 import { useState } from 'react';
 import { EventDrawer, EventData } from './EventDrawer';
@@ -21,24 +23,13 @@ export function Programma() {
 
   return (
     <>
-      <section id="programma" className="relative py-20 px-6 bg-[#9fbaae]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section id="programma" className="relative py-20 px-6 bg-secondary font-body">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] mb-2 tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              CULTUREEL PROGRAMMA
-            </h2>
-            <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-3 mb-4" />
-            <p className="text-[#3d7183] text-lg max-w-2xl mx-auto">
-              Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod
-            </p>
-          </div>
+          <SectionHeader
+            title="CULTUREEL PROGRAMMA"
+            subtitle="Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod"
+            waveVariant="inverted"
+          />
 
           <div className="grid md:grid-cols-3 gap-8">
             {featuredEvents.map((event) => (
@@ -53,32 +44,31 @@ export function Programma() {
                     alt={event.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-[#cc6435] text-[#f6f4db] px-4 py-2 rounded-lg flex items-center gap-2">
+                  <div className="absolute top-4 left-4 bg-accent text-background px-4 py-2 rounded-lg flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <span style={{ fontFamily: 'Bebas Neue, sans-serif' }} className="tracking-wide">
+                    <span className="tracking-wide font-display">
                       {event.date}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <div className="inline-block bg-[#9fbaae] text-[#f6f4db] px-3 py-1 rounded-full text-sm font-medium mb-3">
+                  <div className="inline-block bg-secondary text-background px-3 py-1 rounded-full text-sm font-medium mb-3">
                     {event.category}
                   </div>
                   <h3 
-                    className="text-[#3d7183] mb-2 tracking-wide"
+                    className="text-primary mb-2 tracking-wide font-display"
                     style={{ 
-                      fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.5rem',
                       lineHeight: '1.2'
                     }}
                   >
                     {event.title}
                   </h3>
-                  <div className="inline-flex items-center text-[#cc6435] group-hover:text-[#b55730] transition-all py-2">
+                  <div className="inline-flex items-center text-accent group-hover:text-accent/85 transition-all py-2">
                     <span 
                       className="group-hover:underline"
-                      style={{ fontFamily: 'Museo, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                      style={{ fontWeight: 700, fontSize: '16px' }}
                     >
                       Meer info
                     </span>
@@ -90,12 +80,9 @@ export function Programma() {
           </div>
 
           <div className="text-center mt-12">
-            <Link 
-              to="/programma"
-              className="inline-block bg-[#3d7183] text-[#f6f4db] px-8 py-3 rounded-lg hover:bg-[#2d5563] transition-colors"
-            >
+            <JunoButton variant="secondary" href="/programma">
               Bekijk volledig programma
-            </Link>
+            </JunoButton>
           </div>
         </div>
       </section>

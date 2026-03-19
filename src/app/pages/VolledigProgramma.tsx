@@ -2,6 +2,8 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
 import { EventDrawer, EventData } from '../components/EventDrawer';
+import { PageHero } from '../components/PageHero';
+import { JunoButton } from '../components/JunoButton';
 import { Calendar, Clock } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -33,34 +35,15 @@ export function VolledigProgramma() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#f6f4db]">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Photo Hero */}
-      <section
-        className="relative h-[50vh] min-h-[320px] w-full overflow-hidden flex items-center justify-center"
-        style={{ fontFamily: 'Museo, sans-serif' }}
-      >
-        <img 
-          src={images.programma.jazz.event}
-          alt="Beachclub Juno Programma"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
-        
-        <div className="relative z-10 text-center px-6">
-          <h1
-            className="text-[#f6f4db] mb-4"
-            style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.04em' }}
-          >
-            VOLLEDIG PROGRAMMA
-          </h1>
-          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-5" />
-          <p className="text-[#f6f4db]/80 max-w-md mx-auto">
-            Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={images.programma.jazz.event}
+        title="VOLLEDIG PROGRAMMA"
+        subtitle="Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno"
+      />
 
       {/* Filter Pills */}
       <section className="py-12 px-6">
@@ -72,10 +55,10 @@ export function VolledigProgramma() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2.5 rounded-full transition-all ${
                   selectedCategory === category
-                    ? 'bg-[#cc6435] text-[#f6f4db]'
-                    : 'bg-[#f6f4db] border-2 border-[#3d7183] text-[#3d7183] hover:border-[#cc6435] hover:text-[#cc6435]'
+                    ? 'bg-accent text-background'
+                    : 'bg-background border-2 border-primary text-primary hover:border-accent hover:text-accent'
                 }`}
-                style={{ fontFamily: 'Museo, sans-serif', fontWeight: 500, fontSize: '14px' }}
+                style={{ fontWeight: 500, fontSize: '14px' }}
               >
                 {category}
               </button>
@@ -100,24 +83,21 @@ export function VolledigProgramma() {
                     alt={event.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-[#cc6435] text-[#f6f4db] px-4 py-1.5 rounded-full"
-                    style={{ fontFamily: 'Museo, sans-serif', fontWeight: 700, fontSize: '14px' }}
+                  <div className="absolute top-4 left-4 bg-accent text-background px-4 py-1.5 rounded-full"
+                    style={{ fontWeight: 700, fontSize: '14px' }}
                   >
                     {event.date}
                   </div>
                 </div>
                 
                 <div className="p-5">
-                  <span className="inline-block bg-[#9fbaae] text-[#f6f4db] px-3 py-1 rounded-full text-xs font-medium mb-2"
-                    style={{ fontFamily: 'Museo, sans-serif' }}
-                  >
+                  <span className="inline-block bg-secondary text-background px-3 py-1 rounded-full text-xs font-medium mb-2">
                     {event.category}
                   </span>
                   
                   <h3 
-                    className="text-[#3d7183] mb-2 tracking-wide"
+                    className="text-primary mb-2 tracking-wide font-display"
                     style={{ 
-                      fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.5rem',
                       lineHeight: '1.2'
                     }}
@@ -125,19 +105,19 @@ export function VolledigProgramma() {
                     {event.title}
                   </h3>
                   
-                  <p className="text-[#3d7183] text-sm mb-4 line-clamp-2" style={{ fontFamily: 'Museo, sans-serif' }}>
+                  <p className="text-primary text-sm mb-4 line-clamp-2">
                     {event.description}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-[#3d7183] text-sm">
+                    <div className="flex items-center gap-1 text-primary text-sm">
                       <Clock className="w-4 h-4" />
                       <span>{event.time}</span>
                     </div>
-                    <div className="inline-flex items-center text-[#cc6435] group-hover:text-[#b55730] transition-all py-2">
+                    <div className="inline-flex items-center text-accent group-hover:text-accent/85 transition-all py-2">
                       <span 
                         className="group-hover:underline"
-                        style={{ fontFamily: 'Museo, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                        style={{ fontWeight: 700, fontSize: '16px' }}
                       >
                         Meer info
                       </span>
@@ -151,22 +131,19 @@ export function VolledigProgramma() {
 
           {/* Load More */}
           <div className="text-center mt-12">
-            <button className="border-2 border-[#3d7183] text-[#3d7183] px-8 py-3 rounded-lg hover:bg-[#3d7183] hover:text-[#f6f4db] transition-colors"
-              style={{ fontFamily: 'Museo, sans-serif' }}
-            >
+            <JunoButton variant="outline-dark">
               Laad meer evenementen
-            </button>
+            </JunoButton>
           </div>
         </div>
       </section>
 
       {/* CTA Banner */}
-      <section className="py-16 px-6 bg-[#3d7183]">
+      <section className="py-16 px-6 bg-primary">
         <div className="max-w-[1000px] mx-auto text-center">
           <h2 
-            className="text-[#f6f4db] mb-4 tracking-wider"
+            className="text-background mb-4 tracking-wider font-display"
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2rem, 6vw, 3.5rem)',
               lineHeight: '1'
             }}
@@ -177,8 +154,7 @@ export function VolledigProgramma() {
           <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
           <button 
-            className="inline-block bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors"
-            style={{ fontFamily: 'Museo, sans-serif' }}
+            className="inline-block bg-accent text-background px-8 py-4 text-lg rounded-lg hover:bg-accent/85 transition-colors"
             onClick={() => {
               navigate('/');
               setTimeout(() => scrollToSection('events'), 100);

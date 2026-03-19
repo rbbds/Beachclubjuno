@@ -3,13 +3,12 @@ import { WaveDecoration } from './WaveDecoration';
 
 export function Intro() {
   return (
-    <section id="verhaal" className="py-20 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+    <section id="verhaal" className="py-20 px-6 font-body">
       <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h2 
-            className="text-[#3d7183] mb-6 tracking-wide"
+            className="text-primary mb-6 tracking-wide font-display"
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
               lineHeight: '1'
             }}
@@ -17,7 +16,7 @@ export function Intro() {
             MEER DAN EEN<br />BEACHCLUB
           </h2>
           <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
-          <div className="space-y-4 text-[#3d7183] text-lg leading-relaxed">
+          <div className="space-y-4 text-primary text-lg leading-relaxed">
             <p>
               Beachclub Juno is een ontmoetingsplek voor liefhebbers van goed eten, 
               mooi design en culturele verdieping. Gelegen aan het strand van Kijkduin, 

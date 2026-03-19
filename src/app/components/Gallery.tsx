@@ -43,10 +43,10 @@ export function Gallery() {
                 className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
               />
               {/* Cream overlay on hover */}
-              <div className="absolute inset-0 bg-[#f6f4db]/0 group-hover:bg-[#f6f4db]/10 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/10 transition-colors duration-300" />
               {/* Camera icon centered */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Camera className="w-8 h-8 text-[#f6f4db] drop-shadow-lg" />
+                <Camera className="w-8 h-8 text-background drop-shadow-lg" />
               </div>
             </button>
           ))}

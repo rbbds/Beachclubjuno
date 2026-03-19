@@ -30,13 +30,13 @@ export function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-[#3d7183] text-[#f6f4db] py-16 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
+    <footer id="contact" className="bg-primary text-background py-16 px-6 font-body">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Tagline */}
           <div>
             <JunoLogo variant="special" className="h-24 w-auto mb-4" onClick={handleLogoClick} />
-            <p className="text-[#f6f4db]/80">
+            <p className="text-background/80">
               Zon. Strand. Cultuur.
               <br />
               Waar de Noordzee en cultuur elkaar ontmoeten.
@@ -46,9 +46,8 @@ export function Footer() {
           {/* Navigatie */}
           <div>
             <h4 
-              className="mb-4 tracking-wide"
+              className="mb-4 tracking-wide font-display"
               style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
                 fontSize: '1.25rem'
               }}
             >
@@ -56,27 +55,27 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => scrollToSection('restaurant')} className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                <button onClick={() => scrollToSection('restaurant')} className="text-background/80 hover:text-accent transition-colors">
                   Restaurant
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('programma')} className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                <button onClick={() => scrollToSection('programma')} className="text-background/80 hover:text-accent transition-colors">
                   Programma
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('events')} className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                <button onClick={() => scrollToSection('events')} className="text-background/80 hover:text-accent transition-colors">
                   Events & Verhuur
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="text-background/80 hover:text-accent transition-colors">
                   Contact
                 </button>
               </li>
               <li>
-                <Link to="/faq" className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                <Link to="/faq" className="text-background/80 hover:text-accent transition-colors">
                   Veelgestelde vragen
                 </Link>
               </li>
@@ -86,9 +85,8 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h4 
-              className="mb-4 tracking-wide"
+              className="mb-4 tracking-wide font-display"
               style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
                 fontSize: '1.25rem'
               }}
             >
@@ -96,20 +94,20 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#cc6435]" />
-                <span className="text-[#f6f4db]/80">
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-accent" />
+                <span className="text-background/80">
                   Deltaplein 200<br />
                   2554 EJ Kijkduin<br />
                   Den Haag
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 flex-shrink-0 text-[#cc6435]" />
-                <span className="text-[#f6f4db]/80">070 123 4567</span>
+                <Phone className="w-5 h-5 flex-shrink-0 text-accent" />
+                <span className="text-background/80">070 123 4567</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 flex-shrink-0 text-[#cc6435]" />
-                <span className="text-[#f6f4db]/80">info@beachclubjuno.nl</span>
+                <Mail className="w-5 h-5 flex-shrink-0 text-accent" />
+                <span className="text-background/80">info@beachclubjuno.nl</span>
               </li>
             </ul>
           </div>
@@ -117,15 +115,14 @@ export function Footer() {
           {/* Openingstijden & Nieuwsbrief */}
           <div>
             <h4 
-              className="mb-4 tracking-wide"
+              className="mb-4 tracking-wide font-display"
               style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
                 fontSize: '1.25rem'
               }}
             >
               Openingstijden
             </h4>
-            <p className="text-[#f6f4db]/80">
+            <p className="text-background/80">
               Ma - Do: 10:00 - 22:00<br />
               Vr - Za: 10:00 - 01:00<br />
               Zo: 10:00 - 22:00
@@ -134,15 +131,15 @@ export function Footer() {
         </div>
 
         {/* Social & Copyright */}
-        <div className="pt-8 border-t border-[#f6f4db]/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#f6f4db]/60 text-sm">
+        <div className="pt-8 border-t border-background/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-background/60 text-sm">
             © 2026 Beachclub Juno. Alle rechten voorbehouden.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-[#f6f4db]/60 hover:text-[#cc6435] transition-colors">
+            <a href="#" className="text-background/60 hover:text-accent transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className="text-[#f6f4db]/60 hover:text-[#cc6435] transition-colors">
+            <a href="#" className="text-background/60 hover:text-accent transition-colors">
               <Facebook className="w-5 h-5" />
             </a>
           </div>

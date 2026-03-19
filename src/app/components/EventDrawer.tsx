@@ -31,7 +31,7 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
 
   return (
     <BaseDrawer isOpen={isOpen} onClose={onClose}>
-      <div style={{ fontFamily: 'Museo, sans-serif' }}>
+      <div className="font-body">
         {/* Event Photo */}
         <div className="relative w-full h-64">
           <img 
@@ -43,7 +43,7 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#f6f4db] text-[#3d7183] flex items-center justify-center hover:bg-[#f6f4db]/90 transition-all"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
             style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
           >
             <X className="w-5 h-5" />
@@ -54,19 +54,18 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
         <div className="p-8">
           {/* Category & Date */}
           <div className={`mb-4 ${isOpen ? 'drawer-content-1' : ''}`}>
-            <span className="inline-block bg-[#9fbaae] text-[#f6f4db] px-3 py-1 rounded-full text-sm font-medium mb-2">
+            <span className="inline-block bg-secondary text-background px-3 py-1 rounded-full text-sm font-medium mb-2">
               {event.category}
             </span>
-            <p className="text-[#3d7183]/70 text-sm">
+            <p className="text-primary/70 text-sm">
               {event.fullDate} • {event.time}
             </p>
           </div>
 
           {/* Title */}
           <h2 
-            className={`text-[#3d7183] mb-4 tracking-wide ${isOpen ? 'drawer-content-2' : ''}`}
+            className={`text-primary mb-4 tracking-wide font-display ${isOpen ? 'drawer-content-2' : ''}`}
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: '2.5rem',
               lineHeight: '1.1'
             }}
@@ -78,7 +77,7 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
           <WaveDecoration variant="special" className={`w-20 h-3 mb-6 ${isOpen ? 'drawer-content-3' : ''}`} />
 
           {/* Description */}
-          <p className={`text-[#3d7183] leading-relaxed mb-8 ${isOpen ? 'drawer-content-4' : ''}`}>
+          <p className={`text-primary leading-relaxed mb-8 ${isOpen ? 'drawer-content-4' : ''}`}>
             {event.description}
           </p>
 
@@ -92,15 +91,14 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
               />
               <div>
                 <h3 
-                  className="text-[#3d7183] mb-2 tracking-wide"
+                  className="text-primary mb-2 tracking-wide font-display"
                   style={{ 
-                    fontFamily: 'Bebas Neue, sans-serif',
                     fontSize: '1.25rem'
                   }}
                 >
                   {event.artist.name}
                 </h3>
-                <p className="text-[#3d7183] text-sm leading-relaxed">
+                <p className="text-primary text-sm leading-relaxed">
                   {event.artist.bio}
                 </p>
               </div>
@@ -109,45 +107,45 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
 
           {/* Info Row */}
           <div className={`grid grid-cols-2 gap-4 mb-6 ${isOpen ? 'drawer-content-6' : ''}`}>
-            <div className="flex items-center gap-2 text-[#3d7183]">
-              <Calendar className="w-4 h-4 text-[#cc6435]" />
+            <div className="flex items-center gap-2 text-primary">
+              <Calendar className="w-4 h-4 text-accent" />
               <div>
-                <p className="text-xs text-[#3d7183]/70">Datum</p>
+                <p className="text-xs text-primary/70">Datum</p>
                 <p className="text-sm font-medium">{event.date}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[#3d7183]">
-              <Clock className="w-4 h-4 text-[#cc6435]" />
+            <div className="flex items-center gap-2 text-primary">
+              <Clock className="w-4 h-4 text-accent" />
               <div>
-                <p className="text-xs text-[#3d7183]/70">Aanvang deuren</p>
+                <p className="text-xs text-primary/70">Aanvang deuren</p>
                 <p className="text-sm font-medium">{event.doors}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[#3d7183]">
-              <MapPin className="w-4 h-4 text-[#cc6435]" />
+            <div className="flex items-center gap-2 text-primary">
+              <MapPin className="w-4 h-4 text-accent" />
               <div>
-                <p className="text-xs text-[#3d7183]/70">Locatie</p>
+                <p className="text-xs text-primary/70">Locatie</p>
                 <p className="text-sm font-medium">Juno Kijkduin</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[#3d7183]">
-              <Euro className="w-4 h-4 text-[#cc6435]" />
+            <div className="flex items-center gap-2 text-primary">
+              <Euro className="w-4 h-4 text-accent" />
               <div>
-                <p className="text-xs text-[#3d7183]/70">Prijs p.p.</p>
+                <p className="text-xs text-primary/70">Prijs p.p.</p>
                 <p className="text-sm font-medium">{event.price}</p>
               </div>
             </div>
           </div>
 
           {/* Divider */}
-          <div className={`border-t border-[#9fbaae] my-6 ${isOpen ? 'drawer-content-6' : ''}`} />
+          <div className={`border-t border-secondary my-6 ${isOpen ? 'drawer-content-6' : ''}`} />
 
           {/* Buttons */}
           <div className={`space-y-3 ${isOpen ? 'drawer-content-7' : ''}`}>
-            <button className="w-full bg-[#cc6435] text-[#f6f4db] py-4 rounded-lg hover:bg-[#b55730] transition-colors font-medium">
+            <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-medium">
               Koop tickets
             </button>
-            <button className="w-full border-2 border-[#3d7183] text-[#3d7183] py-4 rounded-lg hover:bg-[#3d7183] hover:text-[#f6f4db] transition-colors font-medium">
+            <button className="w-full border-2 border-primary text-primary py-4 rounded-lg hover:bg-primary hover:text-background transition-colors font-medium">
               Voeg toe aan agenda
             </button>
           </div>

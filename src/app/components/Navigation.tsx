@@ -111,18 +111,17 @@ export function Navigation() {
   const hasHero = pagesWithHero.includes(location.pathname);
   const isTransparent = !isScrolled && hasHero;
   
-  const navLinkColor = isTransparent ? 'text-[#f6f4db]' : 'text-[#3d7183]';
-  const navLinkHoverColor = 'hover:text-[#cc6435]';
+  const navLinkColor = isTransparent ? 'text-background' : 'text-primary';
+  const navLinkHoverColor = 'hover:text-accent';
   const logoVariant = isTransparent ? 'inverted' : 'default';
-  const hamburgerColor = (isTransparent && !isMenuOpen) ? 'bg-white' : 'bg-[#3d7183]';
+  const hamburgerColor = (isTransparent && !isMenuOpen) ? 'bg-white' : 'bg-primary';
 
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 transition-all duration-300 z-[60] ${
-          isScrolled ? 'bg-[#f6f4db]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 z-[60] font-body ${
+          isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
         }`}
-        style={{ fontFamily: 'Museo, sans-serif' }}
       >
         <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
           <button onClick={goToHome}>
@@ -156,7 +155,7 @@ export function Navigation() {
             </button>
             <button 
               onClick={() => openFormitableWidget()}
-              className="bg-[#cc6435] text-[#f6f4db] px-6 py-2.5 rounded-lg hover:bg-[#b55730] transition-colors cursor-pointer"
+              className="bg-accent text-background px-6 py-2.5 rounded-lg hover:bg-accent/85 transition-colors cursor-pointer"
             >
               Reserveren
             </button>
@@ -206,23 +205,22 @@ export function Navigation() {
       {/* Overlay */}
       {isMenuOpen && (
         <div 
-          className="fixed inset-0 bg-[#3d7183]/20 z-50 lg:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-primary/20 z-50 lg:hidden transition-opacity duration-300"
           onClick={() => setIsMenuOpen(false)}
         />
       )}
 
       {/* Slide-in Panel */}
       <div 
-        className={`fixed top-0 right-0 bottom-0 w-full bg-[#f6f4db] border-l border-[#3d7183]/10 z-50 lg:hidden transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 bottom-0 w-full bg-background border-l border-primary/10 z-50 lg:hidden transition-transform duration-300 ease-in-out flex flex-col font-body ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ fontFamily: 'Museo, sans-serif' }}
       >
         {/* Zone 1: Sluitknop alleen, flush aan top */}
         <div className="flex items-center justify-end px-4 py-4">
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="w-10 h-10 flex items-center justify-center text-[#3d7183] hover:text-[#cc6435] transition-colors"
+            className="w-10 h-10 flex items-center justify-center text-primary hover:text-accent transition-colors"
             aria-label="Menu sluiten"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -236,7 +234,7 @@ export function Navigation() {
           {navItems.map((item, index) => (
             <div key={item.label}>
               {/* Nav Item Row */}
-              <div className={`py-4 ${index < navItems.length - 1 ? 'border-b border-[#3d7183]/8' : ''}`}>
+              <div className={`py-4 ${index < navItems.length - 1 ? 'border-b border-primary/8' : ''}`}>
                 {!item.children ? (
                   // Simple item - full width button
                   <button
@@ -244,9 +242,8 @@ export function Navigation() {
                     className="w-full text-left"
                   >
                     <span 
-                      className="text-[#3d7183]"
+                      className="text-primary font-display"
                       style={{ 
-                        fontFamily: 'Bebas Neue, sans-serif',
                         fontSize: '1.5rem',
                         letterSpacing: '0.05em'
                       }}
@@ -264,9 +261,8 @@ export function Navigation() {
                         className="flex-1 text-left"
                       >
                         <span 
-                          className="text-[#3d7183]"
+                          className="text-primary font-display"
                           style={{ 
-                            fontFamily: 'Bebas Neue, sans-serif',
                             fontSize: '1.5rem',
                             letterSpacing: '0.05em'
                           }}
@@ -282,7 +278,7 @@ export function Navigation() {
                         aria-label="Toggle submenu"
                       >
                         <ChevronDown 
-                          className={`w-4 h-4 text-[#cc6435] transition-transform duration-200 ${
+                          className={`w-4 h-4 text-accent transition-transform duration-200 ${
                             expandedItems.includes(item.label) ? 'rotate-180' : ''
                           }`}
                         />
@@ -305,9 +301,8 @@ export function Navigation() {
                           className="w-full text-left py-2.5"
                         >
                           <span 
-                            className="text-[#cc6435]"
+                            className="text-accent"
                             style={{ 
-                              fontFamily: 'Museo, sans-serif',
                               fontSize: '0.9rem',
                               fontWeight: 600
                             }}
@@ -328,8 +323,8 @@ export function Navigation() {
         <div className="px-6 pb-10 pt-6">
           <button 
             onClick={() => { setIsMenuOpen(false); setTimeout(openFormitableWidget, 300); }}
-            className="w-full bg-[#cc6435] text-white rounded-lg py-4 hover:bg-[#b55730] transition-colors cursor-pointer"
-            style={{ fontFamily: 'Museo, sans-serif', fontSize: '1rem', fontWeight: 500 }}
+            className="w-full bg-accent text-white rounded-lg py-4 hover:bg-accent/85 transition-colors cursor-pointer"
+            style={{ fontSize: '1rem', fontWeight: 500 }}
           >
             Reserveren
           </button>

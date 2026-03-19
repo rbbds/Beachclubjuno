@@ -1,6 +1,8 @@
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { PageHero } from '../components/PageHero';
+import { JunoButton } from '../components/JunoButton';
 import {
   Accordion,
   AccordionItem,
@@ -102,39 +104,19 @@ const faqGroups = [
 
 export function VeelgesteldeVragen() {
   return (
-    <div className="min-h-screen bg-[#f6f4db]">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Photo Hero */}
-      <section
-        className="relative h-[50vh] min-h-[320px] w-full overflow-hidden flex items-center justify-center"
-        style={{ fontFamily: 'Museo, sans-serif' }}
-      >
-        <img
-          src={images.hero.main}
-          alt="Beachclub Juno"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-
-        <div className="relative z-10 text-center px-6">
-          <h1
-            className="text-[#f6f4db] mb-4"
-            style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.04em' }}
-          >
-            VEELGESTELDE VRAGEN
-          </h1>
-          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-5" />
-          <p className="text-[#f6f4db]/80 max-w-md mx-auto">
-            Alles wat je wilt weten over Juno
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={images.hero.main}
+        title="VEELGESTELDE VRAGEN"
+        subtitle="Alles wat je wilt weten over Juno"
+      />
 
       {/* FAQ Content */}
       <section
-        className="py-16 px-6"
-        style={{ fontFamily: 'Museo, sans-serif' }}
+        className="py-16 px-6 font-body"
       >
         <div className="max-w-[900px] mx-auto space-y-16">
           {faqGroups.map((group) => (
@@ -142,8 +124,8 @@ export function VeelgesteldeVragen() {
               {/* Group header */}
               <div className="mb-6">
                 <h2
-                  className="text-[#3d7183] mb-3"
-                  style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.5rem', letterSpacing: '0.06em' }}
+                  className="text-primary mb-3 font-display"
+                  style={{ fontSize: '1.5rem', letterSpacing: '0.06em' }}
                 >
                   {group.label}
                 </h2>
@@ -156,16 +138,16 @@ export function VeelgesteldeVragen() {
                   <AccordionItem
                     key={idx}
                     value={`${group.key}-${idx}`}
-                    className="border-b border-[#9fbaae]/30 last:border-b-0"
+                    className="border-b border-secondary/30 last:border-b-0"
                   >
                     <AccordionTrigger
-                      className="text-[#3d7183] hover:text-[#cc6435] hover:no-underline transition-colors py-4 text-left"
+                      className="text-primary hover:text-accent hover:no-underline transition-colors py-4 text-left"
                       style={{ fontWeight: 700 }}
                     >
                       {item.q}
                     </AccordionTrigger>
                     <AccordionContent>
-                      <p className="text-[#3d7183]/80 leading-relaxed pb-2">
+                      <p className="text-primary/80 leading-relaxed pb-2">
                         {item.a}
                       </p>
                     </AccordionContent>
@@ -179,32 +161,25 @@ export function VeelgesteldeVragen() {
 
       {/* CTA Block */}
       <section
-        className="bg-[#3d7183] py-20 px-6 text-center"
-        style={{ fontFamily: 'Museo, sans-serif' }}
+        className="bg-primary py-20 px-6 text-center font-body"
       >
         <h2
-          className="text-[#f6f4db] mb-4"
-          style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.04em' }}
+          className="text-background mb-4 font-display"
+          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.04em' }}
         >
           Nog een vraag?
         </h2>
         <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-6" />
-        <p className="text-[#f6f4db]/80 mb-10 max-w-md mx-auto">
+        <p className="text-background/80 mb-10 max-w-md mx-auto">
           Staat jouw vraag er niet bij? We helpen je graag persoonlijk verder.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="mailto:info@beachclubjuno.nl"
-            className="bg-[#cc6435] text-[#f6f4db] px-8 py-3 rounded-lg hover:bg-[#b55730] transition-colors"
-          >
+          <JunoButton variant="primary" href="mailto:info@beachclubjuno.nl">
             Stuur een e-mail
-          </a>
-          <a
-            href="tel:0701234567"
-            className="border border-[#f6f4db] text-[#f6f4db] px-8 py-3 rounded-lg hover:bg-[#f6f4db]/10 transition-colors"
-          >
+          </JunoButton>
+          <JunoButton variant="outline-light" href="tel:0701234567">
             Bel ons
-          </a>
+          </JunoButton>
         </div>
       </section>
 

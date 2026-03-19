@@ -1,5 +1,7 @@
 import { Star } from 'lucide-react';
 import { WaveDecoration } from './WaveDecoration';
+import { SectionHeader } from './SectionHeader';
+import { JunoButton } from './JunoButton';
 
 const reviews = [
   {
@@ -29,7 +31,7 @@ function StarRating({ rating, className = '' }: { rating: number; className?: st
         <Star
           key={star}
           className={`w-5 h-5 ${
-            star <= rating ? 'fill-[#cc6435] text-[#cc6435]' : 'fill-gray-300 text-gray-300'
+            star <= rating ? 'fill-accent text-accent' : 'fill-gray-300 text-gray-300'
           }`}
         />
       ))}
@@ -50,33 +52,20 @@ function GoogleIcon({ className = '' }: { className?: string }) {
 
 export function Reviews() {
   return (
-    <section className="py-20 px-6 bg-[#f6f4db]" style={{ fontFamily: 'Museo, sans-serif' }}>
+    <section className="py-20 px-6 bg-background font-body">
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 
-            className="text-[#3d7183] mb-2 tracking-wide"
-            style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-              lineHeight: '1'
-            }}
-          >
-            WAT ONZE GASTEN ZEGGEN
-          </h2>
-          <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          <div className="flex items-center justify-center gap-2 text-[#3d7183]">
-            <span className="text-lg">Gebaseerd op Google Reviews</span>
-            <GoogleIcon className="w-5 h-5" />
-          </div>
+        <SectionHeader title="WAT ONZE GASTEN ZEGGEN" waveVariant="special" />
+        <div className="flex items-center justify-center gap-2 text-primary mb-12">
+          <span className="text-lg">Gebaseerd op Google Reviews</span>
+          <GoogleIcon className="w-5 h-5" />
         </div>
 
         {/* Overall Rating */}
         <div className="text-center mb-12">
           <div 
-            className="text-[#3d7183] mb-3"
+            className="text-primary mb-3 font-display"
             style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
               fontSize: '5rem',
               lineHeight: '1'
             }}
@@ -84,7 +73,7 @@ export function Reviews() {
             4.8
           </div>
           <StarRating rating={5} className="justify-center mb-2" />
-          <p className="text-[#3d7183]/70 text-sm">
+          <p className="text-primary/70 text-sm">
             gebaseerd op 284 beoordelingen
           </p>
         </div>
@@ -99,16 +88,16 @@ export function Reviews() {
               {/* Stars and Date */}
               <div className="flex items-center justify-between mb-4">
                 <StarRating rating={review.stars} />
-                <span className="text-[#3d7183]/60 text-sm">{review.date}</span>
+                <span className="text-primary/60 text-sm">{review.date}</span>
               </div>
 
               {/* Reviewer Name */}
-              <h3 className="text-[#3d7183] font-bold text-lg mb-3">
+              <h3 className="text-primary font-bold text-lg mb-3">
                 {review.name}
               </h3>
 
               {/* Review Text */}
-              <p className="text-[#3d7183] leading-relaxed mb-4 line-clamp-3">
+              <p className="text-primary leading-relaxed mb-4 line-clamp-3">
                 {review.text}
               </p>
 
@@ -122,14 +111,13 @@ export function Reviews() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <a
+          <JunoButton
+            variant="outline-dark"
             href="https://www.google.com/search?q=beachclub+juno"
             target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-[#cc6435] text-[#cc6435] px-8 py-3 rounded-lg hover:bg-[#cc6435] hover:text-[#f6f4db] transition-colors text-lg"
           >
             Bekijk alle reviews op Google →
-          </a>
+          </JunoButton>
         </div>
       </div>
     </section>

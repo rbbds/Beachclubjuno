@@ -15,9 +15,8 @@ export function Hero() {
       
       <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
         <h1 
-          className="text-[#f6f4db] mb-6 tracking-wider"
+          className="text-background mb-6 tracking-wider font-display"
           style={{ 
-            fontFamily: 'Bebas Neue, sans-serif',
             fontSize: 'clamp(3.5rem, 12vw, 10rem)',
             lineHeight: '0.9'
           }}
@@ -28,8 +27,7 @@ export function Hero() {
         <WaveDecoration variant="special" className="w-32 h-4 mb-8" />
         
         <p 
-          className="text-[#f6f4db] max-w-2xl mb-10 text-lg md:text-xl"
-          style={{ fontFamily: 'Museo, sans-serif' }}
+          className="text-background max-w-2xl mb-10 text-lg md:text-xl font-body"
         >
           Waar de Noordzee, culinaire verfijning en culturele beleving samenkomen. 
           Welkom bij Beachclub Juno, Kijkduin.
@@ -37,8 +35,7 @@ export function Hero() {
         
         <button 
           onClick={() => scrollToSection('verhaal')}
-          className="bg-[#cc6435] text-[#f6f4db] px-8 py-4 text-lg rounded-lg hover:bg-[#b55730] transition-colors"
-          style={{ fontFamily: 'Museo, sans-serif' }}
+          className="bg-accent text-background px-8 py-4 text-lg rounded-lg hover:bg-accent/85 transition-colors font-body"
         >
           Ontdek ons verhaal
         </button>

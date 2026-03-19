@@ -24,7 +24,7 @@ export function BaseDrawer({ isOpen, onClose, children }: BaseDrawerProps) {
     <>
       {/* Overlay */}
       <div 
-        className={`fixed inset-0 bg-[#3d7183]/50 z-[60] transition-opacity ${
+        className={`fixed inset-0 bg-primary/50 z-[60] transition-opacity ${
           isOpen ? 'opacity-100 duration-300' : 'opacity-0 duration-250 pointer-events-none'
         }`}
         style={{ 
@@ -35,7 +35,7 @@ export function BaseDrawer({ isOpen, onClose, children }: BaseDrawerProps) {
 
       {/* Drawer */}
       <div 
-        className={`fixed top-0 right-0 h-full w-full md:w-[480px] bg-[#f6f4db] z-[70] shadow-2xl drawer-scroll ${
+        className={`fixed top-0 right-0 h-full w-full md:w-[480px] bg-background z-[70] shadow-2xl drawer-scroll ${
           isOpen ? 'drawer-open' : 'drawer-close'
         }`}
       >

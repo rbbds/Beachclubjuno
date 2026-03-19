@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { WaveDecoration } from './WaveDecoration';
+import { SectionHeader } from './SectionHeader';
 import { WaveTransition } from './WaveTransition';
 import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
@@ -72,24 +73,13 @@ export function Watersport() {
 
   return (
     <>
-      <section id="watersport" className="relative py-20 px-6 bg-[#f6f4db]" style={{ fontFamily: 'Museo, sans-serif' }}>
+      <section id="watersport" className="relative py-20 px-6 bg-background font-body">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-[#3d7183] mb-2 tracking-wide"
-              style={{ 
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              WATERSPORT
-            </h2>
-            <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-            <p className="text-[#3d7183] text-lg max-w-3xl mx-auto">
-              Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl.
-            </p>
-          </div>
+          <SectionHeader
+            title="WATERSPORT"
+            subtitle="Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl."
+            waveVariant="special"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {activities.map((activity) => (
@@ -106,19 +96,18 @@ export function Watersport() {
                   />
                 </div>
                 <h3 
-                  className="text-[#3d7183] mb-2 tracking-wide"
+                  className="text-primary mb-2 tracking-wide font-display"
                   style={{ 
-                    fontFamily: 'Bebas Neue, sans-serif',
                     fontSize: '24px',
                     lineHeight: '1.2'
                   }}
                 >
                   {activity.cardTitle}
                 </h3>
-                <div className="inline-flex items-center text-[#cc6435] group-hover:text-[#b55730] transition-all py-2">
+                <div className="inline-flex items-center text-accent group-hover:text-accent/85 transition-all py-2">
                   <span 
                     className="group-hover:underline"
-                    style={{ fontFamily: 'Museo, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                    style={{ fontWeight: 700, fontSize: '16px' }}
                   >
                     Meer info
                   </span>
@@ -136,7 +125,7 @@ export function Watersport() {
       {/* Drawer */}
       {selectedActivity && (
         <BaseDrawer isOpen={!!selectedActivity} onClose={() => setSelectedActivity(null)}>
-          <div style={{ fontFamily: 'Museo, sans-serif' }}>
+          <div className="font-body">
             {/* Activity Photo */}
             <div className="relative w-full aspect-video">
               <img 
@@ -148,7 +137,7 @@ export function Watersport() {
               {/* Close button */}
               <button 
                 onClick={() => setSelectedActivity(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#f6f4db] text-[#3d7183] flex items-center justify-center hover:bg-[#f6f4db]/90 transition-all"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
                 aria-label="Close"
               >
@@ -160,9 +149,8 @@ export function Watersport() {
             <div className="p-8">
               {/* Title */}
               <h2 
-                className={`text-[#3d7183] mb-6 tracking-wide ${selectedActivity ? 'drawer-content-2' : ''}`}
+                className={`text-primary mb-6 tracking-wide font-display ${selectedActivity ? 'drawer-content-2' : ''}`}
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
                   lineHeight: '1'
                 }}
@@ -174,13 +162,13 @@ export function Watersport() {
               <WaveDecoration variant="special" className={`w-20 h-3 mb-6 ${selectedActivity ? 'drawer-content-3' : ''}`} />
 
               {/* Description */}
-              <p className={`text-[#3d7183] text-lg leading-relaxed mb-4 ${selectedActivity ? 'drawer-content-4' : ''}`}>
+              <p className={`text-primary text-lg leading-relaxed mb-4 ${selectedActivity ? 'drawer-content-4' : ''}`}>
                 {selectedActivity.description}
               </p>
 
               {/* Extra line if exists */}
               {selectedActivity.extraLine && (
-                <p className={`text-[#3d7183] text-lg leading-relaxed mb-6 ${selectedActivity ? 'drawer-content-5' : ''}`}>
+                <p className={`text-primary text-lg leading-relaxed mb-6 ${selectedActivity ? 'drawer-content-5' : ''}`}>
                   {selectedActivity.extraLine}
                 </p>
               )}
@@ -190,9 +178,8 @@ export function Watersport() {
                 href={selectedActivity.buttonLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block w-full bg-[#cc6435] text-[#f6f4db] text-center px-8 py-4 rounded-lg hover:bg-[#b55730] transition-colors ${selectedActivity ? 'drawer-content-7' : ''}`}
+                className={`block w-full bg-accent text-background text-center px-8 py-4 rounded-lg hover:bg-accent/85 transition-colors font-display ${selectedActivity ? 'drawer-content-7' : ''}`}
                 style={{ 
-                  fontFamily: 'Bebas Neue, sans-serif',
                   fontSize: '18px',
                   letterSpacing: '0.05em'
                 }}
