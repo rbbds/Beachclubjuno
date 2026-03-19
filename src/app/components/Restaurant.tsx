@@ -2,6 +2,9 @@ import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
 import { images } from '../data/images';
 
+// TODO: Replace with real menu PDF URL when design is delivered
+const MENU_PDF_URL = '#';
+
 export function Restaurant() {
   return (
     <section id="restaurant" className="relative py-20 px-6 font-body">
@@ -32,9 +35,15 @@ export function Restaurant() {
               Noordzee en een zorgvuldig samengestelde wijnkaart.
             </p>
             
-            <button className="bg-accent text-background px-8 py-3 rounded-lg hover:bg-accent/85 transition-colors">
+            <a
+              href={MENU_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bekijk de menukaart van Beachclub Juno (opent in nieuw tabblad)"
+              className={`inline-block bg-accent text-background px-8 py-3 rounded-lg hover:bg-accent/85 transition-colors font-body ${MENU_PDF_URL === '#' ? 'pointer-events-none opacity-50' : ''}`}
+            >
               Bekijk de kaart
-            </button>
+            </a>
           </div>
         </div>
       </div>
