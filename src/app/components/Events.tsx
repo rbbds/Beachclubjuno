@@ -1,4 +1,5 @@
 import { WaveDecoration } from './WaveDecoration';
+import { SectionWaveTop } from './SectionWaveTop';
 import { SectionHeader } from './SectionHeader';
 import { Link } from 'react-router';
 import { images } from '../data/images';
@@ -6,6 +7,8 @@ import { images } from '../data/images';
 export function Events() {
   return (
     <section id="events" className="py-20 px-6 font-body">
+      <SectionWaveTop fillColor="#f6f4db" />
+      
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader
           title="EVENTS & VERHUUR"

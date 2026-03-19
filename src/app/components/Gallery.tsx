@@ -53,7 +53,7 @@ export function Gallery() {
         </div>
 
         {/* Wave transition to Watersport section */}
-        <WaveTransition fillColor="#f6f4db" />
+        <WaveTransition fillColor="#e8f0f3" />
       </section>
 
       {/* Lightbox */}

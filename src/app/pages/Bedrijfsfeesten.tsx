@@ -159,7 +159,7 @@ export function Bedrijfsfeesten() {
           intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
           phone="+31624734660"
           email="info@clubjuno.nl"
-          bgColor="cream"
+          bgColor="terracotta"
         />
         <WaveTransition fillColor="#e8f0f3" />
       </div>
@@ -226,8 +226,9 @@ export function Bedrijfsfeesten() {
           items={faqItems}
           image={images.bedrijfsfeesten.team}
           imageAlt="Zakelijke Events FAQ"
+          bgColor="sage"
         />
-        <WaveTransition fillColor="#f0f5f3" />
+        <WaveTransition fillColor="#faf0ea" />
       </div>
 
       {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
@@ -239,7 +240,7 @@ export function Bedrijfsfeesten() {
           intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
           phone="+31624734660"
           email="info@clubjuno.nl"
-          bgColor="sage"
+          bgColor="terracotta"
         />
         <WaveTransition fillColor="#3d7183" />
       </div>

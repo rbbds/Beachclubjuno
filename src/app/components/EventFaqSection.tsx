@@ -10,11 +10,14 @@ interface EventFaqSectionProps {
   items: Array<{ question: string; answer: string }>;
   image: string;
   imageAlt?: string;
-  bgColor?: 'cream' | 'navy';
+  bgColor?: 'cream' | 'navy' | 'sage';
 }
 
 export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cream' }: EventFaqSectionProps) {
-  const bgClass = bgColor === 'cream' ? 'bg-background' : 'bg-navy-soft';
+  const bgClass = 
+    bgColor === 'cream' ? 'bg-background' : 
+    bgColor === 'navy' ? 'bg-navy-soft' :
+    'bg-sage-soft';
 
   return (
     <section className={`py-28 px-6 font-body ${bgClass}`}>

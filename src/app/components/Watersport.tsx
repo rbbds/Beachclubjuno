@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { WaveDecoration } from './WaveDecoration';
 import { SectionHeader } from './SectionHeader';
+import { SectionWaveTop } from './SectionWaveTop';
 import { WaveTransition } from './WaveTransition';
 import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
@@ -73,7 +74,9 @@ export function Watersport() {
 
   return (
     <>
-      <section id="watersport" className="relative py-20 px-6 bg-background font-body">
+      <section id="watersport" className="relative py-20 px-6 bg-navy-soft font-body">
+        <SectionWaveTop fillColor="#e8f0f3" />
+        
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="WATERSPORT"
@@ -119,7 +122,7 @@ export function Watersport() {
         </div>
 
         {/* Wave transition to Footer */}
-        <WaveTransition fillColor="#f6f4db" />
+        <WaveTransition fillColor="#faf0ea" />
       </section>
 
       {/* Drawer */}

@@ -159,7 +159,7 @@ export function ParticuliereEvents() {
           intro="Ik ben Sarah, Event Manager bij Juno. Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
           phone="+31624734660"
           email="info@clubjuno.nl"
-          bgColor="cream"
+          bgColor="terracotta"
         />
         <WaveTransition fillColor="#e8f0f3" />
       </div>
@@ -226,8 +226,9 @@ export function ParticuliereEvents() {
           items={faqItems}
           image={images.events.bruiloften}
           imageAlt="Particuliere Events FAQ"
+          bgColor="sage"
         />
-        <WaveTransition fillColor="#f0f5f3" />
+        <WaveTransition fillColor="#faf0ea" />
       </div>
 
       {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
@@ -239,7 +240,7 @@ export function ParticuliereEvents() {
           intro="Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
           phone="+31624734660"
           email="info@clubjuno.nl"
-          bgColor="sage"
+          bgColor="terracotta"
         />
         <WaveTransition fillColor="#3d7183" />
       </div>

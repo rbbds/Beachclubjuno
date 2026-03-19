@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { WaveDecoration } from '../components/WaveDecoration';
 import { PageHero } from '../components/PageHero';
-import { Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { WaveDecoration } from '../components/WaveDecoration';
+import { WaveTransition } from '../components/WaveTransition';
+import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 import { images } from '../data/images';
 
 export function ContactPage() {
@@ -58,7 +59,7 @@ export function ContactPage() {
       />
 
       {/* Main Content Section */}
-      <section className="py-20 px-6 bg-background">
+      <section className="relative py-20 px-6 bg-navy-soft">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
@@ -186,6 +187,8 @@ export function ContactPage() {
             )}
           </div>
         </div>
+        
+        <WaveTransition fillColor="#3d7183" />
       </section>
 
       {/* Map Section */}

@@ -1,5 +1,5 @@
 import { WaveDecoration } from './WaveDecoration';
-import { WaveTransition } from './WaveTransition';
+import { SectionWaveTop } from './SectionWaveTop';
 import { SectionHeader } from './SectionHeader';
 import { JunoButton } from './JunoButton';
 import { Calendar } from 'lucide-react';
@@ -25,6 +25,8 @@ export function Programma() {
   return (
     <>
       <section id="programma" className="relative py-20 px-6 bg-sage-soft font-body">
+        <SectionWaveTop fillColor="#f0f5f3" />
+        
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="CULTUREEL PROGRAMMA"
@@ -87,8 +89,6 @@ export function Programma() {
             </JunoButton>
           </div>
         </div>
-        
-        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       <EventDrawer 

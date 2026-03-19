@@ -8,7 +8,7 @@ interface EventManagerContactProps {
   intro: string;
   phone: string;
   email: string;
-  bgColor?: 'cream' | 'sage' | 'navy';
+  bgColor?: 'cream' | 'sage' | 'navy' | 'terracotta';
 }
 
 export function EventManagerContact({
@@ -20,7 +20,11 @@ export function EventManagerContact({
   email,
   bgColor = 'cream',
 }: EventManagerContactProps) {
-  const bgClass = bgColor === 'cream' ? 'bg-background' : bgColor === 'sage' ? 'bg-sage-soft' : 'bg-navy-soft';
+  const bgClass = 
+    bgColor === 'cream' ? 'bg-background' : 
+    bgColor === 'sage' ? 'bg-sage-soft' : 
+    bgColor === 'navy' ? 'bg-navy-soft' :
+    'bg-terracotta-soft';
 
   return (
     <section className={`py-28 px-6 font-body ${bgClass}`}>

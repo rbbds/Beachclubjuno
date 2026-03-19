@@ -73,7 +73,7 @@ export function VolledigProgramma() {
       </section>
 
       {/* Event Grid */}
-      <section className="pb-20 px-6">
+      <section className="pb-20 px-6 bg-sage-soft">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid md:grid-cols-3 gap-6">
             {filteredEvents.map((event) => (

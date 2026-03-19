@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { WaveTransition } from '../components/WaveTransition';
 import { PageHero } from '../components/PageHero';
 import { JunoButton } from '../components/JunoButton';
 import {
@@ -122,7 +123,7 @@ export function VeelgesteldeVragen() {
 
       {/* FAQ Content */}
       <section
-        className="py-16 px-6 font-body"
+        className="relative py-16 px-6 font-body bg-terracotta-soft"
       >
         <div className="max-w-[900px] mx-auto space-y-16">
           {faqGroups.map((group) => (
@@ -167,8 +168,10 @@ export function VeelgesteldeVragen() {
 
       {/* CTA Block */}
       <section
-        className="bg-primary py-20 px-6 text-center font-body"
+        className="relative bg-primary py-20 px-6 text-center font-body"
       >
+        <WaveTransition fillColor="#3d7183" />
+        
         <h2
           className="text-background mb-4 font-display"
           style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.04em' }}

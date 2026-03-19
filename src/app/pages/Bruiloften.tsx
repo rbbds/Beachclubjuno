@@ -175,7 +175,7 @@ export function Bruiloften() {
           </div>
         </div>
         
-        <WaveTransition fillColor="#f6f4db" />
+        <WaveTransition fillColor="#faf0ea" />
       </section>
 
       {/* SECTION 3 — EVENT MANAGER CONTACT */}
@@ -186,7 +186,7 @@ export function Bruiloften() {
         intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
         phone="+31624734660"
         email="info@clubjuno.nl"
-        bgColor="cream"
+        bgColor="terracotta"
       />
 
       {/* SECTION 4 — SFEER FOTO STRIP */}
@@ -254,8 +254,9 @@ export function Bruiloften() {
           items={faqItems}
           image={images.bruiloften.intro}
           imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
+          bgColor="sage"
         />
-        <WaveTransition fillColor="#f0f5f3" />
+        <WaveTransition fillColor="#faf0ea" />
       </div>
 
       {/* SECTION 7 — EVENT MANAGER CONTACT (sage background) */}
@@ -267,7 +268,7 @@ export function Bruiloften() {
           intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
           phone="+31624734660"
           email="info@clubjuno.nl"
-          bgColor="sage"
+          bgColor="terracotta"
         />
         <WaveTransition fillColor="#3d7183" />
       </div>

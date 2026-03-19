@@ -1,6 +1,8 @@
 import { Star } from 'lucide-react';
 import { WaveDecoration } from './WaveDecoration';
 import { SectionHeader } from './SectionHeader';
+import { SectionWaveTop } from './SectionWaveTop';
+import { WaveTransition } from './WaveTransition';
 import { JunoButton } from './JunoButton';
 
 const reviews = [
@@ -52,7 +54,9 @@ function GoogleIcon({ className = '' }: { className?: string }) {
 
 export function Reviews() {
   return (
-    <section className="py-20 px-6 bg-background font-body">
+    <section className="relative py-20 px-6 bg-terracotta-soft font-body">
+      <SectionWaveTop fillColor="#faf0ea" />
+      
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <SectionHeader title="WAT ONZE GASTEN ZEGGEN" waveVariant="special" />
@@ -120,6 +124,8 @@ export function Reviews() {
           </JunoButton>
         </div>
       </div>
+      
+      <WaveTransition fillColor="#3d7183" />
     </section>
   );
 }

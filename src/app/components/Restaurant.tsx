@@ -1,4 +1,5 @@
 import { WaveDecoration } from './WaveDecoration';
+import { SectionWaveTop } from './SectionWaveTop';
 import { WaveTransition } from './WaveTransition';
 import { images } from '../data/images';
 
@@ -7,7 +8,9 @@ const MENU_PDF_URL = '#';
 
 export function Restaurant() {
   return (
-    <section id="restaurant" className="relative py-20 px-6 font-body">
+    <section id="restaurant" className="relative py-20 px-6 bg-terracotta-soft font-body">
+      <SectionWaveTop fillColor="#faf0ea" />
+      
       <div className="max-w-[1400px] mx-auto">
         <div className="relative">
           <img 
@@ -47,9 +50,6 @@ export function Restaurant() {
           </div>
         </div>
       </div>
-
-      {/* Wave transition to Programma section - Sage green #9fbaae */}
-      <WaveTransition key="restaurant-wave" fillColor="#9fbaae" />
     </section>
   );
 }
