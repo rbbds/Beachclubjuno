@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { WaveDecoration } from '../components/WaveDecoration';
-import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
 import { JunoButton } from '../components/JunoButton';
+import { WaveDecoration } from '../components/WaveDecoration';
+import { EventManagerContact } from '../components/EventManagerContact';
+import { EventFaqSection } from '../components/EventFaqSection';
 import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
 
@@ -14,200 +15,251 @@ export function Bruiloften() {
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
 
-  const features = [
+  const regelingCards = [
     {
       icon: Heart,
-      title: 'Eigen ceremonieplek op het strand',
-      description: 'Een intieme setting aan de vloedlijn, omringd door het ruisen van de golven en het zachte zand onder uw voeten.',
+      title: 'PERSOONLIJKE BEGELEIDING',
+      description: 'Jouw eigen weddingcoördinator begeleidt jullie van de eerste kennismaking tot de laatste dans. Altijd bereikbaar, altijd betrokken.'
     },
     {
       icon: Users,
-      title: 'Volledig verzorgd diner & drankenpakket',
-      description: 'Van welkomstdrankjes tot het dessert: onze chef creëert een culinaire ervaring die uw gasten niet vergeten.',
+      title: 'CATERING OP MAAT',
+      description: 'Van welkomstdrankjes tot het dessert — onze chef creëert een culinaire ervaring die past bij jullie smaak en budget.'
     },
     {
       icon: Sparkles,
-      title: 'Persoonlijke weddingcoördinator',
-      description: 'Uw eigen contactpersoon die elk detail behartigt, van de eerste kennismaking tot de laatste dans.',
-    },
+      title: 'DE PERFECTE SETTING',
+      description: 'Strandceremonie, overdekt diner of een mix — we passen de locatie volledig aan jullie wensen aan.'
+    }
   ];
 
-  const sfeerPhotos = images.bruiloften.sfeer;
+  const momentenCards = [
+    {
+      image: images.bruiloften.hero,
+      title: 'DE CEREMONIE',
+      subtitle: 'Jullie ja-woord aan de vloedlijn'
+    },
+    {
+      image: images.bruiloften.sfeer[0],
+      title: 'WELKOMSTDRANKJE',
+      subtitle: 'Proostend met uitzicht op zee'
+    },
+    {
+      image: images.bruiloften.sfeer[1],
+      title: 'HET DINER',
+      subtitle: 'Culinair genieten met jullie gasten'
+    },
+    {
+      image: images.bruiloften.sfeer[2],
+      title: 'DE EERSTE DANS',
+      subtitle: 'Met golven als decor'
+    },
+    {
+      image: images.bruiloften.sfeer[3],
+      title: 'HET FEEST',
+      subtitle: 'Tot laat dansen aan het strand'
+    }
+  ];
+
+  const faqItems = [
+    { 
+      question: 'Is Juno een officiële trouwlocatie?', 
+      answer: 'Ja, Juno is een erkende trouwlocatie. Jullie kunnen hier officieel in het huwelijk treden, met de Noordzee als decor.' 
+    },
+    { 
+      question: 'Hoeveel gasten kunnen we uitnodigen?', 
+      answer: 'We ontvangen bruiloften van 20 tot 200 personen. Zowel intieme ceremonies als grote feesten zijn mogelijk.' 
+    },
+    { 
+      question: 'Wanneer is Juno beschikbaar voor bruiloften?', 
+      answer: 'We organiseren bruiloften het hele jaar door. Het hoogseizoen (mei t/m september) is snel volgeboekt — reserveer op tijd.' 
+    },
+    { 
+      question: 'Kunnen we ook buiten trouwen?', 
+      answer: 'Absoluut. Een strandceremonie aan de vloedlijn is een van onze mooiste opties. We hebben ook overdekte alternatieven voor onzeker weer.' 
+    },
+    { 
+      question: 'Wat is er inbegrepen in een bruiloftarrangement?', 
+      answer: 'Elk arrangement is maatwerk. Basisarrangementen bevatten locatiehuur, catering en een persoonlijke coördinator. Neem contact op voor een offerte op maat.' 
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero */}
-      <PageHero
-        image={images.bruiloften.hero}
-        title="TROUWEN AAN ZEE"
-        subtitle="De Noordzee als getuige. Juno als decor."
-        altText="Huwelijksceremonie op het strand bij Beachclub Juno Kijkduin"
-        waveVariant="inverted"
-        height="h-screen"
+      {/* SECTION 1 — SPLIT HERO */}
+      <section className="min-h-screen grid md:grid-cols-2 font-body">
+        {/* Left column */}
+        <div className="bg-background flex flex-col justify-center px-12 py-32 md:py-0">
+          <div className="font-display text-accent text-xl tracking-wide mb-4">
+            VIER DE LIEFDE
+          </div>
+          <h1 
+            className="font-display text-primary mb-6"
+            style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: '1' }}
+          >
+            TROUWEN OP HET STRAND
+          </h1>
+          <WaveDecoration variant="special" className="w-24 h-3 mb-6" />
+          <p className="text-primary text-lg leading-relaxed mb-6">
+            Een zonovergoten dag, de Noordzee als getuige en een locatie die ademt. Bij Juno in Kijkduin wordt jouw bruiloft een dag om nooit te vergeten.
+          </p>
+          <ul className="space-y-3 mb-8">
+            <li className="flex gap-3 items-start text-primary text-lg">
+              <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+              <span>Officiële trouwlocatie aan het strand</span>
+            </li>
+            <li className="flex gap-3 items-start text-primary text-lg">
+              <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+              <span>Persoonlijke weddingcoördinator</span>
+            </li>
+            <li className="flex gap-3 items-start text-primary text-lg">
+              <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+              <span>Catering en open bar op maat</span>
+            </li>
+            <li className="flex gap-3 items-start text-primary text-lg">
+              <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+              <span>20 tot 200 personen</span>
+            </li>
+          </ul>
+          <div className="flex gap-4">
+            <JunoButton variant="primary" size="lg">Vraag een offerte aan</JunoButton>
+            <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
+          </div>
+        </div>
+
+        {/* Right column */}
+        <div className="relative overflow-hidden h-[50vh] md:h-auto">
+          <img 
+            src={images.bruiloften.hero}
+            alt="Trouwen op het strand bij Beachclub Juno"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </section>
+
+      {/* SECTION 2 — HOE WIJ HET REGELEN */}
+      <section className="py-20 px-6 font-body bg-secondary/10">
+        <div className="max-w-[1200px] mx-auto">
+          <SectionHeader
+            title="HOE WIJ HET REGELEN"
+            subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
+            waveVariant="special"
+          />
+
+          <div className="grid md:grid-cols-3 gap-8 mt-4">
+            {regelingCards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <div 
+                  key={index}
+                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
+                >
+                  <Icon className="w-10 h-10 text-primary mb-4" />
+                  <h3 
+                    className="text-primary mb-3 tracking-wide font-display" 
+                    style={{ fontSize: '1.5rem', lineHeight: '1.2' }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p className="text-primary leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 — EVENT MANAGER CONTACT */}
+      <EventManagerContact
+        name="Sarah"
+        role="Wedding Coördinator bij Juno"
+        photo={images.bruiloften.intro}
+        intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
+        phone="+31624734660"
+        email="info@clubjuno.nl"
+        bgColor="cream"
       />
 
-      {/* Intro */}
-      <section className="py-20 px-6 font-body">
-        <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-primary text-lg leading-relaxed mb-6">
-              Bij Juno geloven we dat een bruiloft zo uniek moet zijn als jullie verhaal. 
-              Op onze locatie in Kijkduin combineren we het ruige strand met warme gastvrijheid 
-              en persoonlijke service.
-            </p>
-            <p className="text-primary text-lg leading-relaxed">
-              Of jullie nu dromen van een intieme ceremonie met twintig gasten of een groots 
-              feest met tweehonderd man — wij zorgen ervoor dat jullie dag perfect verloopt, 
-              van het eerste ja-woord tot de laatste dans.
-            </p>
-          </div>
-          
-          <div className="relative">
-            <img 
-              src={images.bruiloften.intro}
-              alt="Sfeervolle bruiloftopstelling aan zee bij Juno"
-              className="w-full h-[500px] object-cover rounded-xl shadow-sm"
-            />
-          </div>
+      {/* SECTION 4 — SFEER FOTO STRIP */}
+      <section className="relative overflow-hidden h-[450px]">
+        <img 
+          src={images.bruiloften.hero}
+          alt="De Noordzee als getuige"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/30"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <h2 
+            className="font-display text-background text-center px-6"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: '1' }}
+          >
+            DE NOORDZEE ALS GETUIGE
+          </h2>
+          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
       </section>
 
-      {/* Wat wij bieden */}
-      <section className="py-20 px-6 bg-secondary/10 font-body">
-        <div className="max-w-[1200px] mx-auto">
-          <SectionHeader title="WAT WIJ BIEDEN" waveVariant="special" />
+      {/* SECTION 5 — MOMENTEN (horizontal scroll) */}
+      <section className="py-20 px-6 font-body bg-background">
+        <div className="max-w-[1400px] mx-auto">
+          <SectionHeader
+            title="VAN CEREMONIE TOT FEEST"
+            subtitle="Elk moment van jullie dag, zorgvuldig verzorgd"
+            waveVariant="special"
+          />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <button 
-                key={index}
-                className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg cursor-pointer text-left w-full"
-              >
-                <feature.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 
-                  className="text-primary mb-3 tracking-wide font-display"
-                  style={{ 
-                    fontSize: '1.5rem',
-                    lineHeight: '1.2'
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-primary leading-relaxed">
-                  {feature.description}
-                </p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sfeer */}
-      <section className="py-20">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 
-              className="text-primary tracking-wide font-display"
-              style={{ 
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1'
-              }}
-            >
-              SFEER IMPRESSIE
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-4">
-            {sfeerPhotos.map((photo, index) => (
-              <div key={index} className="relative aspect-[3/4] overflow-hidden rounded-xl group">
-                <img 
-                  src={photo}
-                  alt=""
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+          <div 
+            className="mt-8 -mx-6 px-6 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {momentenCards.map((card, index) => (
+              <div key={index} className="flex-shrink-0 w-72 snap-start">
+                <div className="relative h-96 rounded-xl overflow-hidden mb-4">
+                  <img 
+                    src={card.image} 
+                    alt={card.title}
+                    className="w-full h-full object-cover" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 
+                      className="text-background font-display tracking-wide" 
+                      style={{ fontSize: '1.5rem' }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="text-background/80 text-sm mt-1">
+                      {card.subtitle}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Praktisch */}
-      <section className="py-20 px-6 font-body">
-        <div className="max-w-[1200px] mx-auto">
-          <SectionHeader title="PRAKTISCHE INFORMATIE" waveVariant="special" />
+      {/* SECTION 6 — FAQ */}
+      <EventFaqSection
+        items={faqItems}
+        image={images.bruiloften.intro}
+        imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
+      />
 
-          <div className="grid md:grid-cols-2 gap-12 bg-white p-10 rounded-xl shadow-sm">
-            <div>
-              <h3 
-                className="text-primary mb-4 tracking-wide font-display"
-                style={{ 
-                  fontSize: '1.75rem'
-                }}
-              >
-                DE DETAILS
-              </h3>
-              <ul className="space-y-3 text-primary text-lg">
-                <li><strong>Capaciteit:</strong> 20 tot 200 personen</li>
-                <li><strong>Beschikbaar:</strong> april t/m oktober</li>
-                <li><strong>Locatie:</strong> Kijkduin, Den Haag</li>
-                <li><strong>Faciliteiten:</strong> Binnen- en buitenruimte, dansarea, professionele audio</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 
-                className="text-primary mb-4 tracking-wide font-display"
-                style={{ 
-                  fontSize: '1.75rem'
-                }}
-              >
-                ONZE AANPAK
-              </h3>
-              <p className="text-primary text-lg leading-relaxed mb-4">
-                Wij ontzorgen u volledig: van de tafelschikking tot de laatste dans. 
-                Elke bruiloft krijgt een persoonlijke weddingcoördinator die jullie 
-                wensen vertaalt naar een onvergetelijke dag.
-              </p>
-              <p className="text-primary text-lg leading-relaxed">
-                Neem vrijblijvend contact op en we denken graag met u mee.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Block */}
-      <section className="py-20 px-6 bg-primary font-body">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <h2 
-            className="text-background mb-6 tracking-wider font-display"
-            style={{ 
-              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-              lineHeight: '1'
-            }}
-          >
-            JULLIE VERHAAL,<br />ONS PODIUM
-          </h2>
-          
-          <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
-          
-          <p className="text-background text-xl mb-10 max-w-2xl mx-auto">
-            Klaar om jullie droombruiloft aan zee werkelijkheid te maken? 
-            We horen graag jullie verhaal.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <JunoButton variant="primary" size="lg">
-              Vraag offerte aan
-            </JunoButton>
-            <JunoButton variant="outline-light" size="lg">
-              Neem contact op
-            </JunoButton>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 7 — EVENT MANAGER CONTACT (sage background) */}
+      <EventManagerContact
+        name="Sarah"
+        role="Wedding Coördinator bij Juno"
+        photo={images.bruiloften.intro}
+        intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
+        phone="+31624734660"
+        email="info@clubjuno.nl"
+        bgColor="sage"
+      />
 
       <Footer />
     </div>

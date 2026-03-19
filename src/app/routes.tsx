@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router";
 import { Home } from "./pages/Home";
 import { Bruiloften } from "./pages/Bruiloften";
 import { Bedrijfsfeesten } from "./pages/Bedrijfsfeesten";
+import { ParticuliereEvents } from "./pages/ParticuliereEvents";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
 import { VeelgesteldeVragen } from "./pages/VeelgesteldeVragen";
 import { ContactPage } from "./pages/ContactPage";
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/bedrijfsfeesten",
         Component: Bedrijfsfeesten,
+      },
+      {
+        path: "/particuliere-events",
+        Component: ParticuliereEvents,
       },
       {
         path: "/programma",

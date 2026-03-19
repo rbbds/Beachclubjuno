@@ -9,53 +9,53 @@ import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
 import { images } from '../data/images';
 
-export function Bedrijfsfeesten() {
+export function ParticuliereEvents() {
   useEffect(() => {
-    document.title = 'Zakelijke Events | Beachclub Juno Kijkduin';
+    document.title = 'Particuliere Events | Beachclub Juno Kijkduin';
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
 
   const eventCards = [
     {
-      tagline: 'Een onvergetelijke dag',
-      title: 'BEDRIJFSFESTIVAL',
-      image: images.bedrijfsfeesten.hero,
-      bullets: ['Exclusief gebruik van locatie', 'Combinatie van activiteiten', '20 – 300 personen']
+      tagline: 'Iets speciaals te vieren!',
+      title: 'STRANDFEEST',
+      image: images.events.bruiloften,
+      bullets: ['Verjaardag, jubileum of familiefeest', 'Exclusief stranddeel & privé bar', '20 – 300 personen']
     },
     {
-      tagline: 'Het leukste kantoor van Nederland',
-      title: 'VERGADEREN AAN ZEE',
-      image: images.bedrijfsfeesten.team,
-      bullets: ['Halve of hele dag arrangementen', 'Afsluitbare ruimte met AV', 'Verzorgde lunch inbegrepen']
+      tagline: 'Met de hele groep tafelen',
+      title: 'DINER & BORREL',
+      image: images.restaurant.main,
+      bullets: ['Lunch, borrel of diner', 'Formeel of informeel', '15 – 200 personen']
     },
     {
-      tagline: 'Spectaculaire teamdag',
-      title: 'TEAMUITJE',
-      image: images.watersport.kiten,
-      bullets: ['Privé strand met eigen bar', 'Combineer met watersport', '15 – 200 personen']
+      tagline: 'Never stop playing',
+      title: 'ACTIEVE DAG',
+      image: images.watersport.surfen,
+      bullets: ['Kiten, surfen of SUP via Kiteboardschool.nl', 'Combineer met diner of borrel', '10 – 100 personen']
     }
   ];
 
   const faqItems = [
     { 
-      question: 'Voor hoeveel personen is Juno geschikt?', 
-      answer: 'Juno kan groepen ontvangen van 15 tot 300 personen. We hebben flexibele ruimtes die we kunnen combineren voor elke groepsgrootte.' 
+      question: 'Voor hoeveel personen kan ik bij Juno terecht?', 
+      answer: 'We ontvangen groepen van 15 tot 300 personen. Voor kleinere of grotere groepen denken we graag creatief mee.' 
     },
     { 
-      question: 'Wat als het slecht weer is?', 
-      answer: 'Geen zorgen — we zijn volledig ingericht op alle weersomstandigheden. Ons overdekte terras biedt altijd een droge en sfeervolle omgeving.' 
+      question: 'Wat als het slecht weer is op de dag van ons feest?', 
+      answer: 'Geen zorgen — ons overdekte terras zorgt ervoor dat jouw feest altijd doorgaat, weer of geen weer.' 
     },
     { 
-      question: 'Kunnen we ook presenteren bij Juno?', 
-      answer: 'Ja, we beschikken over AV-faciliteiten inclusief beamer, scherm en microfoons voor zakelijke presentaties.' 
+      question: 'Kan ik een DJ of live band meenemen?', 
+      answer: 'Absoluut. We beschikken over geluidsfaciliteiten en kunnen ook zelf een DJ of artiest adviseren.' 
     },
     { 
-      question: 'Is catering inbegrepen?', 
-      answer: 'Catering wordt op maat samengesteld. Van koffie en lunch tot een uitgebreid diner — alles is bespreekbaar.' 
+      question: 'Is catering inbegrepen bij een arrangement?', 
+      answer: 'Catering wordt volledig op maat samengesteld — van welkomstdrankje tot uitgebreid diner.' 
     },
     { 
-      question: 'Hoe ver op voorhand moet ik boeken?', 
-      answer: 'We raden aan om minimaal 4-6 weken van tevoren contact op te nemen, zeker in het hoogseizoen (mei–september).' 
+      question: 'Hoe neem ik contact op voor een offerte?', 
+      answer: 'Stuur een mail naar info@clubjuno.nl of bel ons op 06 2473 4660. We reageren binnen één werkdag.' 
     }
   ];
 
@@ -65,9 +65,9 @@ export function Bedrijfsfeesten() {
 
       {/* SECTION 1 — HERO */}
       <PageHero
-        image={images.bedrijfsfeesten.hero}
-        title="ZAKELIJKE EVENTS"
-        subtitle="Een onvergetelijke bedrijfsdag aan het strand van Kijkduin"
+        image={images.events.bruiloften}
+        title="PARTICULIERE EVENTS"
+        subtitle="Verjaardag, jubileum, familiefeest of gewoon omdat het kan"
         waveVariant="inverted"
         height="h-screen"
       />
@@ -76,8 +76,8 @@ export function Bedrijfsfeesten() {
       <section className="py-20 px-6 font-body bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
-            title="ONS ZAKELIJK AANBOD"
-            subtitle="Van teambuilding tot bedrijfsfestival — voor groepen van 15 tot 300 personen"
+            title="ONS AANBOD"
+            subtitle="Van strandfeest tot actieve dag — voor groepen van 15 tot 300 personen"
             waveVariant="special"
           />
 
@@ -132,8 +132,8 @@ export function Bedrijfsfeesten() {
       {/* SECTION 3 — SFEER FOTO STRIP */}
       <section className="relative overflow-hidden h-[400px]">
         <img 
-          src={images.bedrijfsfeesten.team} 
-          alt="Een locatie die inspireert"
+          src={images.events.bruiloften} 
+          alt="Jouw feest, ons strand"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -142,7 +142,7 @@ export function Bedrijfsfeesten() {
             className="font-display text-background text-center px-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1' }}
           >
-            EEN LOCATIE DIE INSPIREERT
+            JOUW FEEST, ONS STRAND
           </h2>
           <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
@@ -153,7 +153,7 @@ export function Bedrijfsfeesten() {
         name="Sarah"
         role="Event Manager bij Juno"
         photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
+        intro="Ik ben Sarah, Event Manager bij Juno. Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
         phone="+31624734660"
         email="info@clubjuno.nl"
         bgColor="cream"
@@ -165,7 +165,7 @@ export function Bedrijfsfeesten() {
           {/* Left */}
           <div>
             <SectionHeader
-              title="WAAROM KIEZEN VOOR JUNO EVENTS?"
+              title="WAAROM JUNO?"
               align="left"
               waveVariant="special"
             />
@@ -188,8 +188,8 @@ export function Bedrijfsfeesten() {
           {/* Right */}
           <div>
             <img 
-              src={images.bedrijfsfeesten.hero}
-              alt="Waarom kiezen voor Juno Events"
+              src={images.intro.terrace}
+              alt="Waarom Juno"
               className="w-full h-[450px] object-cover rounded-xl shadow-sm"
             />
           </div>
@@ -199,8 +199,8 @@ export function Bedrijfsfeesten() {
       {/* SECTION 6 — SECOND FOTO STRIP */}
       <section className="relative overflow-hidden h-[400px]">
         <img 
-          src={images.intro.terrace} 
-          alt="Kijkduin — waar inspiratie begint"
+          src={images.bedrijfsfeesten.team} 
+          alt="Maak er een dag om nooit te vergeten"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -209,7 +209,7 @@ export function Bedrijfsfeesten() {
             className="font-display text-background text-center px-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1' }}
           >
-            KIJKDUIN — WAAR INSPIRATIE BEGINT
+            MAAK ER EEN DAG OM NOOIT TE VERGETEN
           </h2>
           <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
@@ -218,8 +218,8 @@ export function Bedrijfsfeesten() {
       {/* SECTION 7 — FAQ */}
       <EventFaqSection
         items={faqItems}
-        image={images.bedrijfsfeesten.team}
-        imageAlt="Zakelijke Events FAQ"
+        image={images.events.bruiloften}
+        imageAlt="Particuliere Events FAQ"
       />
 
       {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
@@ -227,7 +227,7 @@ export function Bedrijfsfeesten() {
         name="Sarah"
         role="Event Manager bij Juno"
         photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
+        intro="Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
         phone="+31624734660"
         email="info@clubjuno.nl"
         bgColor="sage"

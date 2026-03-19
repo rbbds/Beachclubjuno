@@ -29,11 +29,11 @@ export function SectionHeader({
       
       <WaveDecoration
         variant={waveVariant}
-        className={`w-24 h-3 mt-3 mb-4 ${align === 'center' ? 'mx-auto' : ''}`}
+        className={`w-24 h-3 mt-3 mb-5 ${align === 'center' ? 'mx-auto' : ''}`}
       />
       
       {subtitle && (
-        <p className={`text-primary text-lg max-w-2xl font-body ${align === 'center' ? 'mx-auto' : ''}`}>
+        <p className={`text-primary text-lg max-w-2xl font-body mb-8 ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}

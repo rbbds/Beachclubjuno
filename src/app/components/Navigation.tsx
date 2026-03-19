@@ -98,7 +98,8 @@ export function Navigation() {
       section: 'events',
       children: [
         { label: 'Bruiloften', path: '/bruiloften' },
-        { label: 'Bedrijfsfeesten', path: '/bedrijfsfeesten' }
+        { label: 'Zakelijke Events', path: '/bedrijfsfeesten' },
+        { label: 'Particuliere Events', path: '/particuliere-events' }
       ]
     },
     { label: 'Galerij', section: 'gallery' },
@@ -108,7 +109,7 @@ export function Navigation() {
 
   // Determine colors based on scroll state and current page
   // Pages with full-bleed hero images at the top
-  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/programma', '/faq', '/contact'];
+  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/particuliere-events', '/programma', '/faq', '/contact'];
   const hasHero = pagesWithHero.includes(location.pathname);
   const isTransparent = !isScrolled && hasHero;
   

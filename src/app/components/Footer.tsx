@@ -70,6 +70,21 @@ export function Footer() {
                 </button>
               </li>
               <li>
+                <Link to="/bruiloften" className="text-background/80 hover:text-accent transition-colors">
+                  Bruiloften
+                </Link>
+              </li>
+              <li>
+                <Link to="/bedrijfsfeesten" className="text-background/80 hover:text-accent transition-colors">
+                  Zakelijke Events
+                </Link>
+              </li>
+              <li>
+                <Link to="/particuliere-events" className="text-background/80 hover:text-accent transition-colors">
+                  Particuliere Events
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-background/80 hover:text-accent transition-colors">
                   Contact
                 </Link>
