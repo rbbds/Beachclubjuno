@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
@@ -8,6 +9,11 @@ import { Users, Coffee, Lightbulb, Quote } from 'lucide-react';
 import { images } from '../data/images';
 
 export function Bedrijfsfeesten() {
+  useEffect(() => {
+    document.title = 'Zakelijke evenementen aan zee | Beachclub Juno Kijkduin';
+    return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
+  }, []);
+
   const formats = [
     {
       icon: Users,
@@ -67,7 +73,7 @@ export function Bedrijfsfeesten() {
           <div className="relative">
             <img 
               src={images.bedrijfsfeesten.team}
-              alt="Team building outdoors"
+              alt="Teambuilding op het strand bij Beachclub Juno Kijkduin"
               className="w-full h-[500px] object-cover rounded-xl shadow-sm"
             />
           </div>

@@ -9,7 +9,7 @@ export function Restaurant() {
         <div className="relative">
           <img 
             src={images.restaurant.main}
-            alt="Seafood platter"
+            alt="Vers seizoensgerecht bij restaurant Beachclub Juno Kijkduin"
             className="w-full h-[600px] object-cover rounded-xl"
           />
           

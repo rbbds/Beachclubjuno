@@ -19,7 +19,7 @@ export function Events() {
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
               <img 
                 src={images.events.bruiloften}
-                alt="Beach wedding"
+                alt="Strandbruiloft bij Beachclub Juno Kijkduin"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -53,7 +53,7 @@ export function Events() {
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
               <img 
                 src={images.events.bedrijfsfeesten}
-                alt="Corporate event"
+                alt="Bedrijfsfeest aan zee bij Beachclub Juno Den Haag"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

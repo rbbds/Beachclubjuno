@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
@@ -5,8 +7,6 @@ import { EventDrawer, EventData } from '../components/EventDrawer';
 import { PageHero } from '../components/PageHero';
 import { JunoButton } from '../components/JunoButton';
 import { Calendar, Clock } from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { allEvents } from '../data/events';
 import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
@@ -17,6 +17,11 @@ export function VolledigProgramma() {
   const [selectedCategory, setSelectedCategory] = useState('Alles');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Programma | Beachclub Juno Kijkduin';
+    return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
+  }, []);
 
   const filteredEvents = selectedCategory === 'Alles' 
     ? allEvents 

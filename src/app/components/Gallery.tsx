@@ -39,7 +39,7 @@ export function Gallery() {
             >
               <img 
                 src={image}
-                alt={`Gallery ${index + 1}`}
+                alt=""
                 className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
               />
               {/* Cream overlay on hover */}

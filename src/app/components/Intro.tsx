@@ -34,7 +34,7 @@ export function Intro() {
         <div className="relative">
           <img 
             src={images.intro.terrace}
-            alt="Beach club terrace"
+            alt="Terras van Beachclub Juno met uitzicht op de Noordzee"
             className="w-full h-[500px] object-cover rounded-xl shadow-sm"
           />
         </div>

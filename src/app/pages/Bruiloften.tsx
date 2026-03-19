@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
@@ -8,6 +9,11 @@ import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
 
 export function Bruiloften() {
+  useEffect(() => {
+    document.title = 'Trouwen aan zee | Beachclub Juno Kijkduin';
+    return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
+  }, []);
+
   const features = [
     {
       icon: Heart,
@@ -37,6 +43,7 @@ export function Bruiloften() {
         image={images.bruiloften.hero}
         title="TROUWEN AAN ZEE"
         subtitle="De Noordzee als getuige. Juno als decor."
+        altText="Huwelijksceremonie op het strand bij Beachclub Juno Kijkduin"
         waveVariant="inverted"
         height="h-screen"
       />
@@ -60,7 +67,7 @@ export function Bruiloften() {
           <div className="relative">
             <img 
               src={images.bruiloften.intro}
-              alt="Beach ceremony"
+              alt="Sfeervolle bruiloftopstelling aan zee bij Juno"
               className="w-full h-[500px] object-cover rounded-xl shadow-sm"
             />
           </div>
@@ -117,7 +124,7 @@ export function Bruiloften() {
               <div key={index} className="relative aspect-[3/4] overflow-hidden rounded-xl group">
                 <img 
                   src={photo}
-                  alt={`Wedding impression ${index + 1}`}
+                  alt=""
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

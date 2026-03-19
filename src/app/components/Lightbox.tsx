@@ -80,7 +80,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
         {/* Photo */}
         <img
           src={images[currentIndex]}
-          alt={`Gallery ${currentIndex + 1}`}
+          alt={`Beachclub Juno — foto ${currentIndex + 1}`}
           className="max-h-[85vh] max-w-[80vw] object-contain rounded-xl shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         />

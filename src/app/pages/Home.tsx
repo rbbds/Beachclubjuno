@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Hero } from '../components/Hero';
 import { Intro } from '../components/Intro';
@@ -10,6 +11,10 @@ import { Reviews } from '../components/Reviews';
 import { Footer } from '../components/Footer';
 
 export function Home() {
+  useEffect(() => {
+    document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin';
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

@@ -4,6 +4,7 @@ interface PageHeroProps {
   image: string;
   title: string;
   subtitle?: string;
+  altText?: string;
   waveVariant?: 'default' | 'inverted' | 'special';
   height?: string;
 }
@@ -12,6 +13,7 @@ export function PageHero({
   image,
   title,
   subtitle,
+  altText,
   waveVariant = 'inverted',
   height = 'h-[50vh] min-h-[320px]',
 }: PageHeroProps) {
@@ -20,7 +22,7 @@ export function PageHero({
       {/* Background image */}
       <img
         src={image}
-        alt={title}
+        alt={altText || title}
         className="absolute inset-0 w-full h-full object-cover"
       />
       

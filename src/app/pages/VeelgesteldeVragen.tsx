@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
@@ -103,6 +104,11 @@ const faqGroups = [
 ];
 
 export function VeelgesteldeVragen() {
+  useEffect(() => {
+    document.title = 'Veelgestelde vragen | Beachclub Juno Kijkduin';
+    return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
