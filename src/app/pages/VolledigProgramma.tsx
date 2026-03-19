@@ -48,12 +48,15 @@ export function VolledigProgramma() {
         image={images.programma.jazz.event}
         title="VOLLEDIG PROGRAMMA"
         subtitle="Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno"
+        waveColor="#f0f5f3"
       />
 
-      {/* Filter Pills */}
-      <section className="py-12 px-6">
+      {/* Filter Pills & Event Grid */}
+      <section className="pt-12 pb-20 px-6 bg-sage-soft">
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-2">
+          
+          {/* Filter pills */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
             {categories.map((category) => (
               <button
                 key={category}
@@ -69,12 +72,8 @@ export function VolledigProgramma() {
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Event Grid */}
-      <section className="pb-20 px-6 bg-sage-soft">
-        <div className="max-w-[1200px] mx-auto">
+          {/* Event grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {filteredEvents.map((event) => (
               <div 

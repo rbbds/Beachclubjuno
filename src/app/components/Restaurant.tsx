@@ -19,7 +19,7 @@ export function Restaurant() {
             className="w-full h-[600px] object-cover rounded-xl"
           />
           
-          <div className="absolute bottom-0 left-0 right-0 md:relative md:max-w-xl md:-mt-32 md:ml-auto md:mr-12 bg-background p-10 rounded-xl">
+          <div className="absolute bottom-0 left-0 right-0 md:relative md:max-w-xl md:-mt-32 md:ml-auto md:mr-12 bg-sage-soft p-10 rounded-xl">
             <h2 
               className="text-primary mb-4 tracking-wide font-display"
               style={{ 
