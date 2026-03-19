@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { allEvents } from '../data/events';
 import { scrollToSection } from '../utils/scroll';
+import { images } from '../data/images';
 
 const categories = ['Alles', 'Comedy', 'Theater', 'Live Muziek', 'Jazz', 'Pop & Dans', 'Speciaal'];
 
@@ -35,28 +36,34 @@ export function VolledigProgramma() {
     <div className="min-h-screen bg-[#f6f4db]">
       <Navigation />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 px-6" style={{ fontFamily: 'Museo, sans-serif' }}>
-        <div className="max-w-[1200px] mx-auto text-center">
-          <h1 
-            className="text-[#3d7183] mb-4 tracking-wider"
-            style={{ 
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: 'clamp(3rem, 8vw, 5rem)',
-              lineHeight: '1'
-            }}
+      {/* Photo Hero */}
+      <section
+        className="relative h-[50vh] min-h-[320px] w-full overflow-hidden flex items-center justify-center"
+        style={{ fontFamily: 'Museo, sans-serif' }}
+      >
+        <img 
+          src={images.programma.jazz.event}
+          alt="Beachclub Juno Programma"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
+        
+        <div className="relative z-10 text-center px-6">
+          <h1
+            className="text-[#f6f4db] mb-4"
+            style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.04em' }}
           >
             VOLLEDIG PROGRAMMA
           </h1>
-          <WaveDecoration variant="special" className="w-24 h-3 mx-auto mt-3 mb-4" />
-          <p className="text-[#3d7183] text-xl max-w-3xl mx-auto">
+          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-5" />
+          <p className="text-[#f6f4db]/80 max-w-md mx-auto">
             Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno
           </p>
         </div>
       </section>
 
       {/* Filter Pills */}
-      <section className="pb-12 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (

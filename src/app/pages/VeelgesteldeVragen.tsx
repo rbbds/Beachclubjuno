@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion';
+import { images } from '../data/images';
 
 const faqGroups = [
   {
@@ -104,21 +105,30 @@ export function VeelgesteldeVragen() {
     <div className="min-h-screen bg-[#f6f4db]">
       <Navigation />
 
-      {/* Hero */}
+      {/* Photo Hero */}
       <section
-        className="bg-[#f6f4db] pt-32 pb-16 text-center"
+        className="relative h-[50vh] min-h-[320px] w-full overflow-hidden flex items-center justify-center"
         style={{ fontFamily: 'Museo, sans-serif' }}
       >
-        <h1
-          className="text-[#3d7183] mb-4"
-          style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.04em' }}
-        >
-          Veelgestelde Vragen
-        </h1>
-        <WaveDecoration variant="special" className="w-24 h-3 mx-auto mb-5" />
-        <p className="text-[#3d7183]/70 max-w-md mx-auto">
-          Alles wat je wilt weten over Juno
-        </p>
+        <img
+          src={images.hero.main}
+          alt="Beachclub Juno"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+
+        <div className="relative z-10 text-center px-6">
+          <h1
+            className="text-[#f6f4db] mb-4"
+            style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.04em' }}
+          >
+            VEELGESTELDE VRAGEN
+          </h1>
+          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-5" />
+          <p className="text-[#f6f4db]/80 max-w-md mx-auto">
+            Alles wat je wilt weten over Juno
+          </p>
+        </div>
       </section>
 
       {/* FAQ Content */}
