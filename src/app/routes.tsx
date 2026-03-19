@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { Bruiloften } from "./pages/Bruiloften";
 import { Bedrijfsfeesten } from "./pages/Bedrijfsfeesten";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
+import { VeelgesteldeVragen } from "./pages/VeelgesteldeVragen";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { FormitableWidget } from "./components/FormitableWidget";
 
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/programma",
         Component: VolledigProgramma,
+      },
+      {
+        path: "/faq",
+        Component: VeelgesteldeVragen,
       },
     ],
   },

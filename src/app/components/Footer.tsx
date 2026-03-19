@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router';
+import { useNavigate, useLocation, Link } from 'react-router';
 import { JunoLogo } from './JunoLogo';
 import { scrollToSection as scrollToSectionUtil, scrollToTop } from '../utils/scroll';
 
@@ -74,6 +74,11 @@ export function Footer() {
                 <button onClick={() => scrollToSection('contact')} className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
                   Contact
                 </button>
+              </li>
+              <li>
+                <Link to="/faq" className="text-[#f6f4db]/80 hover:text-[#cc6435] transition-colors">
+                  Veelgestelde vragen
+                </Link>
               </li>
             </ul>
           </div>
