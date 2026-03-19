@@ -4,6 +4,7 @@ import { Bruiloften } from "./pages/Bruiloften";
 import { Bedrijfsfeesten } from "./pages/Bedrijfsfeesten";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
 import { VeelgesteldeVragen } from "./pages/VeelgesteldeVragen";
+import { ContactPage } from "./pages/ContactPage";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { FormitableWidget } from "./components/FormitableWidget";
 
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         Component: VeelgesteldeVragen,
+      },
+      {
+        path: "/contact",
+        Component: ContactPage,
       },
     ],
   },

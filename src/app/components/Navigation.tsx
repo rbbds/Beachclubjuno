@@ -102,12 +102,13 @@ export function Navigation() {
       ]
     },
     { label: 'Galerij', section: 'gallery' },
-    { label: 'Watersport', section: 'watersport' }
+    { label: 'Watersport', section: 'watersport' },
+    { label: 'Contact', path: '/contact' }
   ];
 
   // Determine colors based on scroll state and current page
   // Pages with full-bleed hero images at the top
-  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/programma', '/faq'];
+  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/programma', '/faq', '/contact'];
   const hasHero = pagesWithHero.includes(location.pathname);
   const isTransparent = !isScrolled && hasHero;
   
@@ -160,7 +161,7 @@ export function Navigation() {
               Reserveren
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/contact')}
               className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
             >
               Contact
@@ -238,7 +239,7 @@ export function Navigation() {
                 {!item.children ? (
                   // Simple item - full width button
                   <button
-                    onClick={() => handleMobileNavClick(item.section!)}
+                    onClick={() => item.path ? handleMobilePageNavigation(item.path) : handleMobileNavClick(item.section!)}
                     className="w-full text-left"
                   >
                     <span 

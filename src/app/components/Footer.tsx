@@ -70,9 +70,9 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="text-background/80 hover:text-accent transition-colors">
+                <Link to="/contact" className="text-background/80 hover:text-accent transition-colors">
                   Contact
-                </button>
+                </Link>
               </li>
               <li>
                 <Link to="/faq" className="text-background/80 hover:text-accent transition-colors">
@@ -96,18 +96,17 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-accent" />
                 <span className="text-background/80">
-                  Deltaplein 200<br />
-                  2554 EJ Kijkduin<br />
-                  Den Haag
+                  Strand Zuid 18<br />
+                  2554 ZZ Den Haag
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0 text-accent" />
-                <span className="text-background/80">070 123 4567</span>
+                <span className="text-background/80">06 2473 4660</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0 text-accent" />
-                <span className="text-background/80">info@beachclubjuno.nl</span>
+                <span className="text-background/80">info@clubjuno.nl</span>
               </li>
             </ul>
           </div>

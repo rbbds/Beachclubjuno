@@ -45,7 +45,7 @@ const faqGroups = [
       },
       {
         q: 'Hoe boek ik een evenement of verhuur?',
-        a: 'Stuur ons een e-mail via info@beachclubjuno.nl of bel ons op 070 123 4567. We plannen graag een kennismakingsgesprek om je wensen te bespreken.',
+        a: 'Stuur ons een e-mail via info@clubjuno.nl of bel ons op 06 2473 4660. We plannen graag een kennismakingsgesprek om je wensen te bespreken.',
       },
       {
         q: 'Zijn er cateringopties beschikbaar voor evenementen?',
@@ -71,7 +71,7 @@ const faqGroups = [
       },
       {
         q: 'Kan ik mijn eigen band of artiest voorstellen voor het programma?',
-        a: 'Ja, dat waarderen we! Stuur een e-mail naar info@beachclubjuno.nl met een korte omschrijving, links naar je werk en gewenste datum. Onze programmeur neemt zo snel mogelijk contact op.',
+        a: 'Ja, dat waarderen we! Stuur een e-mail naar info@clubjuno.nl met een korte omschrijving, links naar je werk en gewenste datum. Onze programmeur neemt zo snel mogelijk contact op.',
       },
       {
         q: 'Zijn de culturele avonden geschikt voor kinderen?',
@@ -180,10 +180,10 @@ export function VeelgesteldeVragen() {
           Staat jouw vraag er niet bij? We helpen je graag persoonlijk verder.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <JunoButton variant="primary" href="mailto:info@beachclubjuno.nl">
+          <JunoButton variant="primary" href="mailto:info@clubjuno.nl">
             Stuur een e-mail
           </JunoButton>
-          <JunoButton variant="outline-light" href="tel:0701234567">
+          <JunoButton variant="outline-light" href="tel:+31624734660">
             Bel ons
           </JunoButton>
         </div>
