@@ -1,4 +1,5 @@
 import { WaveDecoration } from './WaveDecoration';
+import { WaveTransition } from './WaveTransition';
 import { SectionHeader } from './SectionHeader';
 import { JunoButton } from './JunoButton';
 import { Calendar } from 'lucide-react';
@@ -86,6 +87,8 @@ export function Programma() {
             </JunoButton>
           </div>
         </div>
+        
+        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       <EventDrawer 

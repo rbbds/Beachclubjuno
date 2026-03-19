@@ -19,7 +19,7 @@ const faqGroups = [
     items: [
       {
         q: 'Waar is Beachclub Juno precies gevestigd?',
-        a: 'Juno ligt op het strand van Kijkduin in Den Haag, op het adres Deltaplein 200, 2554 EJ. Je vindt ons op de plek waar vroeger Boca Grandi zat — direct aan het strand met uitzicht op de Noordzee.',
+        a: 'Juno ligt op het strand van Kijkduin in Den Haag, op het adres Strand Zuid 18, 2554 ZZ Den Haag. Direct aan het strand met uitzicht op de Noordzee.',
       },
       {
         q: 'Wat zijn de openingstijden?',

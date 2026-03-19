@@ -199,8 +199,6 @@ export function Bedrijfsfeesten() {
             />
           </div>
         </div>
-        
-        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}

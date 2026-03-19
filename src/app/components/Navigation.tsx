@@ -109,7 +109,7 @@ export function Navigation() {
 
   // Determine colors based on scroll state and current page
   // Pages with full-bleed hero images at the top
-  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/particuliere-events', '/programma', '/faq', '/contact'];
+  const pagesWithHero = ['/', '/bedrijfsfeesten', '/particuliere-events', '/programma', '/faq', '/contact'];
   const hasHero = pagesWithHero.includes(location.pathname);
   const isTransparent = !isScrolled && hasHero;
   

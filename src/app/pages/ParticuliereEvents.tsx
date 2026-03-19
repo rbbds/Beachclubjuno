@@ -199,8 +199,6 @@ export function ParticuliereEvents() {
             />
           </div>
         </div>
-        
-        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}
@@ -218,7 +216,7 @@ export function ParticuliereEvents() {
           >
             MAAK ER EEN DAG OM NOOIT TE VERGETEN
           </h2>
-          <WaveTransition variant="inverted" className="w-24 h-3 mx-auto mt-4" />
+          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
       </section>
 
