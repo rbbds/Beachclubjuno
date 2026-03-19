@@ -178,14 +178,14 @@ export function Navigation() {
               <span
                 className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out origin-center"
                 style={{
-                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  backgroundColor: isMenuOpen ? 'var(--color-primary)' : (isTransparent ? 'var(--color-primary-foreground)' : 'var(--color-primary)'),
                   transform: isMenuOpen ? 'translateY(7px) rotate(45deg)' : 'none',
                 }}
               />
               <span
                 className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out"
                 style={{
-                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  backgroundColor: isMenuOpen ? 'var(--color-primary)' : (isTransparent ? 'var(--color-primary-foreground)' : 'var(--color-primary)'),
                   opacity: isMenuOpen ? 0 : 1,
                   transform: isMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
                 }}
@@ -193,7 +193,7 @@ export function Navigation() {
               <span
                 className="block h-[2px] w-6 rounded-full transition-all duration-300 ease-in-out origin-center"
                 style={{
-                  backgroundColor: isMenuOpen ? '#3d7183' : (isTransparent ? 'white' : '#3d7183'),
+                  backgroundColor: isMenuOpen ? 'var(--color-primary)' : (isTransparent ? 'var(--color-primary-foreground)' : 'var(--color-primary)'),
                   transform: isMenuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
                 }}
               />
