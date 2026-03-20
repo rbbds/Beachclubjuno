@@ -119,6 +119,7 @@ export function VeelgesteldeVragen() {
         image={images.hero.main}
         title="VEELGESTELDE VRAGEN"
         subtitle="Alles wat je wilt weten over Juno"
+        waveColor="#faf0ea"
       />
 
       {/* FAQ Content */}
@@ -164,34 +165,36 @@ export function VeelgesteldeVragen() {
             </div>
           ))}
         </div>
+        
+        <WaveTransition fillColor="#e8f0f3" />
       </section>
 
       {/* CTA Block */}
       <section
-        className="relative bg-primary py-20 px-6 text-center font-body"
+        className="relative bg-navy-soft py-20 px-6 text-center font-body"
       >
-        <WaveTransition fillColor="#3d7183" />
-        
         <h2
-          className="text-background mb-4 font-display"
+          className="text-primary mb-4 font-display"
           style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.04em' }}
         >
           Nog een vraag?
         </h2>
-        <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mb-6" />
-        <p className="text-background/80 mb-10 max-w-md mx-auto">
+        <WaveDecoration variant="special" className="w-24 h-3 mx-auto mb-6" />
+        <p className="text-primary/80 mb-10 max-w-md mx-auto">
           Staat jouw vraag er niet bij? We helpen je graag persoonlijk verder.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <JunoButton variant="primary" href="mailto:info@clubjuno.nl">
             Stuur een e-mail
           </JunoButton>
-          <JunoButton variant="outline-light" href="tel:+31624734660">
+          <JunoButton variant="outline-dark" href="tel:+31624734660">
             Bel ons
           </JunoButton>
         </div>
+        
+        <WaveTransition fillColor="#3d7183" />
       </section>
-
+      
       <Footer />
     </div>
   );

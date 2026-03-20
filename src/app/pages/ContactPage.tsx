@@ -56,6 +56,7 @@ export function ContactPage() {
         subtitle="Heb je een vraag? We horen graag van je."
         waveVariant="inverted"
         height="h-[40vh] min-h-[280px]"
+        waveColor="#e8f0f3"
       />
 
       {/* Main Content Section */}

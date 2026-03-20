@@ -1,3 +1,31 @@
+// WAVE ARCHITECTURE RULES — read before touching any wave
+//
+// 1. OWNERSHIP: A section owns the wave at its OWN BOTTOM.
+//    fillColor = hex of the section BELOW (the receiving section's bg).
+//
+// 2. ONLY BETWEEN SOLID BG SECTIONS: Never place a WaveTransition
+//    above or below a photo strip section (full-bleed images).
+//
+// 3. SOFT SURFACE HEX REFERENCE (for fillColor props only):
+//    bg-background      → #f6f4db
+//    bg-navy-soft       → #e8f0f3
+//    bg-sage-soft       → #f0f5f3
+//    bg-terracotta-soft → #faf0ea
+//    bg-primary (footer)→ #3d7183
+//
+// 4. THE SECTION MUST BE RELATIVE: The parent section of a
+//    WaveTransition must have "relative" in its className.
+//    WaveTransition uses absolute positioning — without relative
+//    it will escape to the wrong ancestor.
+//
+// 5. SAME COLOR = NO WAVE: Adjacent sections with the same bg
+//    color never get a wave between them.
+//
+// 6. CHANGING A SECTION COLOR? Update two things:
+//    a) The section's own className (bg-*)
+//    b) The fillColor in the section ABOVE it (that wave points to this section)
+//    c) The fillColor in this section's own WaveTransition (points to section below)
+
 interface WaveTransitionProps {
   fillColor: string;
   className?: string;
