@@ -13,7 +13,7 @@ export function Reviews() {
         <SectionHeader title="WAT ONZE GASTEN ZEGGEN" waveVariant="special" />
         
         {/* Elfsight Google Reviews Widget */}
-        <div className="elfsight-app-b019b95d-196b-47c2-8856-06161a723b09" data-elfsight-app-lazy></div>
+        <div className="elfsight-app-b019b95d-196b-47c2-8856-06161a723b09"></div>
         
         {/* CTA Button */}
         <div className="text-center mt-10">
