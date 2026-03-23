@@ -74,7 +74,7 @@ export function Watersport() {
 
   return (
     <>
-      <section id="watersport" className="relative py-20 px-6 bg-navy-soft font-body">
+      <section id="watersport" className="relative py-20 px-6 pb-32 bg-navy-soft font-body">
         <SectionWaveTop fillColor="#e8f0f3" />
         
         <div className="max-w-[1400px] mx-auto">

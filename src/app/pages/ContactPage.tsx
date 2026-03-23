@@ -60,7 +60,7 @@ export function ContactPage() {
       />
 
       {/* Main Content Section */}
-      <section className="relative py-20 px-6 bg-navy-soft">
+      <section className="relative py-20 px-6 pb-32 bg-navy-soft">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
@@ -189,22 +189,26 @@ export function ContactPage() {
           </div>
         </div>
         
-        <WaveTransition fillColor="#3d7183" />
+        <WaveTransition fillColor="#f6f4db" />
       </section>
 
       {/* Map Section */}
-      <section className="max-w-[1200px] mx-auto px-6 pb-20">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.6928813641894!2d4.210399193146445!3d52.067115599610986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b08dc0d19d8b%3A0xc3d99879c097fa70!2sBoca%20Grandi!5e0!3m2!1snl!2snl!4v1773924227964!5m2!1snl!2snl"
-          width="100%"
-          height="400"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="rounded-xl"
-          title="Locatie Beachclub Juno, Strand Zuid 18, Kijkduin"
-        />
+      <section className="relative bg-background pb-36">
+        <div className="max-w-[1200px] mx-auto px-6 pt-8">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.6928813641894!2d4.210399193146445!3d52.067115599610986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b08dc0d19d8b%3A0xc3d99879c097fa70!2sBoca%20Grandi!5e0!3m2!1snl!2snl!4v1773924227964!5m2!1snl!2snl"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-xl"
+            title="Locatie Beachclub Juno, Strand Zuid 18, Kijkduin"
+          />
+        </div>
+        
+        <WaveTransition fillColor="#3d7183" />
       </section>
 
       <Footer />

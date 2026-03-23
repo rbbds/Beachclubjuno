@@ -138,77 +138,9 @@ export function Bruiloften() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
-        
-        <WaveTransition fillColor="#e8f0f3" />
       </section>
 
-      {/* SECTION 2 — HOE WIJ HET REGELEN */}
-      <section className="relative py-28 px-6 font-body bg-navy-soft text-primary">
-        <div className="max-w-[1200px] mx-auto">
-          <SectionHeader
-            title="HOE WIJ HET REGELEN"
-            subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
-            waveVariant="special"
-          />
-
-          <div className="grid md:grid-cols-3 gap-8 mt-4">
-            {regelingCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
-                >
-                  <Icon className="w-10 h-10 text-primary mb-4" />
-                  <h3 
-                    className="text-primary mb-3 tracking-wide font-display" 
-                    style={{ fontSize: '1.5rem', lineHeight: '1.2' }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p className="text-primary leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        
-        <WaveTransition fillColor="#faf0ea" />
-      </section>
-
-      {/* SECTION 3 — EVENT MANAGER CONTACT */}
-      <EventManagerContact
-        name="Sarah"
-        role="Wedding Coördinator bij Juno"
-        photo={images.bruiloften.intro}
-        intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
-        phone="+31624734660"
-        email="info@clubjuno.nl"
-        bgColor="terracotta"
-      />
-
-      {/* SECTION 4 — SFEER FOTO STRIP */}
-      <section className="relative overflow-hidden h-[500px]">
-        <img 
-          src={images.bruiloften.hero}
-          alt="De Noordzee als getuige"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary/30"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h2 
-            className="font-display text-background text-center px-6"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: '1' }}
-          >
-            DE NOORDZEE ALS GETUIGE
-          </h2>
-          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
-        </div>
-      </section>
-
-      {/* SECTION 5 — MOMENTEN (horizontal scroll) */}
+      {/* SECTION 2 — MOMENTEN (horizontal scroll) */}
       <section className="py-28 px-6 font-body bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
@@ -248,6 +180,72 @@ export function Bruiloften() {
         </div>
       </section>
 
+      {/* SECTION 3 — HOE WIJ HET REGELEN */}
+      <section className="relative py-28 px-6 pb-32 font-body bg-navy-soft text-primary">
+        <div className="max-w-[1200px] mx-auto">
+          <SectionHeader
+            title="HOE WIJ HET REGELEN"
+            subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
+            waveVariant="special"
+          />
+
+          <div className="grid md:grid-cols-3 gap-8 mt-4">
+            {regelingCards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <div 
+                  key={index}
+                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
+                >
+                  <Icon className="w-10 h-10 text-primary mb-4" />
+                  <h3 
+                    className="text-primary mb-3 tracking-wide font-display" 
+                    style={{ fontSize: '1.5rem', lineHeight: '1.2' }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p className="text-primary leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        
+        <WaveTransition fillColor="#faf0ea" />
+      </section>
+
+      {/* SECTION 4 — EVENT MANAGER CONTACT */}
+      <EventManagerContact
+        name="Sarah"
+        role="Wedding Coördinator bij Juno"
+        photo={images.bruiloften.intro}
+        intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
+        phone="+31624734660"
+        email="info@clubjuno.nl"
+        bgColor="terracotta"
+      />
+
+      {/* SECTION 5 — SFEER FOTO STRIP */}
+      <section className="relative overflow-hidden h-[500px]">
+        <img 
+          src={images.bruiloften.hero}
+          alt="De Noordzee als getuige"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/30"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <h2 
+            className="font-display text-background text-center px-6"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: '1' }}
+          >
+            DE NOORDZEE ALS GETUIGE
+          </h2>
+          <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
+        </div>
+      </section>
+
       {/* SECTION 6 — FAQ */}
       <div className="relative">
         <EventFaqSection
@@ -255,20 +253,6 @@ export function Bruiloften() {
           image={images.bruiloften.intro}
           imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
           bgColor="sage"
-        />
-        <WaveTransition fillColor="#faf0ea" />
-      </div>
-
-      {/* SECTION 7 — EVENT MANAGER CONTACT (sage background) */}
-      <div className="relative">
-        <EventManagerContact
-          name="Sarah"
-          role="Wedding Coördinator bij Juno"
-          photo={images.bruiloften.intro}
-          intro="Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben."
-          phone="+31624734660"
-          email="info@clubjuno.nl"
-          bgColor="terracotta"
         />
         <WaveTransition fillColor="#3d7183" />
       </div>

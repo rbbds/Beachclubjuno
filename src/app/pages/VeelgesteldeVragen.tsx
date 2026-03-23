@@ -124,7 +124,7 @@ export function VeelgesteldeVragen() {
 
       {/* FAQ Content */}
       <section
-        className="relative py-16 px-6 font-body bg-terracotta-soft"
+        className="relative py-16 px-6 pb-32 font-body bg-terracotta-soft"
       >
         <div className="max-w-[900px] mx-auto space-y-16">
           {faqGroups.map((group) => (
@@ -171,7 +171,7 @@ export function VeelgesteldeVragen() {
 
       {/* CTA Block */}
       <section
-        className="relative bg-navy-soft py-20 px-6 text-center font-body"
+        className="relative bg-navy-soft py-20 px-6 pb-32 text-center font-body"
       >
         <h2
           className="text-primary mb-4 font-display"

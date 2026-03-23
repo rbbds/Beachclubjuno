@@ -20,7 +20,7 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
     'bg-sage-soft';
 
   return (
-    <section className={`py-28 px-6 font-body ${bgClass}`}>
+    <section className={`py-28 px-6 pb-32 font-body ${bgClass}`}>
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left column - Image */}
         <div>

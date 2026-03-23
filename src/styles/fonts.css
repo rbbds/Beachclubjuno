@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* Museo is not available on Google Fonts. Using a reliable fallback stack.
-   If you have a licensed Museo font file, add it via @font-face instead. */
 @font-face {
   font-family: 'Museo';
   src: local('Museo'), local('MuseoSans');

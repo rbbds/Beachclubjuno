@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { PageHero } from '../components/PageHero';
@@ -8,6 +8,8 @@ import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
+import { BaseDrawer } from '../components/BaseDrawer';
+import { X } from 'lucide-react';
 import { images } from '../data/images';
 
 export function ParticuliereEvents() {
@@ -59,6 +61,32 @@ export function ParticuliereEvents() {
       answer: 'Stuur een mail naar info@clubjuno.nl of bel ons op 06 2473 4660. We reageren binnen één werkdag.' 
     }
   ];
+
+  const drawerInfo = [
+    {
+      title: "STRANDFEEST",
+      image: images.events.bruiloften,
+      description: "Vier jouw verjaardag, jubileum of familiefeest op een unieke locatie direct aan het strand. Wij zorgen voor de perfecte sfeer, catering en een privé stranddeel.",
+      bullets: ["Exclusief stranddeel & privé bar", "Catering en drankenpakketten op maat", "DJ of live muziek mogelijk", "20 – 300 personen"],
+      cta: "Offerte aanvragen"
+    },
+    {
+      title: "DINER & BORREL",
+      image: images.restaurant.main,
+      description: "Een lunch, borrel of diner met jouw groep in een sfeervolle setting aan het strand. Formeel of informeel — wij passen het aan jouw wensen aan.",
+      bullets: ["Lunch, borrel of diner", "Formeel of informeel", "Menusamenstelling op maat", "15 – 200 personen"],
+      cta: "Offerte aanvragen"
+    },
+    {
+      title: "ACTIEVE DAG",
+      image: images.watersport.surfen,
+      description: "Combineer een actieve dag op het water met een heerlijk diner of borrel achteraf. In samenwerking met Kiteboardschool.nl voor kiten, surfen, SUP en meer.",
+      bullets: ["Kiten, surfen of SUP via Kiteboardschool.nl", "Begeleiding door gecertificeerde instructeurs", "Combineer met diner of borrel", "10 – 100 personen"],
+      cta: "Offerte aanvragen"
+    }
+  ];
+
+  const [selectedCard, setSelectedCard] = useState<typeof drawerInfo[0] | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -120,9 +148,14 @@ export function ParticuliereEvents() {
                     ))}
                   </ul>
                   {/* CTAs */}
-                  <div className="flex gap-3">
-                    <JunoButton variant="primary" size="sm">Offerte aanvragen</JunoButton>
-                    <JunoButton variant="outline-dark" size="sm">Meer informatie</JunoButton>
+                  <div className="flex flex-col gap-3">
+                    <JunoButton variant="primary" size="sm" fullWidth>Offerte aanvragen</JunoButton>
+                    <button
+                      onClick={() => setSelectedCard(drawerInfo[index])}
+                      className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
+                    >
+                      Meer informatie
+                    </button>
                   </div>
                 </div>
               </div>
@@ -228,24 +261,56 @@ export function ParticuliereEvents() {
           imageAlt="Particuliere Events FAQ"
           bgColor="sage"
         />
-        <WaveTransition fillColor="#faf0ea" />
-      </div>
-
-      {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
-      <div className="relative">
-        <EventManagerContact
-          name="Sarah"
-          role="Event Manager bij Juno"
-          photo={images.bruiloften.intro}
-          intro="Of het nu een verjaardag, jubileum of gewoon een feestje is — ik help je graag bij het plannen van een onvergetelijke dag aan het strand."
-          phone="+31624734660"
-          email="info@clubjuno.nl"
-          bgColor="terracotta"
-        />
         <WaveTransition fillColor="#3d7183" />
       </div>
 
       <Footer />
+
+      {/* DRAWER */}
+      {selectedCard && (
+        <BaseDrawer isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
+          <div className="font-body">
+            {/* Photo */}
+            <div className="relative w-full aspect-video">
+              <img
+                src={selectedCard.image}
+                alt={selectedCard.title}
+                className="w-full h-full object-cover"
+              />
+              <button
+                onClick={() => setSelectedCard(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
+                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              <h2 className="text-primary mb-4 tracking-wide font-display" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: '1' }}>
+                {selectedCard.title}
+              </h2>
+              <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
+              <p className="text-primary text-lg leading-relaxed mb-6">
+                {selectedCard.description}
+              </p>
+              <ul className="space-y-3 mb-8">
+                {selectedCard.bullets.map((b, i) => (
+                  <li key={i} className="flex gap-3 items-start text-primary">
+                    <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" style={{ fontSize: '18px' }}>
+                {selectedCard.cta}
+              </button>
+            </div>
+          </div>
+        </BaseDrawer>
+      )}
     </div>
   );
 }

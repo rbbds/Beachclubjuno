@@ -29,7 +29,7 @@ export function Gallery() {
 
   return (
     <>
-      <section id="gallery" className="relative py-20">
+      <section id="gallery" className="relative py-20 pb-32">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-1">
           {galleryImages.map((image, index) => (
             <button

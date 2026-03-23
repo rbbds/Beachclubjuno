@@ -54,7 +54,7 @@ function GoogleIcon({ className = '' }: { className?: string }) {
 
 export function Reviews() {
   return (
-    <section className="relative py-20 px-6 bg-terracotta-soft font-body">
+    <section className="relative py-20 px-6 pb-32 bg-terracotta-soft font-body">
       <SectionWaveTop fillColor="#faf0ea" />
       
       <div className="max-w-[1200px] mx-auto">

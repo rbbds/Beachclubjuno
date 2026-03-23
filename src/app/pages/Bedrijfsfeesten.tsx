@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { PageHero } from '../components/PageHero';
@@ -8,6 +8,8 @@ import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
+import { BaseDrawer } from '../components/BaseDrawer';
+import { X } from 'lucide-react';
 import { images } from '../data/images';
 
 export function Bedrijfsfeesten() {
@@ -59,6 +61,32 @@ export function Bedrijfsfeesten() {
       answer: 'We raden aan om minimaal 4-6 weken van tevoren contact op te nemen, zeker in het hoogseizoen (mei–september).' 
     }
   ];
+
+  const drawerInfo = [
+    {
+      title: "BEDRIJFSFESTIVAL",
+      image: images.bedrijfsfeesten.hero,
+      description: "Een volledig verzorgde dag voor jouw team, relaties of klanten — direct aan het strand van Kijkduin. Wij regelen alles van A tot Z, zodat jij én je gasten kunnen genieten.",
+      bullets: ["Exclusief gebruik van locatie", "Combinatie van activiteiten naar keuze", "Catering en drankenpakketten op maat", "20 – 300 personen"],
+      cta: "Offerte aanvragen"
+    },
+    {
+      title: "VERGADEREN AAN ZEE",
+      image: images.bedrijfsfeesten.team,
+      description: "Vergaderen met de Noordzee als inspiratiebron. Onze vergaderruimte is volledig uitgerust met AV-faciliteiten en biedt een verfrissende omgeving buiten het kantoor.",
+      bullets: ["Halve of hele dag arrangementen", "Afsluitbare ruimte met beamer, scherm en microfoon", "Verzorgde lunch inbegrepen", "15 – 100 personen"],
+      cta: "Offerte aanvragen"
+    },
+    {
+      title: "TEAMUITJE",
+      image: images.watersport.kiten,
+      description: "Geef je team een onvergetelijke dag met watersport, een privé stranddeel en een verzorgde BBQ of diner. In samenwerking met Kiteboardschool.nl.",
+      bullets: ["Privé strand met eigen bar", "Kiten, surfen, SUP of wingfoilen", "Combineer met diner of borrel", "15 – 200 personen"],
+      cta: "Offerte aanvragen"
+    }
+  ];
+
+  const [selectedCard, setSelectedCard] = useState<typeof drawerInfo[0] | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -120,9 +148,14 @@ export function Bedrijfsfeesten() {
                     ))}
                   </ul>
                   {/* CTAs */}
-                  <div className="flex gap-3">
-                    <JunoButton variant="primary" size="sm">Offerte aanvragen</JunoButton>
-                    <JunoButton variant="outline-dark" size="sm">Meer informatie</JunoButton>
+                  <div className="flex flex-col gap-3">
+                    <JunoButton variant="primary" size="sm" fullWidth>Offerte aanvragen</JunoButton>
+                    <button
+                      onClick={() => setSelectedCard(drawerInfo[index])}
+                      className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
+                    >
+                      Meer informatie
+                    </button>
                   </div>
                 </div>
               </div>
@@ -228,24 +261,56 @@ export function Bedrijfsfeesten() {
           imageAlt="Zakelijke Events FAQ"
           bgColor="sage"
         />
-        <WaveTransition fillColor="#faf0ea" />
-      </div>
-
-      {/* SECTION 8 — EVENT MANAGER CONTACT (sage background) */}
-      <div className="relative">
-        <EventManagerContact
-          name="Sarah"
-          role="Event Manager bij Juno"
-          photo={images.bruiloften.intro}
-          intro="Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team."
-          phone="+31624734660"
-          email="info@clubjuno.nl"
-          bgColor="terracotta"
-        />
         <WaveTransition fillColor="#3d7183" />
       </div>
 
       <Footer />
+
+      {/* DRAWER */}
+      {selectedCard && (
+        <BaseDrawer isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
+          <div className="font-body">
+            {/* Photo */}
+            <div className="relative w-full aspect-video">
+              <img
+                src={selectedCard.image}
+                alt={selectedCard.title}
+                className="w-full h-full object-cover"
+              />
+              <button
+                onClick={() => setSelectedCard(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
+                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              <h2 className="text-primary mb-4 tracking-wide font-display" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: '1' }}>
+                {selectedCard.title}
+              </h2>
+              <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
+              <p className="text-primary text-lg leading-relaxed mb-6">
+                {selectedCard.description}
+              </p>
+              <ul className="space-y-3 mb-8">
+                {selectedCard.bullets.map((b, i) => (
+                  <li key={i} className="flex gap-3 items-start text-primary">
+                    <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" style={{ fontSize: '18px' }}>
+                {selectedCard.cta}
+              </button>
+            </div>
+          </div>
+        </BaseDrawer>
+      )}
     </div>
   );
 }
