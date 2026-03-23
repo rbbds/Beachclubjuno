@@ -12,8 +12,11 @@ import { EventFaqSection } from '../components/EventFaqSection';
 import { BaseDrawer } from '../components/BaseDrawer';
 import { X } from 'lucide-react';
 import { images } from '../data/images';
+import { useMiceWidget } from '../hooks/useMiceWidget';
 
 export function Bedrijfsfeesten() {
+  useMiceWidget('83bbfd1669f7');
+  
   useEffect(() => {
     document.title = 'Zakelijke Events | Beachclub Juno Kijkduin';
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
@@ -264,6 +267,23 @@ export function Bedrijfsfeesten() {
         />
         <WaveTransition fillColor="#3d7183" />
       </div>
+
+      {/* SECTION 8 — MICE WIDGET */}
+      <section className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2
+            className="text-4xl text-primary mb-3"
+            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+          >
+            Evenement Aanvragen
+          </h2>
+          <p className="text-primary/70 mb-10">
+            Vul het formulier in en ontvang binnen 24 uur een
+            persoonlijk voorstel.
+          </p>
+          <div data-mice-widget="83bbfd1669f7" className="w-full" />
+        </div>
+      </section>
 
       <Footer />
 
