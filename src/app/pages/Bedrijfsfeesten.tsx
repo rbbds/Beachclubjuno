@@ -247,7 +247,7 @@ export function Bedrijfsfeesten() {
             className="font-display text-background text-center px-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1' }}
           >
-            KIJKDUIN — WAAR INSPIRATIE BEGINT
+            JUNO — WAAR INSPIRATIE BEGINT
           </h2>
           <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>

@@ -4,7 +4,7 @@ import { SectionWaveTop } from './SectionWaveTop'
 const MENU_PDF_URL = '#'
 
 const photos = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1615361200141-f45040f367be?w=900&q=80', alt: 'Verse zeevruchten bij Juno' },
+  { id: 1, src: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=900&q=80', alt: 'Verse zeevruchten bij Juno' },
   { id: 2, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', alt: 'Sfeer restaurant Juno' },
   { id: 3, src: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500&q=80', alt: 'Wijnkaart en details' },
   { id: 4, src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80', alt: 'Seizoensgerechten Juno' },
@@ -80,7 +80,7 @@ export function Restaurant() {
 
             {/* Decoratieve stempel */}
             <div
-              className="absolute bg-accent rounded-full z-[6] flex items-center justify-center"
+              className="absolute bg-accent rounded-full z-[20] flex items-center justify-center"
               style={{ width: 88, height: 88, top: '56%', right: '2%', transform: 'rotate(12deg)' }}
             >
               <span className="text-background text-center leading-tight tracking-wide font-display" style={{ fontSize: 13 }}>
