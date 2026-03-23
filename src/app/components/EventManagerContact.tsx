@@ -27,7 +27,7 @@ export function EventManagerContact({
     'bg-terracotta-soft';
 
   return (
-    <section className={`py-28 px-6 pb-32 font-body ${bgClass}`}>
+    <section className={`py-28 px-6 pb-32 font-body ${bgClass} group`}>
       <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left column */}
         <div>
@@ -58,11 +58,11 @@ export function EventManagerContact({
         </div>
 
         {/* Right column */}
-        <div>
+        <div className="overflow-hidden rounded-xl shadow-sm">
           <img
             src={photo}
             alt={name}
-            className="w-full h-[640px] object-cover object-top rounded-xl shadow-sm"
+            className="w-full h-[640px] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
       </div>

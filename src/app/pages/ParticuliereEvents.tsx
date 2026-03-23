@@ -165,11 +165,11 @@ export function ParticuliereEvents() {
       </section>
 
       {/* SECTION 3 — SFEER FOTO STRIP */}
-      <section className="relative overflow-hidden h-[500px]">
+      <section className="relative overflow-hidden h-[500px] group">
         <img 
           src={images.events.bruiloften} 
           alt="Jouw feest, ons strand"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -224,22 +224,22 @@ export function ParticuliereEvents() {
             </JunoButton>
           </div>
           {/* Right */}
-          <div>
+          <div className="overflow-hidden rounded-xl shadow-sm group">
             <img 
               src={images.intro.terrace}
               alt="Waarom Juno"
-              className="w-full h-[450px] object-cover rounded-xl shadow-sm"
+              className="w-full h-[450px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
         </div>
       </section>
 
       {/* SECTION 6 — SECOND FOTO STRIP */}
-      <section className="relative overflow-hidden h-[500px]">
+      <section className="relative overflow-hidden h-[500px] group">
         <img 
           src={images.bedrijfsfeesten.team} 
           alt="Maak er een dag om nooit te vergeten"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center">

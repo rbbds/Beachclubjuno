@@ -20,14 +20,14 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
     'bg-sage-soft';
 
   return (
-    <section className={`py-28 px-6 pb-32 font-body ${bgClass}`}>
+    <section className={`py-28 px-6 pb-32 font-body ${bgClass} group`}>
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left column - Image */}
-        <div>
+        <div className="overflow-hidden rounded-xl">
           <img
             src={image}
             alt={imageAlt}
-            className="w-full h-[600px] object-cover rounded-xl sticky top-24"
+            className="w-full h-[600px] object-cover sticky top-24 transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
 

@@ -24,7 +24,7 @@ export function Hero() {
           ZON. STRAND.<br />CULTUUR.
         </h1>
         
-        <WaveDecoration variant="special" className="w-32 h-4 mb-8" />
+        <WaveDecoration variant="inverted" className="w-32 h-4 mb-8" />
         
         <p 
           className="text-background max-w-2xl mb-10 text-lg md:text-xl font-body"

@@ -134,11 +134,11 @@ export function Bruiloften() {
         </div>
 
         {/* Right column */}
-        <div className="relative overflow-hidden h-[50vh] md:h-auto">
+        <div className="relative overflow-hidden h-[50vh] md:h-auto group">
           <img 
             src={images.bruiloften.hero}
             alt="Trouwen op het strand bij Beachclub Juno"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
         
@@ -159,12 +159,12 @@ export function Bruiloften() {
             style={{ scrollbarWidth: 'none' }}
           >
             {momentenCards.map((card, index) => (
-              <div key={index} className="flex-shrink-0 w-72 snap-start">
+              <div key={index} className="flex-shrink-0 w-72 snap-start group">
                 <div className="relative h-96 rounded-xl overflow-hidden mb-4">
                   <img 
                     src={card.image} 
                     alt={card.title}
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
@@ -201,14 +201,14 @@ export function Bruiloften() {
                 return (
                   <div
                     key={index}
-                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
                   >
                     {/* Foto bovenaan */}
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={card.image}
                         alt={card.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
                     </div>
@@ -247,11 +247,11 @@ export function Bruiloften() {
       />
 
       {/* SECTION 5 — SFEER FOTO STRIP */}
-      <section className="relative overflow-hidden h-[500px]">
+      <section className="relative overflow-hidden h-[500px] group">
         <img 
           src={images.bruiloften.hero}
           alt="De Noordzee als getuige"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/30"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center">

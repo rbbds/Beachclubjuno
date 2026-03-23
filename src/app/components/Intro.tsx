@@ -31,11 +31,11 @@ export function Intro() {
           </div>
         </div>
         
-        <div className="relative">
+        <div className="relative overflow-hidden rounded-xl shadow-sm group">
           <img 
             src={images.intro.terrace}
             alt="Terras van Beachclub Juno met uitzicht op de Noordzee"
-            className="w-full h-[500px] object-cover rounded-xl shadow-sm"
+            className="w-full h-[500px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
       </div>
