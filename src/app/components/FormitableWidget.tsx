@@ -4,9 +4,12 @@ declare global {
   interface Window {
     FT?: {
       load: (module: string) => void;
-      Widget?: {
-        open: () => void;
-        toggle: () => void;
+      widgets?: {
+        get: () => {
+          open: () => void;
+          close: () => void;
+          toggle: () => void;
+        };
       };
     };
   }
@@ -33,7 +36,7 @@ export function FormitableWidget() {
     <div
       className="ft-widget-b2"
       data-restaurant="af51ddeb"
-      data-open="1500"
+      data-open="false"
       data-open-mobile="false"
       data-color="#cc6435"
       data-language="nl"
@@ -45,26 +48,20 @@ export function FormitableWidget() {
 }
 
 export function openFormitableWidget() {
-  const tryOpen = () => {
-    if (window.FT?.Widget?.open) {
-      window.FT.Widget.open();
-      return true;
+  // Official API method
+  if (window.FT?.widgets?.get) {
+    try {
+      window.FT.widgets.get().open();
+      return;
+    } catch (e) {
+      // fall through
     }
-    if (window.FT?.Widget?.toggle) {
-      window.FT.Widget.toggle();
-      return true;
-    }
-    const btn = document.querySelector<HTMLElement>(
-      '[class*="ft-toolbar"], [class*="ft-btn"], [data-formitable]'
-    );
-    if (btn) {
-      btn.click();
-      return true;
-    }
-    return false;
-  };
-
-  if (!tryOpen()) {
-    setTimeout(tryOpen, 600);
   }
+  // Fallback: use anchor method — most reliable
+  const anchor = document.createElement('a');
+  anchor.href = '#ft-open';
+  anchor.style.display = 'none';
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
 }
