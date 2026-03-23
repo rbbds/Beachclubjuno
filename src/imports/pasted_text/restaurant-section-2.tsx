@@ -109,21 +109,21 @@ export function Restaurant() {
           </p>
 
           <div className="flex gap-3 mb-8">
-            <div className="flex-1 bg-white/70 rounded-xl px-4 py-3">
+            <div className="flex-1 bg-background/60 rounded-xl px-4 py-3">
               <span className="block font-display text-accent tracking-widest text-xs uppercase mb-1">Open</span>
               <span className="block text-primary font-body text-sm font-semibold">Dagelijks</span>
             </div>
-            <div className="flex-1 bg-white/70 rounded-xl px-4 py-3">
+            <div className="flex-1 bg-background/60 rounded-xl px-4 py-3">
               <span className="block font-display text-accent tracking-widest text-xs uppercase mb-1">Keuken</span>
               <span className="block text-primary font-body text-sm font-semibold">12:00 – 22:00</span>
             </div>
-            <div className="flex-1 bg-white/70 rounded-xl px-4 py-3">
+            <div className="flex-1 bg-background/60 rounded-xl px-4 py-3">
               <span className="block font-display text-accent tracking-widest text-xs uppercase mb-1">Reserveren</span>
               <span className="block text-primary font-body text-sm font-semibold">Aanbevolen</span>
             </div>
           </div>
 
-          <a
+          
             href={MENU_PDF_URL}
             className={`inline-flex items-center gap-3 bg-accent text-background px-7 py-3.5 rounded-lg hover:bg-accent/85 transition-colors font-body font-semibold text-base ${MENU_PDF_URL === '#' ? 'pointer-events-none opacity-50' : ''}`}
           >
