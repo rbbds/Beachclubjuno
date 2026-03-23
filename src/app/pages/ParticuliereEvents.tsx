@@ -12,6 +12,7 @@ import { EventFaqSection } from '../components/EventFaqSection';
 import { BaseDrawer } from '../components/BaseDrawer';
 import { X } from 'lucide-react';
 import { images } from '../data/images';
+import { openMiceWidget } from '../utils/miceWidget';
 
 export function ParticuliereEvents() {
   useEffect(() => {
@@ -113,7 +114,7 @@ export function ParticuliereEvents() {
           />
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
-            <JunoButton variant="primary" size="lg">Stel jouw event samen</JunoButton>
+            <JunoButton variant="primary" size="lg" onClick={() => openMiceWidget('83bbfd1669f7')}>Stel jouw event samen</JunoButton>
             <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
           </div>
 
@@ -150,7 +151,7 @@ export function ParticuliereEvents() {
                   </ul>
                   {/* CTAs */}
                   <div className="flex flex-col gap-3">
-                    <JunoButton variant="primary" size="sm" fullWidth>Offerte aanvragen</JunoButton>
+                    <JunoButton variant="primary" size="sm" fullWidth onClick={() => openMiceWidget('83bbfd1669f7')}>Offerte aanvragen</JunoButton>
                     <button
                       onClick={() => setSelectedCard(drawerInfo[index])}
                       className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
@@ -220,7 +221,7 @@ export function ParticuliereEvents() {
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Ervaren team met oog voor elk detail</span>
             </div>
-            <JunoButton variant="primary" size="lg" className="mt-6">
+            <JunoButton variant="primary" size="lg" className="mt-6" onClick={() => openMiceWidget('83bbfd1669f7')}>
               Stel jouw event samen
             </JunoButton>
           </div>
@@ -305,7 +306,11 @@ export function ParticuliereEvents() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" style={{ fontSize: '18px' }}>
+              <button 
+                onClick={() => openMiceWidget('83bbfd1669f7')}
+                className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" 
+                style={{ fontSize: '18px' }}
+              >
                 {selectedCard.cta}
               </button>
             </div>

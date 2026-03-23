@@ -10,11 +10,10 @@ import { EventFaqSection } from '../components/EventFaqSection';
 import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { useMiceWidget } from '../hooks/useMiceWidget';
+import { openMiceWidget } from '../utils/miceWidget';
 
 export function Bruiloften() {
   const scrollRef = useScrollReveal();
-  useMiceWidget('8f1c3d9ed6cc');
   
   useEffect(() => {
     document.title = 'Trouwen aan zee | Beachclub Juno Kijkduin';
@@ -133,7 +132,7 @@ export function Bruiloften() {
             </li>
           </ul>
           <div className="flex flex-col sm:flex-row gap-3">
-            <JunoButton variant="primary" size="lg">Vraag een offerte aan</JunoButton>
+            <JunoButton variant="primary" size="lg" onClick={() => openMiceWidget('8f1c3d9ed6cc')}>Vraag een offerte aan</JunoButton>
             <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
           </div>
         </div>
@@ -280,23 +279,6 @@ export function Bruiloften() {
         />
         <WaveTransition fillColor="#3d7183" />
       </div>
-
-      {/* SECTION 7 — MICE WIDGET */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2
-            className="text-4xl text-primary mb-3"
-            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
-          >
-            Beschikbaarheid Aanvragen
-          </h2>
-          <p className="text-primary/70 mb-10">
-            Vul het formulier in en ontvang binnen 24 uur een
-            persoonlijk voorstel.
-          </p>
-          <div data-mice-widget="8f1c3d9ed6cc" className="w-full" />
-        </div>
-      </section>
 
       <Footer />
     </div>

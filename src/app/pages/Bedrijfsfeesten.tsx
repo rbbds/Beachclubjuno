@@ -12,10 +12,9 @@ import { EventFaqSection } from '../components/EventFaqSection';
 import { BaseDrawer } from '../components/BaseDrawer';
 import { X } from 'lucide-react';
 import { images } from '../data/images';
-import { useMiceWidget } from '../hooks/useMiceWidget';
+import { openMiceWidget } from '../utils/miceWidget';
 
 export function Bedrijfsfeesten() {
-  useMiceWidget('83bbfd1669f7');
   
   useEffect(() => {
     document.title = 'Zakelijke Events | Beachclub Juno Kijkduin';
@@ -116,7 +115,7 @@ export function Bedrijfsfeesten() {
           />
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
-            <JunoButton variant="primary" size="lg">Stel jouw event samen</JunoButton>
+            <JunoButton variant="primary" size="lg" onClick={() => openMiceWidget('83bbfd1669f7')}>Stel jouw event samen</JunoButton>
             <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
           </div>
 
@@ -153,7 +152,7 @@ export function Bedrijfsfeesten() {
                   </ul>
                   {/* CTAs */}
                   <div className="flex flex-col gap-3">
-                    <JunoButton variant="primary" size="sm" fullWidth>Offerte aanvragen</JunoButton>
+                    <JunoButton variant="primary" size="sm" fullWidth onClick={() => openMiceWidget('83bbfd1669f7')}>Offerte aanvragen</JunoButton>
                     <button
                       onClick={() => setSelectedCard(drawerInfo[index])}
                       className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
@@ -223,7 +222,7 @@ export function Bedrijfsfeesten() {
               <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
               <span>Ervaren team met oog voor elk detail</span>
             </div>
-            <JunoButton variant="primary" size="lg" className="mt-6">
+            <JunoButton variant="primary" size="lg" className="mt-6" onClick={() => openMiceWidget('83bbfd1669f7')}>
               Stel jouw event samen
             </JunoButton>
           </div>
@@ -268,23 +267,6 @@ export function Bedrijfsfeesten() {
         <WaveTransition fillColor="#3d7183" />
       </div>
 
-      {/* SECTION 8 — MICE WIDGET */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2
-            className="text-4xl text-primary mb-3"
-            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
-          >
-            Evenement Aanvragen
-          </h2>
-          <p className="text-primary/70 mb-10">
-            Vul het formulier in en ontvang binnen 24 uur een
-            persoonlijk voorstel.
-          </p>
-          <div data-mice-widget="83bbfd1669f7" className="w-full" />
-        </div>
-      </section>
-
       <Footer />
 
       {/* DRAWER */}
@@ -325,7 +307,11 @@ export function Bedrijfsfeesten() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" style={{ fontSize: '18px' }}>
+              <button 
+                onClick={() => openMiceWidget('83bbfd1669f7')}
+                className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" 
+                style={{ fontSize: '18px' }}
+              >
                 {selectedCard.cta}
               </button>
             </div>
