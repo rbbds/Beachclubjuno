@@ -1,9 +1,24 @@
+import { useEffect } from 'react';
 import { SectionHeader } from './SectionHeader';
 import { SectionWaveTop } from './SectionWaveTop';
 import { WaveTransition } from './WaveTransition';
 import { JunoButton } from './JunoButton';
 
 export function Reviews() {
+  useEffect(() => {
+    const existing = document.querySelector(
+      'script[src="https://elfsightcdn.com/platform.js"]'
+    );
+    if (!existing) {
+      const script = document.createElement('script');
+      script.src = 'https://elfsightcdn.com/platform.js';
+      script.async = true;
+      document.body.appendChild(script);
+    } else if ((window as any).elfsight) {
+      (window as any).elfsight.reinit?.();
+    }
+  }, []);
+
   return (
     <section className="relative py-20 px-6 pb-32 bg-terracotta-soft font-body">
       <SectionWaveTop fillColor="#faf0ea" />
@@ -13,7 +28,10 @@ export function Reviews() {
         <SectionHeader title="WAT ONZE GASTEN ZEGGEN" waveVariant="special" />
         
         {/* Elfsight Google Reviews Widget */}
-        <div className="elfsight-app-b019b95d-196b-47c2-8856-06161a723b09"></div>
+        <div 
+          className="elfsight-app-b019b95d-196b-47c2-8856-06161a723b09"
+          data-elfsight-app-lazy="false"
+        />
         
         {/* CTA Button */}
         <div className="text-center mt-10">
