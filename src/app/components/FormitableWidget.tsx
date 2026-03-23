@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
     FT?: {
       load: (module: string) => void;
+      parse: (callback?: () => void) => void;
       widgets?: {
         get: () => {
           open: () => void;
@@ -16,20 +17,34 @@ declare global {
 }
 
 export function FormitableWidget() {
-  useEffect(() => {
-    if (document.getElementById('formitable-sdk')) return;
+  const initialized = useRef(false);
 
-    (function (d: Document, s: string, id: string, h?: () => void) {
-      const ftjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      const js = d.createElement(s) as HTMLScriptElement;
-      js.id = id;
-      js.src = 'https://cdn.formitable.com/sdk/v1/ft.sdk.min.js';
-      if (h) js.onload = h;
-      ftjs.parentNode!.insertBefore(js, ftjs);
-    })(document, 'script', 'formitable-sdk', function () {
-      window.FT?.load('Analytics');
-    });
+  useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+
+    const loadSDK = () => {
+      if (document.getElementById('formitable-sdk')) {
+        // Script already loaded, re-parse to pick up the widget div
+        window.FT?.parse();
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.id = 'formitable-sdk';
+      script.src = 'https://cdn.formitable.com/sdk/v1/ft.sdk.min.js';
+      script.async = true;
+      script.onload = () => {
+        window.FT?.load('Analytics');
+        // Give React time to render the div, then parse
+        setTimeout(() => window.FT?.parse(), 100);
+      };
+      document.body.appendChild(script);
+    };
+
+    // Small delay to ensure the widget div is in the DOM
+    const timer = setTimeout(loadSDK, 200);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -53,7 +68,7 @@ export function openFormitableWidget() {
       try {
         window.FT.widgets.get().open();
         return true;
-      } catch (e) {
+      } catch {
         // fall through
       }
     }
@@ -62,21 +77,11 @@ export function openFormitableWidget() {
 
   if (tryOpen()) return;
 
-  // Widget not ready yet — listen for the ft-widget-ready event
+  // Widget not ready yet — wait for ft-widget-ready event
   const onReady = () => {
     document.removeEventListener('ft-widget-ready', onReady);
-    if (!tryOpen()) {
-      // Last resort: anchor fallback
-      const anchor = document.createElement('a');
-      anchor.href = '#ft-open';
-      anchor.style.display = 'none';
-      document.body.appendChild(anchor);
-      anchor.click();
-      document.body.removeChild(anchor);
-    }
+    tryOpen();
   };
   document.addEventListener('ft-widget-ready', onReady);
-
-  // Safety timeout — remove listener after 5s to avoid memory leak
   setTimeout(() => document.removeEventListener('ft-widget-ready', onReady), 5000);
 }
