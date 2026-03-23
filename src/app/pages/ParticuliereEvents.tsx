@@ -112,7 +112,7 @@ export function ParticuliereEvents() {
             waveVariant="special"
           />
 
-          <div className="flex gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
             <JunoButton variant="primary" size="lg">Stel jouw event samen</JunoButton>
             <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
           </div>

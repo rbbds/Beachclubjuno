@@ -127,9 +127,9 @@ export function Bruiloften() {
               <span>20 tot 200 personen</span>
             </li>
           </ul>
-          <div className="flex flex-col gap-3">
-            <JunoButton variant="primary" size="lg" fullWidth>Vraag een offerte aan</JunoButton>
-            <JunoButton variant="outline-dark" size="lg" fullWidth>Download brochure</JunoButton>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <JunoButton variant="primary" size="lg">Vraag een offerte aan</JunoButton>
+            <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
           </div>
         </div>
 

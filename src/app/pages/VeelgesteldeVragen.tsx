@@ -185,7 +185,7 @@ export function VeelgesteldeVragen() {
         <p className="text-primary/80 mb-10 max-w-md mx-auto">
           Staat jouw vraag er niet bij? We helpen je graag persoonlijk verder.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <JunoButton variant="primary" href="mailto:info@clubjuno.nl">
             Stuur een e-mail
           </JunoButton>

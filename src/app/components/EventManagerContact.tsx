@@ -47,7 +47,7 @@ export function EventManagerContact({
           <p className="text-primary text-lg leading-relaxed mb-8">
             {intro}
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3">
             <JunoButton variant="secondary" href={`tel:${phone}`}>
               Bel ons
             </JunoButton>
