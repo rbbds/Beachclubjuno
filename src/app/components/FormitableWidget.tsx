@@ -48,20 +48,35 @@ export function FormitableWidget() {
 }
 
 export function openFormitableWidget() {
-  // Official API method
-  if (window.FT?.widgets?.get) {
-    try {
-      window.FT.widgets.get().open();
-      return;
-    } catch (e) {
-      // fall through
+  const tryOpen = () => {
+    if (window.FT?.widgets?.get) {
+      try {
+        window.FT.widgets.get().open();
+        return true;
+      } catch (e) {
+        // fall through
+      }
     }
-  }
-  // Fallback: use anchor method — most reliable
-  const anchor = document.createElement('a');
-  anchor.href = '#ft-open';
-  anchor.style.display = 'none';
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
+    return false;
+  };
+
+  if (tryOpen()) return;
+
+  // Widget not ready yet — listen for the ft-widget-ready event
+  const onReady = () => {
+    document.removeEventListener('ft-widget-ready', onReady);
+    if (!tryOpen()) {
+      // Last resort: anchor fallback
+      const anchor = document.createElement('a');
+      anchor.href = '#ft-open';
+      anchor.style.display = 'none';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    }
+  };
+  document.addEventListener('ft-widget-ready', onReady);
+
+  // Safety timeout — remove listener after 5s to avoid memory leak
+  setTimeout(() => document.removeEventListener('ft-widget-ready', onReady), 5000);
 }
