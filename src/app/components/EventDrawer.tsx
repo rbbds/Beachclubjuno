@@ -145,9 +145,6 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
             <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-medium">
               Koop tickets
             </button>
-            <button className="w-full border-2 border-primary text-primary py-4 rounded-lg hover:bg-primary hover:text-background transition-colors font-medium">
-              Voeg toe aan agenda
-            </button>
           </div>
         </div>
       </div>

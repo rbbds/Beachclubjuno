@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { PageHero } from '../components/PageHero';
 import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
+import { SectionWaveTop } from '../components/SectionWaveTop';
 import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 import { images } from '../data/images';
 
@@ -61,6 +62,7 @@ export function ContactPage() {
 
       {/* Main Content Section */}
       <section className="relative py-20 px-6 pb-32 bg-navy-soft">
+        <SectionWaveTop fillColor="#e8f0f3" />
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
@@ -118,7 +120,7 @@ export function ContactPage() {
                 {/* Name Field */}
                 <div className="mb-5">
                   <label className="block font-medium text-primary mb-1">
-                    Naam*
+                    Naam
                   </label>
                   <input
                     type="text"
@@ -132,7 +134,7 @@ export function ContactPage() {
                 {/* Phone Field */}
                 <div className="mb-5">
                   <label className="block font-medium text-primary mb-1">
-                    Telefoonnummer
+                    Telefoonnummer <span className="font-normal text-primary/50 text-sm">(optioneel)</span>
                   </label>
                   <input
                     type="text"
@@ -145,7 +147,7 @@ export function ContactPage() {
                 {/* Email Field */}
                 <div className="mb-5">
                   <label className="block font-medium text-primary mb-1">
-                    E-mailadres*
+                    E-mailadres
                   </label>
                   <input
                     type="email"
@@ -159,7 +161,7 @@ export function ContactPage() {
                 {/* Message Field */}
                 <div className="mb-5">
                   <label className="block font-medium text-primary mb-1">
-                    Uw bericht*
+                    Uw bericht
                   </label>
                   <textarea
                     value={message}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
+import { SectionWaveTop } from '../components/SectionWaveTop';
 import { EventDrawer, EventData } from '../components/EventDrawer';
 import { PageHero } from '../components/PageHero';
 import { JunoButton } from '../components/JunoButton';
@@ -48,11 +49,11 @@ export function VolledigProgramma() {
         image={images.programma.jazz.event}
         title="VOLLEDIG PROGRAMMA"
         subtitle="Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno"
-        waveColor="#f0f5f3"
       />
 
       {/* Filter Pills & Event Grid */}
       <section className="pt-12 pb-20 px-6 bg-sage-soft">
+        <SectionWaveTop fillColor="#f0f5f3" />
         <div className="max-w-[1200px] mx-auto">
           
           {/* Filter pills */}

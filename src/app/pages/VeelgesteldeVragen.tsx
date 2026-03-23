@@ -3,6 +3,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
+import { SectionWaveTop } from '../components/SectionWaveTop';
 import { PageHero } from '../components/PageHero';
 import { JunoButton } from '../components/JunoButton';
 import {
@@ -119,13 +120,14 @@ export function VeelgesteldeVragen() {
         image={images.hero.main}
         title="VEELGESTELDE VRAGEN"
         subtitle="Alles wat je wilt weten over Juno"
-        waveColor="#faf0ea"
+        waveColor="#f6f4db"
       />
 
       {/* FAQ Content */}
       <section
-        className="relative py-16 px-6 pb-32 font-body bg-terracotta-soft"
+        className="relative py-16 px-6 pb-32 font-body bg-background"
       >
+        <SectionWaveTop fillColor="#f6f4db" />
         <div className="max-w-[900px] mx-auto space-y-16">
           {faqGroups.map((group) => (
             <div key={group.key}>
@@ -133,7 +135,7 @@ export function VeelgesteldeVragen() {
               <div className="mb-6">
                 <h2
                   className="text-primary mb-3 font-display"
-                  style={{ fontSize: '1.5rem', letterSpacing: '0.06em' }}
+                  style={{ fontSize: '2rem', letterSpacing: '0.06em' }}
                 >
                   {group.label}
                 </h2>
@@ -149,13 +151,13 @@ export function VeelgesteldeVragen() {
                     className="border-b border-secondary/30 last:border-b-0"
                   >
                     <AccordionTrigger
-                      className="text-primary hover:text-accent hover:no-underline transition-colors py-4 text-left"
+                      className="text-primary hover:text-accent hover:no-underline transition-colors py-6 text-left text-lg"
                       style={{ fontWeight: 700 }}
                     >
                       {item.q}
                     </AccordionTrigger>
                     <AccordionContent>
-                      <p className="text-primary/80 leading-relaxed pb-2">
+                      <p className="text-primary/80 leading-relaxed pb-4 text-base">
                         {item.a}
                       </p>
                     </AccordionContent>

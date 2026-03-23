@@ -3,6 +3,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
+import { SectionWaveTop } from '../components/SectionWaveTop';
 import { JunoButton } from '../components/JunoButton';
 import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
@@ -99,11 +100,11 @@ export function Bedrijfsfeesten() {
         subtitle="Vergaderen, borrel of teambuilding — anders dan anders"
         waveVariant="inverted"
         height="h-screen"
-        waveColor="#f6f4db"
       />
 
       {/* SECTION 2 — AANBOD INTRO */}
       <section className="py-28 px-6 font-body bg-background">
+        <SectionWaveTop fillColor="#f6f4db" />
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="ONS ZAKELIJK AANBOD"

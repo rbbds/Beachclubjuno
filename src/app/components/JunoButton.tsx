@@ -24,7 +24,7 @@ export function JunoButton({
   
   // Variant classes
   const variantClasses = {
-    primary: 'bg-accent text-background hover:bg-accent/85',
+    primary: 'bg-accent text-background hover:brightness-[0.85] transition-all',
     secondary: 'bg-primary text-background hover:bg-primary/85',
     'outline-light': 'border-2 border-background text-background hover:bg-background hover:text-primary',
     'outline-dark': 'border-2 border-primary text-primary hover:bg-primary hover:text-background',
