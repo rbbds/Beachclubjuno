@@ -35,7 +35,7 @@ export function Gallery() {
             <button
               key={index}
               onClick={() => openLightbox(index)}
-              className="relative aspect-square overflow-hidden group cursor-pointer"
+              className="relative aspect-square overflow-hidden group cursor-pointer reveal-stagger"
             >
               <img 
                 src={image}

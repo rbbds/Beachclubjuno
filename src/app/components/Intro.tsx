@@ -5,7 +5,7 @@ export function Intro() {
   return (
     <section id="verhaal" className="py-20 px-6 font-body">
       <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
+        <div className="reveal-left">
           <h2 
             className="text-primary mb-6 tracking-wide font-display"
             style={{ 
@@ -31,7 +31,7 @@ export function Intro() {
           </div>
         </div>
         
-        <div className="relative overflow-hidden rounded-xl shadow-sm group">
+        <div className="relative overflow-hidden rounded-xl shadow-sm group reveal-right">
           <img 
             src={images.intro.terrace}
             alt="Terras van Beachclub Juno met uitzicht op de Noordzee"

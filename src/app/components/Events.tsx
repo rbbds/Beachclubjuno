@@ -18,8 +18,8 @@ export function Events() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Bruiloften */}
-          <div className="group">
-            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
+          <div className="group reveal-stagger">
+            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
                 src={images.events.bruiloften}
                 alt="Strandbruiloft bij Beachclub Juno Kijkduin"
@@ -52,8 +52,8 @@ export function Events() {
           </div>
 
           {/* Bedrijfsfeesten */}
-          <div className="group">
-            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
+          <div className="group reveal-stagger">
+            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
                 src={images.events.bedrijfsfeesten}
                 alt="Zakelijk evenement aan zee bij Beachclub Juno Den Haag"
@@ -85,8 +85,8 @@ export function Events() {
           </div>
 
           {/* Particuliere Events */}
-          <div className="group">
-            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6">
+          <div className="group reveal-stagger">
+            <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
                 src={images.events.bruiloften}
                 alt="Particulier feest op het strand bij Beachclub Juno Kijkduin"

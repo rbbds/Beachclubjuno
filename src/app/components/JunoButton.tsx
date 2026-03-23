@@ -19,8 +19,8 @@ export function JunoButton({
   className = '',
   fullWidth = false,
 }: JunoButtonProps) {
-  // Base classes
-  const baseClasses = 'rounded-lg transition-colors font-body';
+  // Base classes with shimmer effect
+  const baseClasses = 'rounded-lg transition-colors font-body btn-shimmer';
   
   // Variant classes
   const variantClasses = {

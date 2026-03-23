@@ -9,8 +9,11 @@ import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
 import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function Bruiloften() {
+  const scrollRef = useScrollReveal();
+  
   useEffect(() => {
     document.title = 'Trouwen aan zee | Beachclub Juno Kijkduin';
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
@@ -89,7 +92,7 @@ export function Bruiloften() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
 
       {/* SECTION 1 — SPLIT HERO */}
@@ -201,7 +204,7 @@ export function Bruiloften() {
                 return (
                   <div
                     key={index}
-                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group reveal-stagger"
                   >
                     {/* Foto bovenaan */}
                     <div className="relative h-48 overflow-hidden">

@@ -9,14 +9,17 @@ import { Gallery } from '../components/Gallery';
 import { Watersport } from '../components/Watersport';
 import { Reviews } from '../components/Reviews';
 import { Footer } from '../components/Footer';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function Home() {
+  const scrollRef = useScrollReveal();
+  
   useEffect(() => {
     document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin';
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
       <Hero />
       <Intro />

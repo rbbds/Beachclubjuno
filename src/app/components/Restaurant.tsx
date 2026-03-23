@@ -25,7 +25,7 @@ export function Restaurant() {
       <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
 
         {/* ── FOTO BLOK ── */}
-        <div>
+        <div className="reveal-right">
 
           {/* MOBIEL: 2x2 grid met hover */}
           <div className="grid grid-cols-2 gap-2 md:hidden">
@@ -91,7 +91,7 @@ export function Restaurant() {
         </div>
 
         {/* ── TEKST BLOK ── */}
-        <div>
+        <div className="reveal-left">
 
           <h2
             className="text-primary font-display uppercase leading-none mb-0 w-full"
