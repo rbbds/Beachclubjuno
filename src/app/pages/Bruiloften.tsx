@@ -20,17 +20,20 @@ export function Bruiloften() {
     {
       icon: Heart,
       title: 'PERSOONLIJKE BEGELEIDING',
-      description: 'Jouw eigen weddingcoördinator begeleidt jullie van de eerste kennismaking tot de laatste dans. Altijd bereikbaar, altijd betrokken.'
+      description: 'Jouw eigen weddingcoördinator begeleidt jullie van de eerste kennismaking tot de laatste dans. Altijd bereikbaar, altijd betrokken.',
+      image: images.bruiloften.sfeer[0]
     },
     {
       icon: Users,
       title: 'CATERING OP MAAT',
-      description: 'Van welkomstdrankjes tot het dessert — onze chef creëert een culinaire ervaring die past bij jullie smaak en budget.'
+      description: 'Van welkomstdrankjes tot het dessert — onze chef creëert een culinaire ervaring die past bij jullie smaak en budget.',
+      image: images.bruiloften.sfeer[1]
     },
     {
       icon: Sparkles,
       title: 'DE PERFECTE SETTING',
-      description: 'Strandceremonie, overdekt diner of een mix — we passen de locatie volledig aan jullie wensen aan.'
+      description: 'Strandceremonie, overdekt diner of een mix — we passen de locatie volledig aan jullie wensen aan.',
+      image: images.bruiloften.hero
     }
   ];
 
@@ -138,10 +141,12 @@ export function Bruiloften() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
+        
+        <WaveTransition fillColor="#e8f0f3" />
       </section>
 
       {/* SECTION 2 — MOMENTEN (horizontal scroll) */}
-      <section className="py-28 px-6 font-body bg-background">
+      <section className="py-28 px-6 font-body bg-navy-soft">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
             title="VAN CEREMONIE TOT FEEST"
@@ -181,40 +186,54 @@ export function Bruiloften() {
       </section>
 
       {/* SECTION 3 — HOE WIJ HET REGELEN */}
-      <section className="relative py-28 px-6 pb-32 font-body bg-navy-soft text-primary">
-        <div className="max-w-[1200px] mx-auto">
-          <SectionHeader
-            title="HOE WIJ HET REGELEN"
-            subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
-            waveVariant="special"
-          />
+      <div className="relative">
+        <section className="py-28 px-6 font-body bg-background">
+          <div className="max-w-[1200px] mx-auto">
+            <SectionHeader
+              title="HOE WIJ HET REGELEN"
+              subtitle="Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig"
+              waveVariant="special"
+            />
 
-          <div className="grid md:grid-cols-3 gap-8 mt-4">
-            {regelingCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-background p-8 rounded-xl border-2 border-secondary/30 hover:border-secondary transition-all hover:shadow-lg text-left"
-                >
-                  <Icon className="w-10 h-10 text-primary mb-4" />
-                  <h3 
-                    className="text-primary mb-3 tracking-wide font-display" 
-                    style={{ fontSize: '1.5rem', lineHeight: '1.2' }}
+            <div className="grid md:grid-cols-3 gap-8 mt-4">
+              {regelingCards.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                   >
-                    {card.title}
-                  </h3>
-                  <p className="text-primary leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-              );
-            })}
+                    {/* Foto bovenaan */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                    </div>
+                    {/* Content */}
+                    <div className="p-6">
+                      <Icon className="w-8 h-8 text-accent mb-3" />
+                      <h3
+                        className="text-primary mb-3 tracking-wide font-display"
+                        style={{ fontSize: '1.5rem', lineHeight: '1.2' }}
+                      >
+                        {card.title}
+                      </h3>
+                      <p className="text-primary leading-relaxed">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </section>
         
         <WaveTransition fillColor="#faf0ea" />
-      </section>
+      </div>
 
       {/* SECTION 4 — EVENT MANAGER CONTACT */}
       <EventManagerContact
