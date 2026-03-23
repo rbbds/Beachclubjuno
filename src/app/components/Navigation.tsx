@@ -102,7 +102,6 @@ export function Navigation() {
         { label: 'Particuliere Events', path: '/particuliere-events' }
       ]
     },
-    { label: 'Galerij', section: 'gallery' },
     { label: 'Watersport', section: 'watersport' },
     { label: 'Contact', path: '/contact' }
   ];
