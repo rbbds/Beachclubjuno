@@ -115,7 +115,7 @@ export function Restaurant() {
 
           <div className="w-12 h-px bg-secondary mb-8" />
 
-          <a
+          
             href={MENU_PDF_URL}
             className={`inline-flex items-center gap-3 bg-accent text-background px-7 py-3.5 rounded-lg hover:bg-accent/85 transition-colors font-body font-semibold text-base ${MENU_PDF_URL === '#' ? 'pointer-events-none opacity-50' : ''}`}
           >
