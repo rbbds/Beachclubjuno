@@ -23,6 +23,7 @@ export function Events() {
               <img 
                 src={images.events.bruiloften}
                 alt="Strandbruiloft bij Beachclub Juno Kijkduin"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -57,6 +58,7 @@ export function Events() {
               <img 
                 src={images.events.bedrijfsfeesten}
                 alt="Zakelijk evenement aan zee bij Beachclub Juno Den Haag"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -90,6 +92,7 @@ export function Events() {
               <img 
                 src={images.events.bruiloften}
                 alt="Particulier feest op het strand bij Beachclub Juno Kijkduin"
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

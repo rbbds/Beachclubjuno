@@ -35,6 +35,7 @@ export function Intro() {
           <img 
             src={images.intro.terrace}
             alt="Terras van Beachclub Juno met uitzicht op de Noordzee"
+            loading="lazy"
             className="w-full h-[500px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>

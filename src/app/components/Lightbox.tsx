@@ -88,7 +88,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
         {/* Close button - top right */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-background hover:text-accent transition-colors"
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-background hover:text-accent transition-colors cursor-pointer"
           aria-label="Close lightbox"
         >
           <X className="w-8 h-8" />
@@ -100,7 +100,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
             e.stopPropagation();
             onPrevious();
           }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg cursor-pointer"
           aria-label="Previous photo"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -112,7 +112,7 @@ export function Lightbox({ images, currentIndex, onClose, onNext, onPrevious }: 
             e.stopPropagation();
             onNext();
           }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background hover:bg-accent transition-colors shadow-lg cursor-pointer"
           aria-label="Next photo"
         >
           <ChevronRight className="w-6 h-6" />

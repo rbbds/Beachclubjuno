@@ -1,5 +1,6 @@
 import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
+import { JunoButton } from './JunoButton';
 import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
 
@@ -9,6 +10,7 @@ export function Hero() {
       <img 
         src={images.hero.main}
         alt="Beachclub Juno aan het strand van Kijkduin bij zonsondergang"
+        loading="eager"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
@@ -33,12 +35,9 @@ export function Hero() {
           Welkom bij Beachclub Juno, Kijkduin.
         </p>
         
-        <button 
-          onClick={() => scrollToSection('verhaal')}
-          className="bg-accent text-background px-8 py-4 text-lg rounded-lg hover:bg-accent/85 transition-colors font-body"
-        >
+        <JunoButton variant="primary" size="lg" onClick={() => scrollToSection('verhaal')}>
           Ontdek ons verhaal
-        </button>
+        </JunoButton>
       </div>
 
       {/* Wave transition to Intro section */}

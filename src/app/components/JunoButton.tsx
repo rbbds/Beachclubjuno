@@ -1,5 +1,5 @@
 interface JunoButtonProps {
-  variant: 'primary' | 'secondary' | 'outline-light' | 'outline-dark';
+  variant?: 'primary' | 'secondary' | 'outline-light' | 'outline-dark';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   onClick?: () => void;
@@ -10,7 +10,7 @@ interface JunoButtonProps {
 }
 
 export function JunoButton({
-  variant,
+  variant = 'primary',
   size = 'md',
   href,
   onClick,
@@ -20,11 +20,11 @@ export function JunoButton({
   fullWidth = false,
 }: JunoButtonProps) {
   // Base classes with shimmer effect
-  const baseClasses = 'rounded-lg transition-colors font-body btn-shimmer';
+  const baseClasses = 'rounded-lg transition-colors font-body btn-shimmer cursor-pointer';
   
   // Variant classes
   const variantClasses = {
-    primary: 'bg-accent text-background hover:brightness-[0.85] transition-all',
+    primary: 'bg-accent text-background hover:bg-accent/85 transition-colors',
     secondary: 'bg-primary text-background hover:bg-primary/85',
     'outline-light': 'border-2 border-background text-background hover:bg-background hover:text-primary',
     'outline-dark': 'border-2 border-primary text-primary hover:bg-primary hover:text-background',

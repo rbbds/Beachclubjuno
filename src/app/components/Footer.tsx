@@ -55,17 +55,17 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => scrollToSection('restaurant')} className="text-background/80 hover:text-accent transition-colors">
+                <button onClick={() => scrollToSection('restaurant')} className="text-background/80 hover:text-accent transition-colors cursor-pointer">
                   Restaurant
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('programma')} className="text-background/80 hover:text-accent transition-colors">
+                <button onClick={() => scrollToSection('programma')} className="text-background/80 hover:text-accent transition-colors cursor-pointer">
                   Programma
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('events')} className="text-background/80 hover:text-accent transition-colors">
+                <button onClick={() => scrollToSection('events')} className="text-background/80 hover:text-accent transition-colors cursor-pointer">
                   Events & Verhuur
                 </button>
               </li>

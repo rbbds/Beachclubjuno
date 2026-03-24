@@ -46,6 +46,7 @@ export function Programma() {
                   <img 
                     src={event.image}
                     alt={event.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-accent text-background px-4 py-2 rounded-lg flex items-center gap-2">

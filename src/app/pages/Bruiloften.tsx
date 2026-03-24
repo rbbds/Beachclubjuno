@@ -11,12 +11,16 @@ import { Heart, Users, Sparkles } from 'lucide-react';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { openMiceWidget } from '../utils/miceWidget';
+import { setPageMeta } from '../utils/seo';
 
 export function Bruiloften() {
   const scrollRef = useScrollReveal();
   
   useEffect(() => {
-    document.title = 'Trouwen aan zee | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Trouwen aan zee | Beachclub Juno Kijkduin',
+      'Organiseer uw strandbruiloft bij Beachclub Juno in Kijkduin. Officiële trouwlocatie aan de Noordzee voor 20 tot 200 personen. Persoonlijke weddingcoördinator en catering op maat.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
 
@@ -142,6 +146,7 @@ export function Bruiloften() {
           <img 
             src={images.bruiloften.hero}
             alt="Trouwen op het strand bij Beachclub Juno"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
@@ -168,6 +173,7 @@ export function Bruiloften() {
                   <img 
                     src={card.image} 
                     alt={card.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
@@ -212,6 +218,7 @@ export function Bruiloften() {
                       <img
                         src={card.image}
                         alt={card.title}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
@@ -255,6 +262,7 @@ export function Bruiloften() {
         <img 
           src={images.bruiloften.hero}
           alt="De Noordzee als getuige"
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/30"></div>

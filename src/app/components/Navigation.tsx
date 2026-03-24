@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { JunoLogo } from './JunoLogo';
+import { JunoButton } from './JunoButton';
 import { scrollToSection as scrollToSectionUtil } from '../utils/scroll';
 import { ChevronDown } from 'lucide-react';
 import { openFormitableWidget } from './FormitableWidget';
@@ -125,44 +126,41 @@ export function Navigation() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-          <button onClick={goToHome}>
+          <button onClick={goToHome} className="cursor-pointer">
             <JunoLogo variant={logoVariant} className="h-10 w-auto" />
           </button>
           
           <div className="hidden lg:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection('restaurant')}
-              className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Restaurant
             </button>
             <button 
               onClick={() => scrollToSection('programma')}
-              className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Programma
             </button>
             <button 
               onClick={() => scrollToSection('events')}
-              className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Events
             </button>
             <button 
               onClick={() => scrollToSection('watersport')}
-              className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Watersport
             </button>
-            <button 
-              onClick={() => openFormitableWidget()}
-              className="bg-accent text-background px-6 py-2.5 rounded-lg hover:bg-accent/85 transition-colors cursor-pointer"
-            >
+            <JunoButton variant="primary" size="sm" onClick={() => openFormitableWidget()}>
               Reserveren
-            </button>
+            </JunoButton>
             <button 
               onClick={() => navigate('/contact')}
-              className={`${navLinkColor} ${navLinkHoverColor} transition-colors`}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Contact
             </button>
@@ -171,7 +169,7 @@ export function Navigation() {
           {/* Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none cursor-pointer"
             aria-label={isMenuOpen ? 'Menu sluiten' : 'Menu openen'}
             aria-expanded={isMenuOpen}
           >
@@ -322,13 +320,14 @@ export function Navigation() {
 
         {/* Zone 3: Footer CTA */}
         <div className="px-6 pb-10 pt-6">
-          <button 
+          <JunoButton
+            variant="primary"
+            size="lg"
+            fullWidth
             onClick={() => { setIsMenuOpen(false); setTimeout(openFormitableWidget, 300); }}
-            className="w-full bg-accent text-white rounded-lg py-4 hover:bg-accent/85 transition-colors cursor-pointer"
-            style={{ fontSize: '1rem', fontWeight: 500 }}
           >
             Reserveren
-          </button>
+          </JunoButton>
         </div>
       </div>
     </>

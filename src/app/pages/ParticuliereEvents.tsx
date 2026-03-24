@@ -9,16 +9,22 @@ import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
-import { BaseDrawer } from '../components/BaseDrawer';
-import { X } from 'lucide-react';
+import { EventInfoDrawer, EventInfoItem } from '../components/EventInfoDrawer';
 import { images } from '../data/images';
 import { openMiceWidget } from '../utils/miceWidget';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 export function ParticuliereEvents() {
   useEffect(() => {
-    document.title = 'Particuliere Events | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Particuliere Events | Beachclub Juno Kijkduin',
+      'Verjaardag, jubileum of familiefeest op het strand van Kijkduin. Beachclub Juno organiseert strandfeesten en diners voor groepen van 15 tot 300 personen.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
+
+  const scrollRef = useScrollReveal();
 
   const eventCards = [
     {
@@ -64,34 +70,37 @@ export function ParticuliereEvents() {
     }
   ];
 
-  const drawerInfo = [
+  const drawerInfo: EventInfoItem[] = [
     {
       title: "STRANDFEEST",
       image: images.events.bruiloften,
       description: "Vier jouw verjaardag, jubileum of familiefeest op een unieke locatie direct aan het strand. Wij zorgen voor de perfecte sfeer, catering en een privé stranddeel.",
       bullets: ["Exclusief stranddeel & privé bar", "Catering en drankenpakketten op maat", "DJ of live muziek mogelijk", "20 – 300 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     },
     {
       title: "DINER & BORREL",
       image: images.restaurant.main,
       description: "Een lunch, borrel of diner met jouw groep in een sfeervolle setting aan het strand. Formeel of informeel — wij passen het aan jouw wensen aan.",
       bullets: ["Lunch, borrel of diner", "Formeel of informeel", "Menusamenstelling op maat", "15 – 200 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     },
     {
       title: "ACTIEVE DAG",
       image: images.watersport.surfen,
       description: "Combineer een actieve dag op het water met een heerlijk diner of borrel achteraf. In samenwerking met Kiteboardschool.nl voor kiten, surfen, SUP en meer.",
       bullets: ["Kiten, surfen of SUP via Kiteboardschool.nl", "Begeleiding door gecertificeerde instructeurs", "Combineer met diner of borrel", "10 – 100 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     }
   ];
 
-  const [selectedCard, setSelectedCard] = useState<typeof drawerInfo[0] | null>(null);
+  const [selectedCard, setSelectedCard] = useState<EventInfoItem | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
 
       {/* SECTION 1 — HERO */}
@@ -123,13 +132,14 @@ export function ParticuliereEvents() {
             {eventCards.map((card, index) => (
               <div 
                 key={index}
-                className="group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white"
+                className="group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white reveal-stagger"
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={card.image} 
-                    alt={card.title} 
+                    alt={card.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                 </div>
@@ -152,12 +162,14 @@ export function ParticuliereEvents() {
                   {/* CTAs */}
                   <div className="flex flex-col gap-3">
                     <JunoButton variant="primary" size="sm" fullWidth onClick={() => openMiceWidget('83bbfd1669f7')}>Offerte aanvragen</JunoButton>
-                    <button
+                    <JunoButton
+                      variant="outline-dark"
+                      size="sm"
+                      fullWidth
                       onClick={() => setSelectedCard(drawerInfo[index])}
-                      className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
                     >
                       Meer informatie
-                    </button>
+                    </JunoButton>
                   </div>
                 </div>
               </div>
@@ -171,6 +183,7 @@ export function ParticuliereEvents() {
         <img 
           src={images.events.bruiloften} 
           alt="Jouw feest, ons strand"
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -230,6 +243,7 @@ export function ParticuliereEvents() {
             <img 
               src={images.intro.terrace}
               alt="Waarom Juno"
+              loading="lazy"
               className="w-full h-[450px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
@@ -241,6 +255,7 @@ export function ParticuliereEvents() {
         <img 
           src={images.bedrijfsfeesten.team} 
           alt="Maak er een dag om nooit te vergeten"
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -269,54 +284,7 @@ export function ParticuliereEvents() {
       <Footer />
 
       {/* DRAWER */}
-      {selectedCard && (
-        <BaseDrawer isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
-          <div className="font-body">
-            {/* Photo */}
-            <div className="relative w-full aspect-video">
-              <img
-                src={selectedCard.image}
-                alt={selectedCard.title}
-                className="w-full h-full object-cover"
-              />
-              <button
-                onClick={() => setSelectedCard(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
-                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Content */}
-            <div className="p-8">
-              <h2 className="text-primary mb-4 tracking-wide font-display" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: '1' }}>
-                {selectedCard.title}
-              </h2>
-              <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
-              <p className="text-primary text-lg leading-relaxed mb-6">
-                {selectedCard.description}
-              </p>
-              <ul className="space-y-3 mb-8">
-                {selectedCard.bullets.map((b, i) => (
-                  <li key={i} className="flex gap-3 items-start text-primary">
-                    <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <button 
-                onClick={() => openMiceWidget('83bbfd1669f7')}
-                className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" 
-                style={{ fontSize: '18px' }}
-              >
-                {selectedCard.cta}
-              </button>
-            </div>
-          </div>
-        </BaseDrawer>
-      )}
+      <EventInfoDrawer item={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   );
 }

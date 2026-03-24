@@ -7,12 +7,19 @@ import { WaveTransition } from '../components/WaveTransition';
 import { SectionWaveTop } from '../components/SectionWaveTop';
 import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 import { images } from '../data/images';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 export function ContactPage() {
   useEffect(() => {
-    document.title = 'Contact | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Contact | Beachclub Juno Kijkduin',
+      'Neem contact op met Beachclub Juno. Strand Zuid 18, 2554 ZZ Den Haag. Telefoon: 06 2473 4660. E-mail: info@clubjuno.nl.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
+
+  const scrollRef = useScrollReveal();
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -47,7 +54,7 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-body">
+    <div className="min-h-screen bg-background font-body" ref={scrollRef}>
       <Navigation />
 
       {/* Hero */}

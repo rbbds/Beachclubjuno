@@ -34,6 +34,7 @@ export function Restaurant() {
                 <img
                   src={photo.src}
                   alt={photo.alt}
+                  loading="lazy"
                   className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
                 />
               </div>
@@ -49,6 +50,7 @@ export function Restaurant() {
                   key={photo.id}
                   src={photo.src}
                   alt={photo.alt}
+                  loading="lazy"
                   className="absolute object-cover rounded-xl cursor-pointer"
                   style={{
                     width: s.width,

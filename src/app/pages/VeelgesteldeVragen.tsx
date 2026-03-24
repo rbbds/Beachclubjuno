@@ -13,6 +13,8 @@ import {
   AccordionContent,
 } from '../components/ui/accordion';
 import { images } from '../data/images';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 const faqGroups = [
   {
@@ -107,12 +109,17 @@ const faqGroups = [
 
 export function VeelgesteldeVragen() {
   useEffect(() => {
-    document.title = 'Veelgestelde vragen | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Veelgestelde vragen | Beachclub Juno Kijkduin',
+      'Alles wat u wilt weten over Beachclub Juno in Kijkduin. Openingstijden, parkeren, evenementen, bruiloften, zakelijke events en watersport — uw vragen beantwoord.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
 
+  const scrollRef = useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
 
       {/* Photo Hero */}

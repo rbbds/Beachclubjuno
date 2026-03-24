@@ -9,17 +9,23 @@ import { WaveDecoration } from '../components/WaveDecoration';
 import { WaveTransition } from '../components/WaveTransition';
 import { EventManagerContact } from '../components/EventManagerContact';
 import { EventFaqSection } from '../components/EventFaqSection';
-import { BaseDrawer } from '../components/BaseDrawer';
-import { X } from 'lucide-react';
+import { EventInfoDrawer, EventInfoItem } from '../components/EventInfoDrawer';
 import { images } from '../data/images';
 import { openMiceWidget } from '../utils/miceWidget';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 export function Bedrijfsfeesten() {
   
   useEffect(() => {
-    document.title = 'Zakelijke Events | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Zakelijke Events | Beachclub Juno Kijkduin',
+      'Vergaderen, teambuilding of bedrijfsfeest aan het strand van Kijkduin. Juno biedt zakelijke arrangementen voor 15 tot 300 personen direct aan de Noordzee in Den Haag.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
+
+  const scrollRef = useScrollReveal();
 
   const eventCards = [
     {
@@ -65,34 +71,37 @@ export function Bedrijfsfeesten() {
     }
   ];
 
-  const drawerInfo = [
+  const drawerInfo: EventInfoItem[] = [
     {
       title: "BEDRIJFSFESTIVAL",
       image: images.bedrijfsfeesten.hero,
       description: "Een volledig verzorgde dag voor jouw team, relaties of klanten — direct aan het strand van Kijkduin. Wij regelen alles van A tot Z, zodat jij én je gasten kunnen genieten.",
       bullets: ["Exclusief gebruik van locatie", "Combinatie van activiteiten naar keuze", "Catering en drankenpakketten op maat", "20 – 300 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     },
     {
       title: "VERGADEREN AAN ZEE",
       image: images.bedrijfsfeesten.team,
       description: "Vergaderen met de Noordzee als inspiratiebron. Onze vergaderruimte is volledig uitgerust met AV-faciliteiten en biedt een verfrissende omgeving buiten het kantoor.",
       bullets: ["Halve of hele dag arrangementen", "Afsluitbare ruimte met beamer, scherm en microfoon", "Verzorgde lunch inbegrepen", "15 – 100 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     },
     {
       title: "TEAMUITJE",
       image: images.watersport.kiten,
       description: "Geef je team een onvergetelijke dag met watersport, een privé stranddeel en een verzorgde BBQ of diner. In samenwerking met Kiteboardschool.nl.",
       bullets: ["Privé strand met eigen bar", "Kiten, surfen, SUP of wingfoilen", "Combineer met diner of borrel", "15 – 200 personen"],
-      cta: "Offerte aanvragen"
+      cta: "Offerte aanvragen",
+      ctaAction: () => openMiceWidget('83bbfd1669f7')
     }
   ];
 
-  const [selectedCard, setSelectedCard] = useState<typeof drawerInfo[0] | null>(null);
+  const [selectedCard, setSelectedCard] = useState<EventInfoItem | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
 
       {/* SECTION 1 — HERO */}
@@ -124,13 +133,14 @@ export function Bedrijfsfeesten() {
             {eventCards.map((card, index) => (
               <div 
                 key={index}
-                className="group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white"
+                className="group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white reveal-stagger"
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={card.image} 
-                    alt={card.title} 
+                    alt={card.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                 </div>
@@ -153,12 +163,14 @@ export function Bedrijfsfeesten() {
                   {/* CTAs */}
                   <div className="flex flex-col gap-3">
                     <JunoButton variant="primary" size="sm" fullWidth onClick={() => openMiceWidget('83bbfd1669f7')}>Offerte aanvragen</JunoButton>
-                    <button
+                    <JunoButton
+                      variant="outline-dark"
+                      size="sm"
+                      fullWidth
                       onClick={() => setSelectedCard(drawerInfo[index])}
-                      className="w-full border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-background transition-colors font-body text-base"
                     >
                       Meer informatie
-                    </button>
+                    </JunoButton>
                   </div>
                 </div>
               </div>
@@ -172,6 +184,7 @@ export function Bedrijfsfeesten() {
         <img 
           src={images.bedrijfsfeesten.team} 
           alt="Een locatie die inspireert"
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -231,6 +244,7 @@ export function Bedrijfsfeesten() {
             <img 
               src={images.bedrijfsfeesten.hero}
               alt="Waarom kiezen voor Juno Events"
+              loading="lazy"
               className="w-full h-[450px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
@@ -242,6 +256,7 @@ export function Bedrijfsfeesten() {
         <img 
           src={images.intro.terrace} 
           alt="Kijkduin — waar inspiratie begint"
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-primary/40"></div>
@@ -270,54 +285,7 @@ export function Bedrijfsfeesten() {
       <Footer />
 
       {/* DRAWER */}
-      {selectedCard && (
-        <BaseDrawer isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
-          <div className="font-body">
-            {/* Photo */}
-            <div className="relative w-full aspect-video">
-              <img
-                src={selectedCard.image}
-                alt={selectedCard.title}
-                className="w-full h-full object-cover"
-              />
-              <button
-                onClick={() => setSelectedCard(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
-                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Content */}
-            <div className="p-8">
-              <h2 className="text-primary mb-4 tracking-wide font-display" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: '1' }}>
-                {selectedCard.title}
-              </h2>
-              <WaveDecoration variant="special" className="w-20 h-3 mb-6" />
-              <p className="text-primary text-lg leading-relaxed mb-6">
-                {selectedCard.description}
-              </p>
-              <ul className="space-y-3 mb-8">
-                {selectedCard.bullets.map((b, i) => (
-                  <li key={i} className="flex gap-3 items-start text-primary">
-                    <span className="text-accent mt-0.5 flex-shrink-0">✓</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <button 
-                onClick={() => openMiceWidget('83bbfd1669f7')}
-                className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-display tracking-wide" 
-                style={{ fontSize: '18px' }}
-              >
-                {selectedCard.cta}
-              </button>
-            </div>
-          </div>
-        </BaseDrawer>
-      )}
+      <EventInfoDrawer item={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   );
 }

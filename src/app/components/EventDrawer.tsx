@@ -37,13 +37,14 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
           <img 
             src={event.image}
             alt={event.title}
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all cursor-pointer"
             style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
           >
             <X className="w-5 h-5" />
@@ -87,6 +88,7 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
               <img 
                 src={event.artist.photo}
                 alt={event.artist.name}
+                loading="lazy"
                 className="w-20 h-20 rounded-full object-cover"
               />
               <div>

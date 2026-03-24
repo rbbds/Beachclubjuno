@@ -26,6 +26,7 @@ export function PageHero({
       <img
         src={image}
         alt={altText || title}
+        loading="eager"
         className="absolute inset-0 w-full h-full object-cover"
       />
       

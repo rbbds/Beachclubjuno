@@ -62,6 +62,7 @@ export function EventManagerContact({
           <img
             src={photo}
             alt={name}
+            loading="lazy"
             className="w-full h-[640px] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>

@@ -27,6 +27,7 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
           <img
             src={image}
             alt={imageAlt}
+            loading="lazy"
             className="w-full h-[600px] object-cover sticky top-24 transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
@@ -47,10 +48,10 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
                 value={`item-${index}`}
                 className="border-b border-secondary/30 last:border-b-0"
               >
-                <AccordionTrigger className="text-primary font-bold text-left hover:text-accent hover:no-underline">
+                <AccordionTrigger className="text-primary font-bold text-left text-lg hover:text-accent hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-primary/80 leading-relaxed pb-2">
+                <AccordionContent className="text-primary/80 leading-relaxed pb-4 text-base">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

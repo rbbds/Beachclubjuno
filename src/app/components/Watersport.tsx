@@ -95,6 +95,7 @@ export function Watersport() {
                   <img 
                     src={activity.image}
                     alt={activity.cardTitle}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -134,13 +135,14 @@ export function Watersport() {
               <img 
                 src={selectedActivity.image}
                 alt={selectedActivity.title}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               
               {/* Close button */}
               <button 
                 onClick={() => setSelectedActivity(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background text-primary flex items-center justify-center hover:bg-background/90 transition-all cursor-pointer"
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
                 aria-label="Close"
               >

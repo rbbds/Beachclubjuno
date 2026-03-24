@@ -11,6 +11,8 @@ import { Calendar, Clock } from 'lucide-react';
 import { allEvents } from '../data/events';
 import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 const categories = ['Alles', 'Comedy', 'Theater', 'Live Muziek', 'Jazz', 'Pop & Dans', 'Speciaal'];
 
@@ -20,9 +22,14 @@ export function VolledigProgramma() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Programma | Beachclub Juno Kijkduin';
+    setPageMeta(
+      'Programma | Beachclub Juno Kijkduin',
+      'Ontdek het culturele programma van Beachclub Juno. Comedy, theater, jazz en pop aan de Noordzee in Kijkduin, Den Haag. Tickets en informatie per evenement.'
+    );
     return () => { document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin'; };
   }, []);
+
+  const scrollRef = useScrollReveal();
 
   const filteredEvents = selectedCategory === 'Alles' 
     ? allEvents 
@@ -41,7 +48,7 @@ export function VolledigProgramma() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" ref={scrollRef}>
       <Navigation />
 
       {/* Photo Hero */}
@@ -62,7 +69,7 @@ export function VolledigProgramma() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2.5 rounded-full transition-all ${
+                className={`px-6 py-2.5 rounded-full transition-all cursor-pointer ${
                   selectedCategory === category
                     ? 'bg-accent text-background'
                     : 'bg-background border-2 border-primary text-primary hover:border-accent hover:text-accent'
@@ -80,12 +87,13 @@ export function VolledigProgramma() {
               <div 
                 key={event.id}
                 onClick={() => handleEventClick(event)}
-                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer hover:-translate-y-1"
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer hover:-translate-y-1 reveal-stagger"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={event.image}
                     alt={event.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-accent text-background px-4 py-1.5 rounded-full"
@@ -159,7 +167,7 @@ export function VolledigProgramma() {
           <WaveDecoration variant="inverted" className="w-32 h-4 mx-auto mb-8" />
           
           <button 
-            className="inline-block bg-accent text-background px-8 py-4 text-lg rounded-lg hover:bg-accent/85 transition-colors"
+            className="inline-block bg-accent text-background px-8 py-4 text-lg rounded-lg hover:bg-accent/85 transition-colors cursor-pointer"
             onClick={() => {
               navigate('/');
               setTimeout(() => scrollToSection('events'), 100);

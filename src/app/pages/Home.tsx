@@ -10,12 +10,16 @@ import { Watersport } from '../components/Watersport';
 import { Reviews } from '../components/Reviews';
 import { Footer } from '../components/Footer';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { setPageMeta } from '../utils/seo';
 
 export function Home() {
   const scrollRef = useScrollReveal();
   
   useEffect(() => {
-    document.title = 'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin';
+    setPageMeta(
+      'Beachclub Juno — Zon. Strand. Cultuur. | Kijkduin',
+      'Beachclub Juno in Kijkduin, Den Haag. Restaurant aan zee, cultureel programma met comedy, theater en jazz, bruiloften en bedrijfsfeesten op het strand van Kijkduin.'
+    );
   }, []);
 
   return (
