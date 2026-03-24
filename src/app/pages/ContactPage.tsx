@@ -9,8 +9,11 @@ import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { setPageMeta } from '../utils/seo';
+import { useSiteSettings } from '../../lib/useSiteSettings';
 
 export function ContactPage() {
+  const settings = useSiteSettings();
+
   useEffect(() => {
     setPageMeta(
       'Contact | Beachclub Juno Kijkduin',
@@ -88,22 +91,22 @@ export function ContactPage() {
               <div className="flex gap-3 items-start text-primary">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-accent" />
                 <div>
-                  Strand Zuid 18<br />
-                  2554 ZZ Den Haag
+                  {settings.address.street}<br />
+                  {settings.address.postal} {settings.address.city}
                 </div>
               </div>
 
               <div className="flex gap-3 items-start text-primary">
                 <Phone className="w-5 h-5 mt-1 flex-shrink-0 text-accent" />
-                <a href="tel:+31624734660" className="hover:text-accent transition-colors">
-                  06 2473 4660
+                <a href={`tel:${settings.phone}`} className="hover:text-accent transition-colors">
+                  {settings.phone}
                 </a>
               </div>
 
               <div className="flex gap-3 items-start text-primary">
                 <Mail className="w-5 h-5 mt-1 flex-shrink-0 text-accent" />
-                <a href="mailto:info@clubjuno.nl" className="hover:text-accent transition-colors">
-                  info@clubjuno.nl
+                <a href={`mailto:${settings.email}`} className="hover:text-accent transition-colors">
+                  {settings.email}
                 </a>
               </div>
             </div>
@@ -205,7 +208,7 @@ export function ContactPage() {
       <section className="relative bg-background pb-36">
         <div className="max-w-[1200px] mx-auto px-6 pt-8">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.6928813641894!2d4.210399193146445!3d52.067115599610986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b08dc0d19d8b%3A0xc3d99879c097fa70!2sBoca%20Grandi!5e0!3m2!1snl!2snl!4v1773924227964!5m2!1snl!2snl"
+            src={settings.mapsEmbed}
             width="100%"
             height="400"
             style={{ border: 0 }}

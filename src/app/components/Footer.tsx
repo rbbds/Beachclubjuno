@@ -2,10 +2,12 @@ import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 import { useNavigate, useLocation, Link } from 'react-router';
 import { JunoLogo } from './JunoLogo';
 import { scrollToSection as scrollToSectionUtil, scrollToTop } from '../utils/scroll';
+import { useSiteSettings } from '../../lib/useSiteSettings';
 
 export function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
+  const settings = useSiteSettings();
 
   const scrollToSection = (id: string) => {
     // If not on homepage, navigate to homepage first
@@ -111,17 +113,17 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-accent" />
                 <span className="text-background/80">
-                  Strand Zuid 18<br />
-                  2554 ZZ Den Haag
+                  {settings.address.street}<br />
+                  {settings.address.postal} {settings.address.city}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0 text-accent" />
-                <span className="text-background/80">06 2473 4660</span>
+                <span className="text-background/80">{settings.phone}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0 text-accent" />
-                <span className="text-background/80">info@clubjuno.nl</span>
+                <span className="text-background/80">{settings.email}</span>
               </li>
             </ul>
           </div>
@@ -136,11 +138,11 @@ export function Footer() {
             >
               Openingstijden
             </h4>
-            <p className="text-background/80">
-              Ma - Do: 10:00 - 22:00<br />
-              Vr - Za: 10:00 - 01:00<br />
-              Zo: 10:00 - 22:00
-            </p>
+            {settings.openingHours.map(h => (
+              <p key={h.days} className="text-background/80">
+                {h.days}: {h.hours}
+              </p>
+            ))}
           </div>
         </div>
 
@@ -150,10 +152,10 @@ export function Footer() {
             © 2026 Beachclub Juno. Alle rechten voorbehouden.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-background/60 hover:text-accent transition-colors">
+            <a href={settings.instagram} className="text-background/60 hover:text-accent transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className="text-background/60 hover:text-accent transition-colors">
+            <a href={settings.facebook} className="text-background/60 hover:text-accent transition-colors">
               <Facebook className="w-5 h-5" />
             </a>
           </div>

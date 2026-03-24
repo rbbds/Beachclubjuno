@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { WaveDecoration } from '../components/WaveDecoration';
@@ -15,8 +15,9 @@ import {
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { setPageMeta } from '../utils/seo';
+import { getFaqGroups } from '../../lib/queries';
 
-const faqGroups = [
+const staticFaqGroups = [
   {
     key: 'beachclub',
     label: 'Beachclub Juno',
@@ -108,6 +109,21 @@ const faqGroups = [
 ];
 
 export function VeelgesteldeVragen() {
+  const [faqGroups, setFaqGroups] = useState(staticFaqGroups);
+
+  useEffect(() => {
+    getFaqGroups()
+      .then(data => {
+        if (!data?.length) return;
+        setFaqGroups(data.map(g => ({
+          key: g.label.toLowerCase().replace(/\s+/g, '-'),
+          label: g.label,
+          items: g.items.map(i => ({ q: i.question, a: i.answer })),
+        })));
+      })
+      .catch(() => {});
+  }, []);
+
   useEffect(() => {
     setPageMeta(
       'Veelgestelde vragen | Beachclub Juno Kijkduin',

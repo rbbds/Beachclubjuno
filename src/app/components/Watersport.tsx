@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { WaveDecoration } from './WaveDecoration';
 import { SectionHeader } from './SectionHeader';
 import { SectionWaveTop } from './SectionWaveTop';
@@ -6,6 +6,7 @@ import { WaveTransition } from './WaveTransition';
 import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
 import { images } from '../data/images';
+import { getWatersportActivities, urlFor } from '../../lib/queries';
 
 interface WatersportActivity {
   id: string;
@@ -18,7 +19,7 @@ interface WatersportActivity {
   buttonLink: string;
 }
 
-const activities: WatersportActivity[] = [
+const staticActivities: WatersportActivity[] = [
   {
     id: 'kiten',
     title: 'KITE SURFEN',
@@ -71,6 +72,27 @@ const activities: WatersportActivity[] = [
 
 export function Watersport() {
   const [selectedActivity, setSelectedActivity] = useState<WatersportActivity | null>(null);
+  const [activities, setActivities] = useState(staticActivities);
+
+  useEffect(() => {
+    getWatersportActivities()
+      .then(data => {
+        if (!data?.length) return;
+        setActivities(data.map(a => ({
+          id: a._id,
+          title: a.title,
+          cardTitle: a.cardTitle || a.title,
+          image: a.image?._type === 'image'
+            ? urlFor(a.image).width(800).url()
+            : '',
+          description: a.description,
+          extraLine: a.extraLine,
+          buttonText: a.buttonText,
+          buttonLink: a.buttonLink,
+        })));
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <>

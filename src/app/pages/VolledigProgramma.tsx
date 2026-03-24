@@ -8,11 +8,41 @@ import { EventDrawer, EventData } from '../components/EventDrawer';
 import { PageHero } from '../components/PageHero';
 import { JunoButton } from '../components/JunoButton';
 import { Calendar, Clock } from 'lucide-react';
-import { allEvents } from '../data/events';
+import { allEvents as staticFallback } from '../data/events';
+import { getAllEvents, urlFor } from '../../lib/queries';
+import type { SanityEvent } from '../../lib/types';
 import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { setPageMeta } from '../utils/seo';
+
+function adaptEvent(e: SanityEvent | any) {
+  // Already EventData shape if it has no slug (= static fallback)
+  if (!e.slug) return e;
+  return {
+    id: e._id,
+    date: new Date(e.date).toLocaleDateString('nl-NL', {
+      day: '2-digit', month: 'short',
+    }).toUpperCase(),
+    title: e.title,
+    category: e.category,
+    image: e.image?._type === 'image'
+      ? urlFor(e.image).width(800).url()
+      : '',
+    fullDate: e.date,
+    time: e.time,
+    doors: e.doorsOpen,
+    price: e.price,
+    description: e.description,
+    artist: {
+      name: e.artist?.name ?? '',
+      photo: e.artist?.photo?._type === 'image'
+        ? urlFor(e.artist.photo).width(400).url()
+        : '',
+      bio: e.artist?.bio ?? '',
+    },
+  };
+}
 
 const categories = ['Alles', 'Comedy', 'Theater', 'Live Muziek', 'Jazz', 'Pop & Dans', 'Speciaal'];
 
@@ -20,6 +50,13 @@ export function VolledigProgramma() {
   const [selectedCategory, setSelectedCategory] = useState('Alles');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [allEvents, setAllEvents] = useState<any[]>(staticFallback);
+
+  useEffect(() => {
+    getAllEvents()
+      .then(data => { if (data?.length) setAllEvents(data.map(adaptEvent)); })
+      .catch(() => {}); // keep static fallback on error
+  }, []);
 
   useEffect(() => {
     setPageMeta(

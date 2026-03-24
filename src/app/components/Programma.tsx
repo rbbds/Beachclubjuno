@@ -3,14 +3,51 @@ import { SectionWaveTop } from './SectionWaveTop';
 import { SectionHeader } from './SectionHeader';
 import { JunoButton } from './JunoButton';
 import { Calendar } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { EventDrawer, EventData } from './EventDrawer';
 import { Link } from 'react-router';
-import { featuredEvents } from '../data/events';
+import { featuredEvents as staticFallback } from '../data/events';
+import { getFeaturedEvents, urlFor } from '../../lib/queries';
+import type { SanityEvent } from '../../lib/types';
+
+function adaptEvent(e: SanityEvent | any) {
+  // Already EventData shape if it has no slug (= static fallback)
+  if (!e.slug) return e;
+  return {
+    id: e._id,
+    date: new Date(e.date).toLocaleDateString('nl-NL', {
+      day: '2-digit', month: 'short',
+    }).toUpperCase(),
+    title: e.title,
+    category: e.category,
+    image: e.image?._type === 'image'
+      ? urlFor(e.image).width(800).url()
+      : '',
+    fullDate: e.date,
+    time: e.time,
+    doors: e.doorsOpen,
+    price: e.price,
+    description: e.description,
+    artist: {
+      name: e.artist?.name ?? '',
+      photo: e.artist?.photo?._type === 'image'
+        ? urlFor(e.artist.photo).width(400).url()
+        : '',
+      bio: e.artist?.bio ?? '',
+    },
+  };
+}
 
 export function Programma() {
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [events, setEvents] = useState<any[]>(staticFallback);
+
+  useEffect(() => {
+    getFeaturedEvents()
+      .then(data => { if (data?.length) setEvents(data.map(adaptEvent)); })
+      .catch(() => {}); // keep static fallback on error
+  }, []);
 
   const handleEventClick = (event: EventData) => {
     setSelectedEvent(event);
@@ -36,7 +73,7 @@ export function Programma() {
           />
 
           <div className="grid md:grid-cols-3 gap-8">
-            {featuredEvents.map((event) => (
+            {events.map((event) => (
               <div 
                 key={event.id}
                 onClick={() => handleEventClick(event)}
