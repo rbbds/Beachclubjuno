@@ -4,5 +4,6 @@ export default defineCliConfig({
   api: {
     projectId: '3rey3gs4',
     dataset: 'production'
-  }
+  },
+  studioHost: 'juno-beachclub'
 })
