@@ -20,9 +20,11 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Install Sanity Studio dependencies
-        run: cd sanity && npm install --legacy-peer-deps
+        working-directory: ./sanity
+        run: npm install --legacy-peer-deps
 
       - name: Deploy Sanity Studio
-        run: cd sanity && npx --yes sanity deploy --yes
+        working-directory: ./sanity
+        run: npx sanity@3 deploy --yes
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
