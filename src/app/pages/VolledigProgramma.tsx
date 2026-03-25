@@ -15,6 +15,7 @@ import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { setPageMeta } from '../utils/seo';
+import { WaveTransition } from '../components/WaveTransition';
 
 function adaptEvent(e: SanityEvent | any) {
   // Already EventData shape if it has no slug (= static fallback)
@@ -93,11 +94,11 @@ export function VolledigProgramma() {
         image={images.programma.jazz.event}
         title="VOLLEDIG PROGRAMMA"
         subtitle="Van comedyavond tot jazzsessie — altijd iets te beleven bij Juno"
+        waveColor="#f0f5f3"
       />
 
       {/* Filter Pills & Event Grid */}
-      <section className="pt-12 pb-20 px-6 bg-sage-soft">
-        <SectionWaveTop fillColor="#f0f5f3" />
+      <section className="relative pt-12 pb-20 px-6 bg-sage-soft">
         <div className="max-w-[1200px] mx-auto">
           
           {/* Filter pills */}
@@ -186,6 +187,7 @@ export function VolledigProgramma() {
             </JunoButton>
           </div>
         </div>
+        <WaveTransition fillColor="#3d7183" />
       </section>
 
       {/* CTA Banner */}

@@ -25,7 +25,6 @@ jobs:
 
       - name: Deploy Sanity Studio
         working-directory: ./sanity
-        run: npx sanity@3 deploy --yes
+        run: echo "juno-beachclub" | npx sanity@3 deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-          SANITY_STUDIO_HOSTNAME: juno-beachclub
