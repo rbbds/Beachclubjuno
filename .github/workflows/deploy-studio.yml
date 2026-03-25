@@ -28,3 +28,4 @@ jobs:
         run: npx sanity@3 deploy --yes
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+          SANITY_STUDIO_HOSTNAME: juno-beachclub
