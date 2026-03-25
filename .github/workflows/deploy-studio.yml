@@ -1,0 +1,29 @@
+name: Deploy Sanity Studio
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'sanity/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Install Sanity Studio dependencies
+        run: cd sanity && npm install --legacy-peer-deps
+
+      - name: Deploy Sanity Studio
+        run: cd sanity && ../node_modules/.bin/sanity deploy --yes
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
