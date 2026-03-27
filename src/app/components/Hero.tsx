@@ -1,10 +1,29 @@
+import { useState, useEffect } from 'react';
 import { WaveDecoration } from './WaveDecoration';
 import { WaveTransition } from './WaveTransition';
 import { JunoButton } from './JunoButton';
 import { scrollToSection } from '../utils/scroll';
 import { images } from '../data/images';
+import { sanityClient } from '../../lib/sanity';
 
 export function Hero() {
+  const [headline, setHeadline] = useState('ZON. STRAND.\nCULTUUR.');
+  const [subtitle, setSubtitle] = useState('Waar de Noordzee, culinaire verfijning en culturele beleving samenkomen. Welkom bij Beachclub Juno, Kijkduin.');
+  const [ctaLabel, setCtaLabel] = useState('Ontdek ons verhaal');
+
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "homePage"][0]{ hero }`)
+      .then(data => {
+        if (data?.hero?.headline) setHeadline(data.hero.headline);
+        if (data?.hero?.subtitle) setSubtitle(data.hero.subtitle);
+        if (data?.hero?.ctaLabel) setCtaLabel(data.hero.ctaLabel);
+      })
+      .catch(() => {});
+  }, []);
+
+  const headlineLines = headline.split('\n');
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <img 
@@ -23,24 +42,25 @@ export function Hero() {
             lineHeight: '0.9'
           }}
         >
-          ZON. STRAND.<br />CULTUUR.
+          {headlineLines.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < headlineLines.length - 1 && <br />}
+            </span>
+          ))}
         </h1>
         
         <WaveDecoration variant="inverted" className="w-32 h-4 mb-8" />
         
-        <p 
-          className="text-background max-w-2xl mb-10 text-lg md:text-xl font-body"
-        >
-          Waar de Noordzee, culinaire verfijning en culturele beleving samenkomen. 
-          Welkom bij Beachclub Juno, Kijkduin.
+        <p className="text-background max-w-2xl mb-10 text-lg md:text-xl font-body">
+          {subtitle}
         </p>
         
         <JunoButton variant="primary" size="lg" onClick={() => scrollToSection('verhaal')}>
-          Ontdek ons verhaal
+          {ctaLabel}
         </JunoButton>
       </div>
 
-      {/* Wave transition to Intro section */}
       <WaveTransition fillColor="#f6f4db" />
     </div>
   );
