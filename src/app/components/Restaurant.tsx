@@ -1,35 +1,46 @@
-import { WaveDecoration } from './WaveDecoration'
-import { SectionWaveTop } from './SectionWaveTop'
+import { useState, useEffect } from 'react';
+import { WaveDecoration } from './WaveDecoration';
+import { SectionWaveTop } from './SectionWaveTop';
+import { sanityClient, urlFor } from '../../lib/sanity';
 
-const MENU_PDF_URL = '#'
-
-const photos = [
+const staticPhotos = [
   { id: 1, src: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=900&q=80', alt: 'Verse zeevruchten bij Juno' },
   { id: 2, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', alt: 'Sfeer restaurant Juno' },
   { id: 3, src: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500&q=80', alt: 'Wijnkaart en details' },
   { id: 4, src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80', alt: 'Seizoensgerechten Juno' },
-]
+];
 
 const photoStyles = [
   { width: '62%', height: '68%', top: 0, left: 0, transform: 'rotate(-1.5deg)', zIndex: 2, hoverTransform: 'rotate(-0.5deg) scale(1.04) translateY(-6px)' },
   { width: '42%', height: '58%', top: '12%', right: 0, transform: 'rotate(1.2deg)', zIndex: 3, hoverTransform: 'rotate(2.2deg) scale(1.05) translateY(-8px)', boxShadow: '0 8px 32px rgba(61,113,131,0.10)' },
   { width: '34%', height: '30%', bottom: 0, left: '4%', transform: 'rotate(2deg)', zIndex: 4, hoverTransform: 'rotate(3.5deg) scale(1.06) translateY(-6px)', boxShadow: '0 6px 20px rgba(61,113,131,0.12)' },
   { width: '38%', height: '32%', bottom: '2%', left: '32%', transform: 'rotate(-1deg)', zIndex: 5, hoverTransform: 'rotate(-2.5deg) scale(1.05) translateY(-8px)', boxShadow: '0 8px 24px rgba(61,113,131,0.10)' },
-]
+];
 
 export function Restaurant() {
+  const [description, setDescription] = useState('Onze keuken combineert verse lokale ingrediënten met internationale invloeden. Geniet van seizoensgebonden gerechten, verse vis uit de Noordzee en een zorgvuldig samengestelde wijnkaart.');
+  const [menuUrl, setMenuUrl] = useState('#');
+
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "homePage"][0]{ restaurant }`)
+      .then(data => {
+        if (data?.restaurant?.description) setDescription(data.restaurant.description);
+        if (data?.restaurant?.menuUrl) setMenuUrl(data.restaurant.menuUrl);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="restaurant" className="relative py-20 px-6 bg-terracotta-soft font-body overflow-hidden">
       <SectionWaveTop fillColor="#faf0ea" />
 
       <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-        {/* ── FOTO BLOK ── */}
+        {/* Foto blok */}
         <div className="reveal-right">
-
-          {/* MOBIEL: 2x2 grid met hover */}
           <div className="grid grid-cols-2 gap-2 md:hidden">
-            {photos.map(photo => (
+            {staticPhotos.map(photo => (
               <div key={photo.id} className="overflow-hidden rounded-xl">
                 <img
                   src={photo.src}
@@ -41,10 +52,9 @@ export function Restaurant() {
             ))}
           </div>
 
-          {/* DESKTOP: speelse collage met hover per foto */}
           <div className="relative h-[540px] hidden md:block">
-            {photos.map((photo, i) => {
-              const s = photoStyles[i]
+            {staticPhotos.map((photo, i) => {
+              const s = photoStyles[i];
               return (
                 <img
                   key={photo.id}
@@ -65,22 +75,21 @@ export function Restaurant() {
                     transition: 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, z-index 0s',
                   }}
                   onMouseEnter={e => {
-                    const el = e.currentTarget
-                    el.style.transform = s.hoverTransform
-                    el.style.boxShadow = '0 20px 48px rgba(61,113,131,0.22)'
-                    el.style.zIndex = '10'
+                    const el = e.currentTarget;
+                    el.style.transform = s.hoverTransform;
+                    el.style.boxShadow = '0 20px 48px rgba(61,113,131,0.22)';
+                    el.style.zIndex = '10';
                   }}
                   onMouseLeave={e => {
-                    const el = e.currentTarget
-                    el.style.transform = s.transform
-                    el.style.boxShadow = s.boxShadow ?? ''
-                    el.style.zIndex = String(s.zIndex)
+                    const el = e.currentTarget;
+                    el.style.transform = s.transform;
+                    el.style.boxShadow = s.boxShadow ?? '';
+                    el.style.zIndex = String(s.zIndex);
                   }}
                 />
-              )
+              );
             })}
 
-            {/* Decoratieve stempel */}
             <div
               className="absolute bg-accent rounded-full z-[20] flex items-center justify-center"
               style={{ width: 88, height: 88, top: '56%', right: '2%', transform: 'rotate(12deg)' }}
@@ -92,9 +101,8 @@ export function Restaurant() {
           </div>
         </div>
 
-        {/* ── TEKST BLOK ── */}
+        {/* Tekst blok */}
         <div className="reveal-left">
-
           <h2
             className="text-primary font-display uppercase leading-none mb-0 w-full"
             style={{ fontSize: 'clamp(52px, 6vw, 80px)' }}
@@ -105,9 +113,7 @@ export function Restaurant() {
           <WaveDecoration variant="special" className="w-24 h-3 mt-4 mb-6" />
 
           <p className="text-primary text-lg leading-relaxed mb-8 w-full">
-            Onze keuken combineert verse lokale ingrediënten met internationale
-            invloeden. Geniet van seizoensgebonden gerechten, verse vis uit de
-            Noordzee en een zorgvuldig samengestelde wijnkaart.
+            {description}
           </p>
 
           <div className="flex gap-3 mb-8">
@@ -116,7 +122,7 @@ export function Restaurant() {
               <span className="block text-primary font-body text-sm font-semibold">Dagelijks</span>
             </div>
             <div className="flex-1 bg-white/70 rounded-xl px-4 py-3">
-              <span className="block font-display text-accent tracking-widest text-xs uppercase mb-1">Keuken</span>
+              <span className="block font-display text-accent tracking-widets text-xs uppercase mb-1">Keuken</span>
               <span className="block text-primary font-body text-sm font-semibold">12:00 – 22:00</span>
             </div>
             <div className="flex-1 bg-white/70 rounded-xl px-4 py-3">
@@ -126,14 +132,13 @@ export function Restaurant() {
           </div>
 
           <a
-            href={MENU_PDF_URL}
-            className={`inline-flex items-center gap-3 bg-accent text-background px-7 py-3.5 rounded-lg hover:bg-accent/85 transition-colors font-body font-semibold text-base ${MENU_PDF_URL === '#' ? 'pointer-events-none opacity-50' : ''}`}
+            href={menuUrl}
+            className={`inline-flex items-center gap-3 bg-accent text-background px-7 py-3.5 rounded-lg hover:bg-accent/85 transition-colors font-body font-semibold text-base ${menuUrl === '#' ? 'pointer-events-none opacity-50' : ''}`}
           >
             Bekijk de kaart →
           </a>
-
         </div>
       </div>
     </section>
-  )
+  );
 }
