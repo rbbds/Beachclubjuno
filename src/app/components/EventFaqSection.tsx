@@ -48,7 +48,7 @@ export function EventFaqSection({ items, image, imageAlt = 'FAQ', bgColor = 'cre
                 value={`item-${index}`}
                 className="border-b border-secondary/30 last:border-b-0"
               >
-                <AccordionTrigger className="text-primary font-bold text-left text-lg hover:text-accent hover:no-underline">
+                <AccordionTrigger className="text-primary font-bold text-left text-base hover:text-accent hover:no-underline py-5">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-primary/80 leading-relaxed pb-4 text-base">
