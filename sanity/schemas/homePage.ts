@@ -43,8 +43,24 @@ export default defineType({
         { name: 'title', title: 'Titel', type: 'string' },
         { name: 'description', title: 'Beschrijving', type: 'text', rows: 4 },
         { name: 'menuUrl', title: 'Menukaart PDF URL', type: 'url' },
-        { name: 'image', title: 'Afbeelding', type: 'image',
-          options: { hotspot: true } },
+        { name: 'image', title: 'Afbeelding (legacy)', type: 'image', options: { hotspot: true } },
+        {
+          name: 'photos',
+          title: "Foto's (collage — 4 stuks)",
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'image', title: 'Afbeelding', type: 'image', options: { hotspot: true } },
+                { name: 'alt', title: 'Alt-tekst', type: 'string' },
+              ],
+              preview: { select: { title: 'alt', media: 'image' } },
+            }
+          ],
+          validation: (r: any) => r.max(4),
+          description: 'Upload precies 4 foto\'s voor de collage. Volgorde bepaalt de positie.',
+        },
       ],
     }),
     defineField({

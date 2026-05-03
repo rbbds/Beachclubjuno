@@ -1,3 +1,37 @@
+Make the following two changes. Do not change any styling, layout, 
+photo collage logic, hover effects, or component structure.
+
+--- CHANGE 1: sanity/schemas/homePage.ts ---
+
+Find the restaurant field definition (defineField with name: 'restaurant').
+Replace only the fields array inside it with this updated version that adds a photos array:
+
+fields: [
+  { name: 'title', title: 'Titel', type: 'string' },
+  { name: 'description', title: 'Beschrijving', type: 'text', rows: 4 },
+  { name: 'menuUrl', title: 'Menukaart PDF URL', type: 'url' },
+  { name: 'image', title: 'Afbeelding (legacy)', type: 'image', options: { hotspot: true } },
+  {
+    name: 'photos',
+    title: "Foto's (collage — 4 stuks)",
+    type: 'array',
+    of: [
+      {
+        type: 'object',
+        fields: [
+          { name: 'image', title: 'Afbeelding', type: 'image', options: { hotspot: true } },
+          { name: 'alt', title: 'Alt-tekst', type: 'string' },
+        ],
+        preview: { select: { title: 'alt', media: 'image' } },
+      }
+    ],
+    validation: (r: any) => r.max(4),
+    description: 'Upload precies 4 foto\'s voor de collage. Volgorde bepaalt de positie.',
+  },
+],
+
+--- CHANGE 2: src/app/components/Restaurant.tsx (FULL REPLACEMENT) ---
+
 import { useState, useEffect } from 'react';
 import { WaveDecoration } from './WaveDecoration';
 import { SectionWaveTop } from './SectionWaveTop';
@@ -151,7 +185,7 @@ export function Restaurant() {
             </div>
           </div>
 
-          <a
+          
             href={menuUrl}
             className={`inline-flex items-center gap-3 bg-accent text-background px-7 py-3.5 rounded-lg hover:bg-accent/85 transition-colors font-body font-semibold text-base ${menuUrl === '#' ? 'pointer-events-none opacity-50' : ''}`}
           >
