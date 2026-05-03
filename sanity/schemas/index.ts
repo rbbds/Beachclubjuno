@@ -6,6 +6,7 @@ import watersportActivity from './watersportActivity';
 import faqPage from './faqPage';
 import bruiloftenPage from './bruiloftenPage';
 import zakelijkeEventsPage from './zakelijkeEventsPage';
+import particuliereEventsPage from './particuliereEventsPage';
 
 export const schemaTypes = [
   event,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   faqPage,
   bruiloftenPage,
   zakelijkeEventsPage,
+  particuliereEventsPage,
 ];
