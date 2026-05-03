@@ -28,6 +28,10 @@ export const deskStructure = (S: StructureBuilder) =>
         .title('FAQ pagina')
         .icon(() => '❓')
         .child(S.document().schemaType('faqPage').documentId('faqPage')),
+      S.listItem()
+        .title('Menukaart')
+        .icon(() => '🍽️')
+        .child(S.document().schemaType('menuPage').documentId('menuPage')),
       S.divider(),
       S.documentTypeListItem('event').title('Evenementen').icon(() => '🎭'),
       S.documentTypeListItem('watersportActivity').title('Watersport activiteiten').icon(() => '🏄'),
