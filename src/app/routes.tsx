@@ -6,6 +6,7 @@ import { ParticuliereEvents } from "./pages/ParticuliereEvents";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
 import { VeelgesteldeVragen } from "./pages/VeelgesteldeVragen";
 import { ContactPage } from "./pages/ContactPage";
+import { Menu } from "./pages/Menu";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { FormitableWidget } from "./components/FormitableWidget";
 
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         Component: ContactPage,
+      },
+      {
+        path: "/menu",
+        Component: Menu,
       },
     ],
   },
