@@ -24,6 +24,7 @@ export interface SanityEvent {
   artist: Artist;
   featured: boolean;
   order: number;
+  ticket_url?: string;
 }
 
 export interface OpeningHour { days: string; hours: string; }

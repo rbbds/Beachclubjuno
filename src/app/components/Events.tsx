@@ -3,16 +3,30 @@ import { SectionWaveTop } from './SectionWaveTop';
 import { SectionHeader } from './SectionHeader';
 import { Link } from 'react-router';
 import { images } from '../data/images';
+import { useState, useEffect } from 'react';
+import { sanityClient } from '../../lib/sanity';
 
 export function Events() {
+  const [sectionTitle, setSectionTitle] = useState('EVENTS & VERHUUR');
+  const [sectionSubtitle, setSectionSubtitle] = useState('De perfecte locatie voor uw bijzondere moment');
+
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "homePage"][0]{ events }`)
+      .then(data => {
+        if (data?.events?.title) setSectionTitle(data.events.title);
+        if (data?.events?.subtitle) setSectionSubtitle(data.events.subtitle);
+      })
+      .catch(() => {});
+  }, []);
   return (
     <section id="events" className="py-20 px-6 font-body">
       <SectionWaveTop fillColor="#f6f4db" />
       
       <div className="max-w-[1400px] mx-auto">
         <SectionHeader
-          title="EVENTS & VERHUUR"
-          subtitle="De perfecte locatie voor uw bijzondere moment"
+          title={sectionTitle}
+          subtitle={sectionSubtitle}
           waveVariant="special"
         />
 

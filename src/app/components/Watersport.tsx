@@ -7,6 +7,7 @@ import { BaseDrawer } from './BaseDrawer';
 import { X } from 'lucide-react';
 import { images } from '../data/images';
 import { getWatersportActivities, urlFor } from '../../lib/queries';
+import { sanityClient } from '../../lib/sanity';
 
 interface WatersportActivity {
   id: string;
@@ -73,6 +74,8 @@ const staticActivities: WatersportActivity[] = [
 export function Watersport() {
   const [selectedActivity, setSelectedActivity] = useState<WatersportActivity | null>(null);
   const [activities, setActivities] = useState(staticActivities);
+  const [sectionTitle, setSectionTitle] = useState('WATERSPORT');
+  const [sectionSubtitle, setSectionSubtitle] = useState('Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl.');
 
   useEffect(() => {
     getWatersportActivities()
@@ -94,6 +97,16 @@ export function Watersport() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "homePage"][0]{ watersport }`)
+      .then(data => {
+        if (data?.watersport?.title) setSectionTitle(data.watersport.title);
+        if (data?.watersport?.subtitle) setSectionSubtitle(data.watersport.subtitle);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <>
       <section id="watersport" className="relative py-20 px-6 pb-32 bg-navy-soft font-body">
@@ -101,8 +114,8 @@ export function Watersport() {
         
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
-            title="WATERSPORT"
-            subtitle="Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl."
+            title={sectionTitle}
+            subtitle={sectionSubtitle}
             waveVariant="special"
           />
 

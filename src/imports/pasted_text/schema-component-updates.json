@@ -1,0 +1,167 @@
+Add title and subtitle fields to existing Sanity schemas and wire them up 
+in the corresponding React components. Do NOT change any existing fields 
+or functionality — only add what is listed below.
+
+--- CHANGE 1: sanity/schemas/homePage.ts ---
+
+In the 'intro' object fields array, add as the FIRST field (before paragraph1):
+  { name: 'title', title: 'Titel', type: 'string' },
+
+In the 'restaurant' object fields array, add as the FIRST field (before description):
+  { name: 'title', title: 'Titel', type: 'string' },
+
+Add two new top-level fields after the 'restaurant' field:
+
+  defineField({
+    name: 'programma',
+    title: 'Programma sectie',
+    type: 'object',
+    fields: [
+      { name: 'title', title: 'Titel', type: 'string' },
+      { name: 'subtitle', title: 'Subtitel', type: 'string' },
+    ],
+  }),
+  defineField({
+    name: 'events',
+    title: 'Events & Verhuur sectie',
+    type: 'object',
+    fields: [
+      { name: 'title', title: 'Titel', type: 'string' },
+      { name: 'subtitle', title: 'Subtitel', type: 'string' },
+    ],
+  }),
+  defineField({
+    name: 'watersport',
+    title: 'Watersport sectie',
+    type: 'object',
+    fields: [
+      { name: 'title', title: 'Titel', type: 'string' },
+      { name: 'subtitle', title: 'Subtitel', type: 'string' },
+    ],
+  }),
+
+--- CHANGE 2: src/app/components/Intro.tsx ---
+
+1. Add imports at the top:
+   import { useState, useEffect } from 'react';
+   import { sanityClient } from '../../lib/sanity';
+
+2. Convert to a stateful component. Add inside the Intro function 
+   before the return statement:
+
+   const [title, setTitle] = useState('MEER DAN EEN\nBEACHCLUB');
+   const [paragraph1, setParagraph1] = useState('Beachclub Juno is een ontmoetingsplek voor liefhebbers van goed eten, mooi design en culturele verdieping. Gelegen aan het strand van Kijkduin, bieden wij een unieke combinatie van culinaire excellentie en inspirerende evenementen.');
+   const [paragraph2, setParagraph2] = useState('Van jazz en theater tot comedy — bij ons komt cultuur tot leven met de Noordzee als decor. En voor de mooiste momenten in uw leven, zoals bruiloften en zakelijke bijeenkomsten, bieden wij een onvergetelijke setting.');
+
+   useEffect(() => {
+     sanityClient
+       .fetch(`*[_type == "homePage"][0]{ intro }`)
+       .then(data => {
+         if (data?.intro?.title) setTitle(data.intro.title);
+         if (data?.intro?.paragraph1) setParagraph1(data.intro.paragraph1);
+         if (data?.intro?.paragraph2) setParagraph2(data.intro.paragraph2);
+       })
+       .catch(() => {});
+   }, []);
+
+3. In the JSX, replace the hardcoded h2:
+   FROM:
+     <h2 ...>
+       MEER DAN EEN<br />BEACHCLUB
+     </h2>
+   TO:
+     <h2 ...>
+       {title}
+     </h2>
+
+4. Replace the two hardcoded paragraphs with:
+   <p>{paragraph1}</p>
+   <p>{paragraph2}</p>
+   (keep all existing className attributes)
+
+--- CHANGE 3: src/app/components/Restaurant.tsx ---
+
+The component already fetches from Sanity. Add title support:
+
+1. Add state: const [title, setTitle] = useState('Restaurant');
+
+2. In the existing useEffect fetch, add:
+   if (data?.restaurant?.title) setTitle(data.restaurant.title);
+
+3. In the JSX, replace the hardcoded h2 text:
+   FROM: Restaurant
+   TO: {title}
+
+--- CHANGE 4: src/app/components/Programma.tsx ---
+
+1. Add state:
+   const [sectionTitle, setSectionTitle] = useState('CULTUREEL PROGRAMMA');
+   const [sectionSubtitle, setSectionSubtitle] = useState('Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod');
+
+2. Add a separate useEffect for section content:
+   useEffect(() => {
+     sanityClient
+       .fetch(`*[_type == "homePage"][0]{ programma }`)
+       .then(data => {
+         if (data?.programma?.title) setSectionTitle(data.programma.title);
+         if (data?.programma?.subtitle) setSectionSubtitle(data.programma.subtitle);
+       })
+       .catch(() => {});
+   }, []);
+
+3. Update the SectionHeader:
+   FROM: title="CULTUREEL PROGRAMMA" subtitle="Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod"
+   TO:   title={sectionTitle} subtitle={sectionSubtitle}
+
+--- CHANGE 5: src/app/components/Events.tsx ---
+
+1. Add imports:
+   import { useState, useEffect } from 'react';
+   import { sanityClient } from '../../lib/sanity';
+
+2. Add state inside the Events function:
+   const [sectionTitle, setSectionTitle] = useState('EVENTS & VERHUUR');
+   const [sectionSubtitle, setSectionSubtitle] = useState('De perfecte locatie voor uw bijzondere moment');
+
+3. Add useEffect:
+   useEffect(() => {
+     sanityClient
+       .fetch(`*[_type == "homePage"][0]{ events }`)
+       .then(data => {
+         if (data?.events?.title) setSectionTitle(data.events.title);
+         if (data?.events?.subtitle) setSectionSubtitle(data.events.subtitle);
+       })
+       .catch(() => {});
+   }, []);
+
+4. Update the SectionHeader:
+   FROM: title="EVENTS & VERHUUR" subtitle="De perfecte locatie voor uw bijzondere moment"
+   TO:   title={sectionTitle} subtitle={sectionSubtitle}
+
+--- CHANGE 6: src/app/components/Watersport.tsx ---
+
+1. Add state inside the Watersport function (after existing state):
+   const [sectionTitle, setSectionTitle] = useState('WATERSPORT');
+   const [sectionSubtitle, setSectionSubtitle] = useState('Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl.');
+
+2. Add useEffect (separate from the existing watersport activities fetch):
+   useEffect(() => {
+     sanityClient
+       .fetch(`*[_type == "homePage"][0]{ watersport }`)
+       .then(data => {
+         if (data?.watersport?.title) setSectionTitle(data.watersport.title);
+         if (data?.watersport?.subtitle) setSectionSubtitle(data.watersport.subtitle);
+       })
+       .catch(() => {});
+   }, []);
+
+3. Update the SectionHeader:
+   FROM: title="WATERSPORT" subtitle="Bij Juno kun je het strand beleven zoals het bedoeld is — actief, vrij en op het water. In samenwerking met Kiteboardschool.nl."
+   TO:   title={sectionTitle} subtitle={sectionSubtitle}
+
+--- IMPORTANT RULES ---
+- All changes use static fallback values so the site works 
+  even when Sanity fields are empty
+- Do not remove the reveal-left and reveal-right classes from Intro.tsx 
+  (they are already removed per earlier fix — just don't re-add them)
+- Do not change any other styling, logic, or data

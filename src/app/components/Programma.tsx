@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 import { featuredEvents as staticFallback } from '../data/events';
 import { getFeaturedEvents, urlFor } from '../../lib/queries';
 import type { SanityEvent } from '../../lib/types';
+import { sanityClient } from '../../lib/sanity';
 
 function adaptEvent(e: SanityEvent | any) {
   // Already EventData shape if it has no slug (= static fallback)
@@ -35,6 +36,7 @@ function adaptEvent(e: SanityEvent | any) {
         : '',
       bio: e.artist?.bio ?? '',
     },
+    ticket_url: e.ticket_url,
   };
 }
 
@@ -42,11 +44,23 @@ export function Programma() {
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [events, setEvents] = useState<any[]>(staticFallback);
+  const [sectionTitle, setSectionTitle] = useState('CULTUREEL PROGRAMMA');
+  const [sectionSubtitle, setSectionSubtitle] = useState('Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod');
 
   useEffect(() => {
     getFeaturedEvents()
       .then(data => { if (data?.length) setEvents(data.map(adaptEvent)); })
       .catch(() => {}); // keep static fallback on error
+  }, []);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "homePage"][0]{ programma }`)
+      .then(data => {
+        if (data?.programma?.title) setSectionTitle(data.programma.title);
+        if (data?.programma?.subtitle) setSectionSubtitle(data.programma.subtitle);
+      })
+      .catch(() => {});
   }, []);
 
   const handleEventClick = (event: EventData) => {
@@ -66,8 +80,8 @@ export function Programma() {
         
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
-            title="PROGRAMMA"
-            subtitle="Check hier ons programma voor dit seizoen"
+            title={sectionTitle}
+            subtitle={sectionSubtitle}
             waveVariant="special"
             className="text-primary"
           />

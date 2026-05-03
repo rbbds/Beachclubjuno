@@ -74,6 +74,12 @@ export default defineType({
       title: 'Volgorde (homepage)',
       type: 'number'
     }),
+    defineField({
+      name: 'ticket_url',
+      title: 'Ticketlink (URL)',
+      type: 'url',
+      description: 'Laat leeg als het evenement gratis is of geen tickets vereist.',
+    }),
   ],
   preview: {
     select: { title: 'title', subtitle: 'date', media: 'image' },

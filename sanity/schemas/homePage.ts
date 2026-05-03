@@ -22,6 +22,7 @@ export default defineType({
       title: 'Intro sectie',
       type: 'object',
       fields: [
+        { name: 'title', title: 'Titel', type: 'string' },
         { name: 'paragraph1', title: 'Alinea 1', type: 'text', rows: 4 },
         { name: 'paragraph2', title: 'Alinea 2', type: 'text', rows: 4 },
         { name: 'image', title: 'Afbeelding', type: 'image',
@@ -33,10 +34,38 @@ export default defineType({
       title: 'Restaurant sectie',
       type: 'object',
       fields: [
+        { name: 'title', title: 'Titel', type: 'string' },
         { name: 'description', title: 'Beschrijving', type: 'text', rows: 4 },
         { name: 'menuUrl', title: 'Menukaart PDF URL', type: 'url' },
         { name: 'image', title: 'Afbeelding', type: 'image',
           options: { hotspot: true } },
+      ],
+    }),
+    defineField({
+      name: 'programma',
+      title: 'Programma sectie',
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Titel', type: 'string' },
+        { name: 'subtitle', title: 'Subtitel', type: 'string' },
+      ],
+    }),
+    defineField({
+      name: 'events',
+      title: 'Events & Verhuur sectie',
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Titel', type: 'string' },
+        { name: 'subtitle', title: 'Subtitel', type: 'string' },
+      ],
+    }),
+    defineField({
+      name: 'watersport',
+      title: 'Watersport sectie',
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Titel', type: 'string' },
+        { name: 'subtitle', title: 'Subtitel', type: 'string' },
       ],
     }),
     defineField({

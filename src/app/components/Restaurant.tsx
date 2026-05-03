@@ -3,6 +3,7 @@ import { WaveDecoration } from './WaveDecoration';
 import { SectionWaveTop } from './SectionWaveTop';
 import { sanityClient, urlFor } from '../../lib/sanity';
 
+// Restaurant section - fixed JSX syntax
 const staticPhotos = [
   { id: 1, src: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=900&q=80', alt: 'Verse zeevruchten bij Juno' },
   { id: 2, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', alt: 'Sfeer restaurant Juno' },
@@ -18,6 +19,7 @@ const photoStyles = [
 ];
 
 export function Restaurant() {
+  const [title, setTitle] = useState('Restaurant');
   const [description, setDescription] = useState('Onze keuken combineert verse lokale ingrediënten met internationale invloeden. Geniet van seizoensgebonden gerechten, verse vis uit de Noordzee en een zorgvuldig samengestelde wijnkaart.');
   const [menuUrl, setMenuUrl] = useState('#');
 
@@ -25,6 +27,7 @@ export function Restaurant() {
     sanityClient
       .fetch(`*[_type == "homePage"][0]{ restaurant }`)
       .then(data => {
+        if (data?.restaurant?.title) setTitle(data.restaurant.title);
         if (data?.restaurant?.description) setDescription(data.restaurant.description);
         if (data?.restaurant?.menuUrl) setMenuUrl(data.restaurant.menuUrl);
       })
@@ -107,7 +110,7 @@ export function Restaurant() {
             className="text-primary font-display uppercase leading-none mb-0 w-full"
             style={{ fontSize: 'clamp(52px, 6vw, 80px)' }}
           >
-            Restaurant
+            {title}
           </h2>
 
           <WaveDecoration variant="special" className="w-24 h-3 mt-4 mb-6" />

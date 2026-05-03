@@ -42,6 +42,7 @@ function adaptEvent(e: SanityEvent | any) {
         : '',
       bio: e.artist?.bio ?? '',
     },
+    ticket_url: e.ticket_url,
   };
 }
 

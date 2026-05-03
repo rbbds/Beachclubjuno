@@ -18,6 +18,7 @@ export interface EventData {
     photo: string;
     bio: string;
   };
+  ticket_url?: string;
 }
 
 interface EventDrawerProps {
@@ -144,9 +145,16 @@ export function EventDrawer({ event, isOpen, onClose }: EventDrawerProps) {
 
           {/* Buttons */}
           <div className={`space-y-3 ${isOpen ? 'drawer-content-7' : ''}`}>
-            <button className="w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-medium">
-              Koop tickets
-            </button>
+            {event.ticket_url && (
+              <a
+                href={event.ticket_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-accent text-background py-4 rounded-lg hover:bg-accent/85 transition-colors font-medium text-center"
+              >
+                Koop tickets
+              </a>
+            )}
           </div>
         </div>
       </div>
