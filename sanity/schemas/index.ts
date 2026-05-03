@@ -4,6 +4,8 @@ import siteSettings from './siteSettings';
 import homePage from './homePage';
 import watersportActivity from './watersportActivity';
 import faqPage from './faqPage';
+import bruiloftenPage from './bruiloftenPage';
+import zakelijkeEventsPage from './zakelijkeEventsPage';
 
 export const schemaTypes = [
   event,
@@ -12,5 +14,6 @@ export const schemaTypes = [
   homePage,
   watersportActivity,
   faqPage,
+  bruiloftenPage,
+  zakelijkeEventsPage,
 ];
-// artist is een object type ingebed in event, geen standalone document
