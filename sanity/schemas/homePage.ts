@@ -12,6 +12,12 @@ export default defineType({
       fields: [
         { name: 'image', title: 'Achtergrondafbeelding', type: 'image',
           options: { hotspot: true } },
+        {
+          name: 'videoUrl',
+          title: 'Video URL (optioneel, overschrijft afbeelding)',
+          type: 'url',
+          description: 'Directe MP4 URL of Vimeo embed URL. Als ingevuld wordt de video getoond in plaats van de afbeelding.'
+        },
         { name: 'headline', title: 'Headline', type: 'string' },
         { name: 'subtitle', title: 'Subtitel', type: 'string' },
         { name: 'ctaLabel', title: 'Knoptekst', type: 'string' },
