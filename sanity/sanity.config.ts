@@ -1,5 +1,5 @@
 import { defineConfig } from 'sanity';
-import { structureTool } from 'sanity/structure';
+import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { deskStructure } from './deskStructure';
@@ -7,10 +7,10 @@ import { deskStructure } from './deskStructure';
 export default defineConfig({
   name: 'beachclub-juno',
   title: 'Beachclub Juno CMS',
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  projectId: '3rey3gs4',
   dataset: 'production',
   plugins: [
-    structureTool({ structure: deskStructure }),
+    deskTool({ structure: deskStructure }),
     visionTool(),
   ],
   schema: { types: schemaTypes },
