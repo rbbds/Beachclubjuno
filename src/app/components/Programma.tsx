@@ -66,8 +66,8 @@ export function Programma() {
         
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
-            title="CULTUREEL PROGRAMMA"
-            subtitle="Van intieme jazz tot hilarische comedy — ontdek ons gevarieerde aanbod"
+            title="PROGRAMMA"
+            subtitle="Check hier ons programma voor dit seizoen"
             waveVariant="special"
             className="text-primary"
           />
