@@ -176,7 +176,7 @@ function WaveSvgAccent() {
 
 function CategoryBlock({ cat }: { cat: MenuCategory }) {
   return (
-    <div className="mb-8">
+    <div className="mb-8 break-inside-avoid">
       <div className="flex items-baseline gap-3 mb-1">
         <h3 className="font-display text-accent tracking-wide" style={{ fontSize: '1.5rem' }}>
           {cat.title}
@@ -288,7 +288,7 @@ export function Menu() {
         <div className="max-w-3xl mx-auto">
           <div
             key={activeTab}
-            className="grid sm:grid-cols-2 gap-x-12 gap-y-2"
+            className="menu-columns"
             style={{ animation: 'fadeIn 0.3s ease' }}
           >
             {activeCategories.map((cat, i) => (
@@ -330,6 +330,15 @@ export function Menu() {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(8px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        .menu-columns {
+          columns: 1;
+          column-gap: 3rem;
+        }
+        @media (min-width: 640px) {
+          .menu-columns {
+            columns: 2;
+          }
         }
       `}</style>
     </div>
