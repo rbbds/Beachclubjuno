@@ -1,3 +1,9 @@
+Refactor src/app/pages/Bruiloften.tsx to fetch content from Sanity.
+Keep all static fallback values so the page works before Sanity has content.
+Do not change any styling, layout, wave transitions, or component structure.
+
+--- FULL FILE REPLACEMENT: src/app/pages/Bruiloften.tsx ---
+
 import { useEffect, useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
