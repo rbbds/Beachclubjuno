@@ -26,7 +26,7 @@ interface Photo {
 export function Restaurant() {
   const [title, setTitle] = useState('Restaurant');
   const [description, setDescription] = useState('Onze keuken combineert verse lokale ingrediënten met internationale invloeden. Geniet van seizoensgebonden gerechten, verse vis uit de Noordzee en een zorgvuldig samengestelde wijnkaart.');
-  const [menuUrl, setMenuUrl] = useState('#');
+  const [menuUrl, setMenuUrl] = useState('/menu');
   const [photos, setPhotos] = useState<Photo[]>(staticPhotos);
 
   useEffect(() => {
