@@ -178,7 +178,7 @@ function CategoryBlock({ cat }: { cat: MenuCategory }) {
   return (
     <div className="mb-8 break-inside-avoid">
       <div className="flex items-baseline gap-3 mb-1">
-        <h3 className="font-display text-accent tracking-wide" style={{ fontSize: '1.5rem' }}>
+        <h3 className="font-display text-accent tracking-wide" style={{ fontSize: '1.75rem' }}>
           {cat.title}
         </h3>
         {cat.timeLabel && (
@@ -191,7 +191,7 @@ function CategoryBlock({ cat }: { cat: MenuCategory }) {
           <div key={i} className="border-b border-primary/10 pb-3 last:border-0">
             <div className="flex justify-between items-baseline gap-4">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-body font-semibold text-primary text-sm">{dish.name}</span>
+                <span className="font-body font-semibold text-primary text-base">{dish.name}</span>
                 {dish.isFavorite && (
                   <span className="text-[10px] font-semibold bg-accent text-background px-2 py-0.5 rounded uppercase tracking-wide">
                     Favoriet
@@ -203,10 +203,10 @@ function CategoryBlock({ cat }: { cat: MenuCategory }) {
                   </span>
                 )}
               </div>
-              <span className="font-body font-semibold text-primary text-sm whitespace-nowrap">{dish.price}</span>
+              <span className="font-body font-semibold text-primary text-base whitespace-nowrap">{dish.price}</span>
             </div>
             {dish.description && (
-              <p className="text-xs text-primary/60 mt-1 leading-relaxed">{dish.description}</p>
+              <p className="text-sm text-primary/60 mt-1 leading-relaxed">{dish.description}</p>
             )}
           </div>
         ))}
@@ -271,13 +271,13 @@ export function Menu() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`font-display tracking-wide text-sm uppercase px-5 py-2 rounded-lg transition-all duration-200 ${
+              className={`font-display tracking-wide text-base uppercase px-6 py-3 rounded-lg transition-all duration-200 ${
                 activeTab === tab
                   ? 'bg-accent text-background'
-                  : 'text-primary hover:bg-accent/10'
+                  : 'text-primary border border-primary/30 hover:border-accent hover:text-accent'
               }`}
             >
-              {tab === 'eten' ? '🍽 Menukaart' : '🍹 Bites & Dranken'}
+              {tab === 'eten' ? 'Menukaart' : 'Bites & Dranken'}
             </button>
           ))}
         </div>
