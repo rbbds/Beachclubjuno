@@ -325,7 +325,7 @@ export function Bruiloften() {
         photo={contactPhoto}
         intro={contactIntro}
         phone="+31624734660"
-        email="info@clubjuno.nl"
+        email="info@beachclubjuno.nl"
         bgColor="terracotta"
       />
 
