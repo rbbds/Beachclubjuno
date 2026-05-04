@@ -198,7 +198,7 @@ function CategoryBlock({ cat }: { cat: MenuCategory }) {
                   </span>
                 )}
                 {dish.isVegan && (
-                  <span className="text-[10px] font-semibold bg-sage text-background px-2 py-0.5 rounded uppercase tracking-wide">
+                  <span className="text-[10px] font-semibold bg-sage text-primary px-2 py-0.5 rounded uppercase tracking-wide">
                     Vegan
                   </span>
                 )}
