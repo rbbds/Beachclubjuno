@@ -72,6 +72,7 @@ export function Bruiloften() {
   ]);
   const [introCtaPrimary, setIntroCtaPrimary] = useState('Vraag een offerte aan');
   const [introCtaSecondary, setIntroCtaSecondary] = useState('Download brochure');
+  const [brochureUrl, setBrochureUrl] = useState('');
 
   // Momenten state
   const [momentenTitle, setMomentenTitle] = useState('VAN CEREMONIE TOT FEEST');
@@ -121,6 +122,7 @@ export function Bruiloften() {
         if (data.intro?.usps?.length) setIntroUsps(data.intro.usps);
         if (data.intro?.ctaPrimary) setIntroCtaPrimary(data.intro.ctaPrimary);
         if (data.intro?.ctaSecondary) setIntroCtaSecondary(data.intro.ctaSecondary);
+        if (data.intro?.brochureUrl) setBrochureUrl(data.intro.brochureUrl);
 
         // Momenten
         if (data.momenten?.title) setMomentenTitle(data.momenten.title);
@@ -202,9 +204,15 @@ export function Bruiloften() {
             <JunoButton variant="primary" size="lg" onClick={() => openMiceWidget('8f1c3d9ed6cc')}>
               {introCtaPrimary}
             </JunoButton>
-            <JunoButton variant="outline-dark" size="lg">
-              {introCtaSecondary}
-            </JunoButton>
+            {brochureUrl ? (
+              <JunoButton variant="outline-dark" size="lg" href={brochureUrl} target="_blank">
+                {introCtaSecondary}
+              </JunoButton>
+            ) : (
+              <JunoButton variant="outline-dark" size="lg" className="opacity-50 pointer-events-none">
+                {introCtaSecondary}
+              </JunoButton>
+            )}
           </div>
         </div>
 

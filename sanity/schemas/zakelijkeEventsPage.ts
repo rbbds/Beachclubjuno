@@ -23,6 +23,7 @@ export default defineType({
       fields: [
         { name: 'title', title: 'Titel', type: 'string' },
         { name: 'subtitle', title: 'Subtitel', type: 'string' },
+        { name: 'brochureUrl', title: 'Brochure PDF URL', type: 'url', description: 'Link naar downloadbare brochure PDF. Laat leeg om knop te verbergen.' },
         {
           name: 'cards',
           title: 'Event cards',
@@ -74,6 +75,24 @@ export default defineType({
           { name: 'answer', title: 'Antwoord', type: 'text', rows: 3 },
         ],
       }],
+    }),
+    defineField({
+      name: 'fotostrip1',
+      title: 'Foto strip 1 (halverwege)',
+      type: 'object',
+      fields: [
+        { name: 'text', title: 'Overlay tekst', type: 'string' },
+        { name: 'image', title: 'Afbeelding', type: 'image', options: { hotspot: true } },
+      ],
+    }),
+    defineField({
+      name: 'fotostrip2',
+      title: 'Foto strip 2 (onder waarom sectie)',
+      type: 'object',
+      fields: [
+        { name: 'text', title: 'Overlay tekst', type: 'string' },
+        { name: 'image', title: 'Afbeelding', type: 'image', options: { hotspot: true } },
+      ],
     }),
   ],
 });

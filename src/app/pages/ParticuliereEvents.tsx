@@ -92,6 +92,11 @@ export function ParticuliereEvents() {
   // Aanbod state
   const [aanbodTitle, setAanbodTitle] = useState('ONS PARTICULIER AANBOD');
   const [aanbodSubtitle, setAanbodSubtitle] = useState('Van intiem feestje tot groot familiefeest — voor groepen van 15 tot 200 personen');
+  const [brochureUrl, setBrochureUrl] = useState('');
+  const [fotostrip1Text, setFotostrip1Text] = useState('FEESTEN MET UITZICHT OP ZEE');
+  const [fotostrip1Image, setFotostrip1Image] = useState(images.bedrijfsfeesten.team);
+  const [fotostrip2Text, setFotostrip2Text] = useState('JUNO — VOOR JOUW BIJZONDERE MOMENT');
+  const [fotostrip2Image, setFotostrip2Image] = useState(images.intro.terrace);
   const [eventCards, setEventCards] = useState(staticEventCards);
   const [drawerInfo, setDrawerInfo] = useState<EventInfoItem[]>(staticDrawerInfo);
 
@@ -130,6 +135,11 @@ export function ParticuliereEvents() {
         // Aanbod
         if (data.aanbod?.title) setAanbodTitle(data.aanbod.title);
         if (data.aanbod?.subtitle) setAanbodSubtitle(data.aanbod.subtitle);
+        if (data.aanbod?.brochureUrl) setBrochureUrl(data.aanbod.brochureUrl);
+        if (data.fotostrip1?.text) setFotostrip1Text(data.fotostrip1.text);
+        if (data.fotostrip1?.image) setFotostrip1Image(urlFor(data.fotostrip1.image).width(1800).url());
+        if (data.fotostrip2?.text) setFotostrip2Text(data.fotostrip2.text);
+        if (data.fotostrip2?.image) setFotostrip2Image(urlFor(data.fotostrip2.image).width(1800).url());
         if (data.aanbod?.cards?.length) {
           const cards = data.aanbod.cards.map((c: any, i: number) => ({
             tagline: c.tagline || staticEventCards[i]?.tagline || '',
@@ -198,7 +208,11 @@ export function ParticuliereEvents() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-16">
             <JunoButton variant="primary" size="lg" onClick={() => openMiceWidget('8f1c3d9ed6cc')}>Stel jouw feest samen</JunoButton>
-            <JunoButton variant="outline-dark" size="lg">Download brochure</JunoButton>
+            {brochureUrl ? (
+              <JunoButton variant="outline-dark" size="lg" href={brochureUrl} target="_blank">Download brochure</JunoButton>
+            ) : (
+              <JunoButton variant="outline-dark" size="lg" className="opacity-50 pointer-events-none">Download brochure</JunoButton>
+            )}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -249,8 +263,8 @@ export function ParticuliereEvents() {
       {/* SECTION 3 — SFEER FOTO STRIP */}
       <section className="relative overflow-hidden h-[500px] group">
         <img
-          src={images.bedrijfsfeesten.team}
-          alt="Feesten aan het strand"
+          src={fotostrip1Image}
+          alt={fotostrip1Text}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
@@ -260,7 +274,7 @@ export function ParticuliereEvents() {
             className="font-display text-background text-center px-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1' }}
           >
-            FEESTEN MET UITZICHT OP ZEE
+            {fotostrip1Text}
           </h2>
           <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>
@@ -313,8 +327,8 @@ export function ParticuliereEvents() {
       {/* SECTION 6 — SECOND FOTO STRIP */}
       <section className="relative overflow-hidden h-[500px] group">
         <img
-          src={images.intro.terrace}
-          alt="Juno — voor jouw bijzondere moment"
+          src={fotostrip2Image}
+          alt={fotostrip2Text}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
         />
@@ -324,7 +338,7 @@ export function ParticuliereEvents() {
             className="font-display text-background text-center px-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1' }}
           >
-            JUNO — VOOR JOUW BIJZONDERE MOMENT
+            {fotostrip2Text}
           </h2>
           <WaveDecoration variant="inverted" className="w-24 h-3 mx-auto mt-4" />
         </div>

@@ -24,7 +24,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.formitable.com cdn.elfsight.com elfsightcdn.com *.elfsightcdn.com universe-static.elfsightcdn.com app.miceoperations.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com *.formitable.com widget.formitable.com *.elfsightcdn.com; font-src 'self' fonts.gstatic.com *.elfsightcdn.com; img-src 'self' data: https: blob: cdn.sanity.io; frame-src https://www.google.com https://maps.google.com https://widget.formitable.com; connect-src 'self' api.sanity.io *.sanity.io cdn.sanity.io *.apicdn.sanity.io formspree.io *.elfsight.com *.elfsightcdn.com core.service.elfsight.com service-reviews-ultimate.elfsight.com storage.elfsight.com static.elfsight.com *.formitable.com widget-api.formitable.com; worker-src blob:"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.formitable.com cdn.elfsight.com elfsightcdn.com *.elfsightcdn.com universe-static.elfsightcdn.com app.miceoperations.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com *.formitable.com widget.formitable.com *.elfsightcdn.com; font-src 'self' fonts.gstatic.com *.elfsightcdn.com; img-src 'self' data: https: blob: cdn.sanity.io; frame-src https://www.google.com https://maps.google.com; connect-src 'self' api.sanity.io *.sanity.io cdn.sanity.io *.apicdn.sanity.io formspree.io *.elfsight.com *.elfsightcdn.com core.service.elfsight.com service-reviews-ultimate.elfsight.com storage.elfsight.com static.elfsight.com *.formitable.com widget-api.formitable.com; worker-src blob:"
         }
       ]
     }

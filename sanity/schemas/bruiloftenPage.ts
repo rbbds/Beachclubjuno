@@ -27,6 +27,7 @@ export default defineType({
         { name: 'usps', title: 'Checkmarks (USPs)', type: 'array', of: [{ type: 'string' }] },
         { name: 'ctaPrimary', title: 'Primaire knop tekst', type: 'string' },
         { name: 'ctaSecondary', title: 'Secondaire knop tekst', type: 'string' },
+        { name: 'brochureUrl', title: 'Brochure PDF URL', type: 'url', description: 'Link naar downloadbare brochure PDF. Laat leeg om knop te verbergen.' },
       ],
     }),
     defineField({
