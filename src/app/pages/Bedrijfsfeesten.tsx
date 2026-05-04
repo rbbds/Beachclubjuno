@@ -288,7 +288,7 @@ export function Bedrijfsfeesten() {
           photo={contactPhoto}
           intro={contactIntro}
           phone="+31624734660"
-          email="info@clubjuno.nl"
+          email="info@beachclubjuno.nl"
           bgColor="terracotta"
         />
         <WaveTransition fillColor="#e8f0f3" />
