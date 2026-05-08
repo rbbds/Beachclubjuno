@@ -83,13 +83,11 @@ export function Bedrijfsfeesten() {
 
   const scrollRef = useScrollReveal();
 
-  // Hero state
   const [heroImage, setHeroImage] = useState(images.bedrijfsfeesten.hero);
   const [heroVideoUrl, setHeroVideoUrl] = useState<string | null>(null);
   const [heroTitle, setHeroTitle] = useState('ZAKELIJKE EVENTS');
   const [heroSubtitle, setHeroSubtitle] = useState('Vergaderen, borrel of teambuilding — anders dan anders');
 
-  // Aanbod state
   const [aanbodTitle, setAanbodTitle] = useState('ONS ZAKELIJK AANBOD');
   const [aanbodSubtitle, setAanbodSubtitle] = useState('Van teambuilding tot bedrijfsfestival — voor groepen van 15 tot 300 personen');
   const [brochureUrl, setBrochureUrl] = useState('');
@@ -100,13 +98,11 @@ export function Bedrijfsfeesten() {
   const [eventCards, setEventCards] = useState(staticEventCards);
   const [drawerInfo, setDrawerInfo] = useState<EventInfoItem[]>(staticDrawerInfo);
 
-  // Contact state
   const [contactName, setContactName] = useState('Sarah');
   const [contactRole, setContactRole] = useState('Event Manager bij Juno');
   const [contactIntro, setContactIntro] = useState('Ik ben Sarah, Event Manager bij Juno. Wil jij een zakelijk event organiseren aan het strand? Ik denk graag met je mee bij het neerzetten van een onvergetelijke dag voor jouw team.');
   const [contactPhoto, setContactPhoto] = useState(images.bruiloften.intro);
 
-  // Waarom state
   const [waaromTitle, setWaaromTitle] = useState('WAAROM KIEZEN VOOR JUNO EVENTS?');
   const [waaromUsps, setWaaromUsps] = useState([
     'Unieke locatie direct aan het strand van Kijkduin',
@@ -115,7 +111,7 @@ export function Bedrijfsfeesten() {
   ]);
   const [waaromImage, setWaaromImage] = useState(images.bedrijfsfeesten.hero);
 
-  // FAQ state
+  const [faqImage, setFaqImage] = useState(images.bedrijfsfeesten.team);
   const [faqItems, setFaqItems] = useState(staticFaqItems);
 
   const [selectedCard, setSelectedCard] = useState<EventInfoItem | null>(null);
@@ -126,13 +122,11 @@ export function Bedrijfsfeesten() {
       .then(data => {
         if (!data) return;
 
-        // Hero
         if (data.hero?.videoUrl) setHeroVideoUrl(data.hero.videoUrl);
         if (data.hero?.image) setHeroImage(urlFor(data.hero.image).width(1800).url());
         if (data.hero?.title) setHeroTitle(data.hero.title);
         if (data.hero?.subtitle) setHeroSubtitle(data.hero.subtitle);
 
-        // Aanbod
         if (data.aanbod?.title) setAanbodTitle(data.aanbod.title);
         if (data.aanbod?.subtitle) setAanbodSubtitle(data.aanbod.subtitle);
         if (data.aanbod?.brochureUrl) setBrochureUrl(data.aanbod.brochureUrl);
@@ -160,18 +154,16 @@ export function Bedrijfsfeesten() {
           setDrawerInfo(drawers);
         }
 
-        // Contact
         if (data.contact?.name) setContactName(data.contact.name);
         if (data.contact?.role) setContactRole(data.contact.role);
         if (data.contact?.intro) setContactIntro(data.contact.intro);
         if (data.contact?.photo) setContactPhoto(urlFor(data.contact.photo).width(800).url());
 
-        // Waarom
         if (data.waarom?.title) setWaaromTitle(data.waarom.title);
         if (data.waarom?.usps?.length) setWaaromUsps(data.waarom.usps);
         if (data.waarom?.image) setWaaromImage(urlFor(data.waarom.image).width(800).url());
 
-        // FAQ
+        if (data.faqImage) setFaqImage(urlFor(data.faqImage).width(800).url());
         if (data.faq?.length) {
           setFaqItems(data.faq.map((f: any) => ({
             question: f.question,
@@ -348,7 +340,7 @@ export function Bedrijfsfeesten() {
       <div className="relative">
         <EventFaqSection
           items={faqItems}
-          image={images.bedrijfsfeesten.team}
+          image={faqImage}
           imageAlt="Zakelijke Events FAQ"
           bgColor="sage"
         />
