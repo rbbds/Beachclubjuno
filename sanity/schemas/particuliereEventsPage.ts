@@ -65,6 +65,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'faqImage',
+      title: 'FAQ afbeelding (links naast de vragen)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
       name: 'faq',
       title: 'FAQ vragen',
       type: 'array',
