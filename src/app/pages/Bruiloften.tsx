@@ -56,11 +56,9 @@ const staticFaqItems = [
 export function Bruiloften() {
   const scrollRef = useScrollReveal();
 
-  // Hero state
   const [heroImage, setHeroImage] = useState<string | null>(null);
   const [heroVideoUrl, setHeroVideoUrl] = useState<string | null>(null);
 
-  // Intro state
   const [introLabel, setIntroLabel] = useState('VIER DE LIEFDE');
   const [introTitle, setIntroTitle] = useState('TROUWEN OP HET STRAND');
   const [introParagraph, setIntroParagraph] = useState('Een zonovergoten dag, de Noordzee als getuige en een locatie die ademt. Bij Juno in Kijkduin wordt jouw bruiloft een dag om nooit te vergeten.');
@@ -74,27 +72,23 @@ export function Bruiloften() {
   const [introCtaSecondary, setIntroCtaSecondary] = useState('Download brochure');
   const [brochureUrl, setBrochureUrl] = useState('');
 
-  // Momenten state
   const [momentenTitle, setMomentenTitle] = useState('VAN CEREMONIE TOT FEEST');
   const [momentenSubtitle, setMomentenSubtitle] = useState('Elk moment van jullie dag, zorgvuldig verzorgd');
   const [momentenCards, setMomentenCards] = useState(staticMomentenCards);
 
-  // Regelingen state
   const [regelingenTitle, setRegelingenTitle] = useState('HOE WIJ HET REGELEN');
   const [regelingenSubtitle, setRegelingenSubtitle] = useState('Van eerste kennismaking tot laatste dans — wij ontzorgen jullie volledig');
   const [regelingCards, setRegelingCards] = useState(staticRegelingCards);
 
-  // Contact state
   const [contactName, setContactName] = useState('Sarah');
   const [contactRole, setContactRole] = useState('Wedding Coördinator bij Juno');
   const [contactIntro, setContactIntro] = useState('Ik ben Sarah, Wedding Coördinator bij Juno. Ik luister naar jullie verhaal en zorg ervoor dat jullie dag precies wordt zoals jullie het gedroomd hebben.');
   const [contactPhoto, setContactPhoto] = useState(images.bruiloften.intro);
 
-  // Fotostrip state
   const [fotostripImage, setFotostripImage] = useState(images.bruiloften.hero);
   const [fotostripText, setFotostripText] = useState('DE NOORDZEE ALS GETUIGE');
 
-  // FAQ state
+  const [faqImage, setFaqImage] = useState(images.bruiloften.intro);
   const [faqItems, setFaqItems] = useState(staticFaqItems);
 
   useEffect(() => {
@@ -111,11 +105,9 @@ export function Bruiloften() {
       .then(data => {
         if (!data) return;
 
-        // Hero
         if (data.hero?.videoUrl) setHeroVideoUrl(data.hero.videoUrl);
         if (data.hero?.image) setHeroImage(urlFor(data.hero.image).width(1800).url());
 
-        // Intro
         if (data.intro?.label) setIntroLabel(data.intro.label);
         if (data.intro?.title) setIntroTitle(data.intro.title);
         if (data.intro?.paragraph) setIntroParagraph(data.intro.paragraph);
@@ -124,7 +116,6 @@ export function Bruiloften() {
         if (data.intro?.ctaSecondary) setIntroCtaSecondary(data.intro.ctaSecondary);
         if (data.intro?.brochureUrl) setBrochureUrl(data.intro.brochureUrl);
 
-        // Momenten
         if (data.momenten?.title) setMomentenTitle(data.momenten.title);
         if (data.momenten?.subtitle) setMomentenSubtitle(data.momenten.subtitle);
         if (data.momenten?.cards?.length) {
@@ -135,7 +126,6 @@ export function Bruiloften() {
           })));
         }
 
-        // Regelingen
         if (data.regelingen?.title) setRegelingenTitle(data.regelingen.title);
         if (data.regelingen?.subtitle) setRegelingenSubtitle(data.regelingen.subtitle);
         if (data.regelingen?.cards?.length) {
@@ -147,17 +137,15 @@ export function Bruiloften() {
           })));
         }
 
-        // Contact
         if (data.contact?.name) setContactName(data.contact.name);
         if (data.contact?.role) setContactRole(data.contact.role);
         if (data.contact?.intro) setContactIntro(data.contact.intro);
         if (data.contact?.photo) setContactPhoto(urlFor(data.contact.photo).width(800).url());
 
-        // Fotostrip
         if (data.fotostrip?.image) setFotostripImage(urlFor(data.fotostrip.image).width(1800).url());
         if (data.fotostrip?.text) setFotostripText(data.fotostrip.text);
 
-        // FAQ
+        if (data.faqImage) setFaqImage(urlFor(data.faqImage).width(800).url());
         if (data.faq?.length) {
           setFaqItems(data.faq.map((f: any) => ({
             question: f.question,
@@ -177,7 +165,6 @@ export function Bruiloften() {
 
       {/* SECTION 1 — SPLIT HERO */}
       <section className="relative min-h-screen grid md:grid-cols-2 font-body">
-        {/* Left column */}
         <div className="bg-background flex flex-col justify-center px-12 py-32 md:py-0">
           <div className="font-display text-accent text-xl tracking-wide mb-4">
             {introLabel}
@@ -216,7 +203,6 @@ export function Bruiloften() {
           </div>
         </div>
 
-        {/* Right column — video or image */}
         <div className="relative overflow-hidden h-[50vh] md:h-auto group">
           {showHeroVideo ? (
             <video
@@ -241,7 +227,7 @@ export function Bruiloften() {
         <WaveTransition fillColor="#e8f0f3" />
       </section>
 
-      {/* SECTION 2 — MOMENTEN (horizontal scroll) */}
+      {/* SECTION 2 — MOMENTEN */}
       <section className="py-28 px-6 font-body bg-navy-soft">
         <div className="max-w-[1400px] mx-auto">
           <SectionHeader
@@ -353,7 +339,7 @@ export function Bruiloften() {
       <div className="relative">
         <EventFaqSection
           items={faqItems}
-          image={images.bruiloften.intro}
+          image={faqImage}
           imageAlt="Bruiloft bij Beachclub Juno Kijkduin"
           bgColor="sage"
         />
