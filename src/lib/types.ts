@@ -18,7 +18,7 @@ export interface SanityEvent {
   time: string;
   doorsOpen: string;
   price: string;
-  category: 'Comedy' | 'Jazz' | 'Theater' | 'Pop & Dans' | 'Speciaal';
+  category: 'Comedy' | 'Jazz' | 'Theater' | 'Pop & Dans' | 'Speciaal' | 'Bruiloften' | 'Zakelijke events' | 'Particuliere events';
   description: string;
   image: SanityImage;
   artist: Artist;
