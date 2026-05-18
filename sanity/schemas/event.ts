@@ -43,7 +43,16 @@ export default defineType({
       title: 'Categorie',
       type: 'string',
       options: {
-        list: ['Comedy', 'Jazz', 'Theater', 'Pop & Dans', 'Speciaal'],
+        list: [
+          'Comedy',
+          'Jazz',
+          'Theater',
+          'Pop & Dans',
+          'Speciaal',
+          'Bruiloften',
+          'Zakelijke events',
+          'Particuliere events',
+        ],
       },
     }),
     defineField({
