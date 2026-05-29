@@ -4,11 +4,14 @@ import { SectionHeader } from './SectionHeader';
 import { Link } from 'react-router';
 import { images } from '../data/images';
 import { useState, useEffect } from 'react';
-import { sanityClient } from '../../lib/sanity';
+import { sanityClient, urlFor } from '../../lib/sanity';
 
 export function Events() {
   const [sectionTitle, setSectionTitle] = useState('EVENTS & VERHUUR');
   const [sectionSubtitle, setSectionSubtitle] = useState('De perfecte locatie voor uw bijzondere moment');
+  const [bruiloftenImg, setBruiloftenImg] = useState<string | null>(null);
+  const [zakelijkImg, setZakelijkImg] = useState<string | null>(null);
+  const [particulierImg, setParticulierImg] = useState<string | null>(null);
 
   useEffect(() => {
     sanityClient
@@ -16,9 +19,16 @@ export function Events() {
       .then(data => {
         if (data?.events?.title) setSectionTitle(data.events.title);
         if (data?.events?.subtitle) setSectionSubtitle(data.events.subtitle);
+        if (data?.events?.bruiloftenImage)
+          setBruiloftenImg(urlFor(data.events.bruiloftenImage).width(900).url());
+        if (data?.events?.zakelijkImage)
+          setZakelijkImg(urlFor(data.events.zakelijkImage).width(900).url());
+        if (data?.events?.particulierImage)
+          setParticulierImg(urlFor(data.events.particulierImage).width(900).url());
       })
       .catch(() => {});
   }, []);
+
   return (
     <section id="events" className="py-20 px-6 font-body">
       <SectionWaveTop fillColor="#f6f4db" />
@@ -35,7 +45,7 @@ export function Events() {
           <div className="group reveal-stagger">
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
-                src={images.events.bruiloften}
+                src={bruiloftenImg ?? images.events.bruiloften}
                 alt="Strandbruiloft bij Beachclub Juno Kijkduin"
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -66,11 +76,11 @@ export function Events() {
             </Link>
           </div>
 
-          {/* Bedrijfsfeesten */}
+          {/* Zakelijke Events */}
           <div className="group reveal-stagger">
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
-                src={images.events.bedrijfsfeesten}
+                src={zakelijkImg ?? images.events.bedrijfsfeesten}
                 alt="Zakelijk evenement aan zee bij Beachclub Juno Den Haag"
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -104,7 +114,7 @@ export function Events() {
           <div className="group reveal-stagger">
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <img 
-                src={images.events.bruiloften}
+                src={particulierImg ?? images.events.bruiloften}
                 alt="Particulier feest op het strand bij Beachclub Juno Kijkduin"
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
