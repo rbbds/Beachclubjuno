@@ -59,7 +59,7 @@ export default defineType({
             }
           ],
           validation: (r: any) => r.max(4),
-          description: 'Upload precies 4 foto\'s voor de collage. Volgorde bepaalt de positie.',
+          description: "Upload precies 4 foto's voor de collage. Volgorde bepaalt de positie.",
         },
       ],
     }),
@@ -79,6 +79,24 @@ export default defineType({
       fields: [
         { name: 'title', title: 'Titel', type: 'string' },
         { name: 'subtitle', title: 'Subtitel', type: 'string' },
+        {
+          name: 'bruiloftenImage',
+          title: 'Afbeelding — Bruiloften card',
+          type: 'image',
+          options: { hotspot: true },
+        },
+        {
+          name: 'zakelijkImage',
+          title: 'Afbeelding — Zakelijke Events card',
+          type: 'image',
+          options: { hotspot: true },
+        },
+        {
+          name: 'particulierImage',
+          title: 'Afbeelding — Particuliere Events card',
+          type: 'image',
+          options: { hotspot: true },
+        },
       ],
     }),
     defineField({
