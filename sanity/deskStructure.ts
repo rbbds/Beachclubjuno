@@ -25,6 +25,10 @@ export const deskStructure = (S: StructureBuilder) =>
         .icon(() => '🎉')
         .child(S.document().schemaType('particuliereEventsPage').documentId('particuliereEventsPage')),
       S.listItem()
+        .title('Kids & Camps')
+        .icon(() => '🏖️')
+        .child(S.document().schemaType('kidsCampsPage').documentId('kidsCampsPage')),
+      S.listItem()
         .title('FAQ pagina')
         .icon(() => '❓')
         .child(S.document().schemaType('faqPage').documentId('faqPage')),
