@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { Bruiloften } from "./pages/Bruiloften";
 import { Bedrijfsfeesten } from "./pages/Bedrijfsfeesten";
 import { ParticuliereEvents } from "./pages/ParticuliereEvents";
+import { KidsCamps } from "./pages/KidsCamps";
 import { VolledigProgramma } from "./pages/VolledigProgramma";
 import { VeelgesteldeVragen } from "./pages/VeelgesteldeVragen";
 import { ContactPage } from "./pages/ContactPage";
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/particuliere-events",
         Component: ParticuliereEvents,
+      },
+      {
+        path: "/kids-camps",
+        Component: KidsCamps,
       },
       {
         path: "/programma",
