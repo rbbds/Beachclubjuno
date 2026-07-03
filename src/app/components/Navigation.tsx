@@ -104,12 +104,13 @@ export function Navigation() {
       ]
     },
     { label: 'Watersport', section: 'watersport' },
+    { label: 'Kids & Camps', path: '/kids-camps' },
     { label: 'Contact', path: '/contact' }
   ];
 
   // Determine colors based on scroll state and current page
   // Pages with full-bleed hero images at the top
-  const pagesWithHero = ['/', '/bedrijfsfeesten', '/particuliere-events', '/programma', '/faq', '/contact'];
+  const pagesWithHero = ['/', '/bruiloften', '/bedrijfsfeesten', '/particuliere-events', '/kids-camps', '/programma', '/faq', '/contact'];
   const hasHero = pagesWithHero.includes(location.pathname);
   const isTransparent = !isScrolled && hasHero;
   
@@ -154,6 +155,12 @@ export function Navigation() {
               className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
             >
               Watersport
+            </button>
+            <button 
+              onClick={() => navigate('/kids-camps')}
+              className={`${navLinkColor} ${navLinkHoverColor} transition-colors cursor-pointer`}
+            >
+              Kids & Camps
             </button>
             <JunoButton variant="primary" size="sm" onClick={() => openFormitableWidget()}>
               Reserveren
