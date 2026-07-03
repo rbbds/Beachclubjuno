@@ -8,6 +8,7 @@ import bruiloftenPage from './bruiloftenPage';
 import zakelijkeEventsPage from './zakelijkeEventsPage';
 import particuliereEventsPage from './particuliereEventsPage';
 import menuPage from './menuPage';
+import kidsCampsPage from './kidsCampsPage';
 
 export const schemaTypes = [
   event,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   zakelijkeEventsPage,
   particuliereEventsPage,
   menuPage,
+  kidsCampsPage,
 ];
