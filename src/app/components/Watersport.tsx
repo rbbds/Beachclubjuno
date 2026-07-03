@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { WaveDecoration } from './WaveDecoration';
 import { SectionHeader } from './SectionHeader';
 import { SectionWaveTop } from './SectionWaveTop';
@@ -66,12 +67,13 @@ const staticActivities: WatersportActivity[] = [
     cardTitle: 'Kids & Camps',
     image: images.watersport.kids,
     description: 'Juno is een nieuwe Beachclub, maar wij hebben gecombineerd al ruim 40 jaar ervaring in het geven van watersportlessen en kamps. Wij hebben een te gek kitesurf kamp wat wij samen organiseren met Kiteboardschool.nl en een surfcamp wat wij samen organiseren met SurfBlend. Onze instructeurs hebben een speciale opleiding doorlopen om kids op een veilige, maar vooral ook leuke manier te leren surfen. De week wordt traditiegetrouw afgesloten met een bbq waarbij de ouders ook welkom zijn.',
-    buttonText: 'LEES MEER EN BOEK',
-    buttonLink: 'https://kiteboardschool.nl'
+    buttonText: 'BEKIJK EN BOEK',
+    buttonLink: '/kids-camps'
   }
 ];
 
 export function Watersport() {
+  const navigate = useNavigate();
   const [selectedActivity, setSelectedActivity] = useState<WatersportActivity | null>(null);
   const [activities, setActivities] = useState(staticActivities);
   const [sectionTitle, setSectionTitle] = useState('WATERSPORT');
@@ -213,19 +215,32 @@ export function Watersport() {
                 </p>
               )}
 
-              {/* Button */}
-              <a 
-                href={selectedActivity.buttonLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full bg-accent text-background text-center px-8 py-4 rounded-lg hover:bg-accent/85 transition-colors font-display ${selectedActivity ? 'drawer-content-7' : ''}`}
-                style={{ 
-                  fontSize: '18px',
-                  letterSpacing: '0.05em'
-                }}
-              >
-                {selectedActivity.buttonText}
-              </a>
+              {/* Button — internal route vs external link */}
+              {selectedActivity.buttonLink.startsWith('/') ? (
+                <button
+                  onClick={() => { setSelectedActivity(null); navigate(selectedActivity.buttonLink); }}
+                  className={`block w-full bg-accent text-background text-center px-8 py-4 rounded-lg hover:bg-accent/85 transition-colors font-display cursor-pointer ${selectedActivity ? 'drawer-content-7' : ''}`}
+                  style={{ 
+                    fontSize: '18px',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  {selectedActivity.buttonText}
+                </button>
+              ) : (
+                <a 
+                  href={selectedActivity.buttonLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full bg-accent text-background text-center px-8 py-4 rounded-lg hover:bg-accent/85 transition-colors font-display ${selectedActivity ? 'drawer-content-7' : ''}`}
+                  style={{ 
+                    fontSize: '18px',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  {selectedActivity.buttonText}
+                </a>
+              )}
             </div>
           </div>
         </BaseDrawer>
