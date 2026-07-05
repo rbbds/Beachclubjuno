@@ -14,6 +14,62 @@ import { openMiceWidget } from '../utils/miceWidget';
 import { setPageMeta } from '../utils/seo';
 import { sanityClient, urlFor } from '../../lib/sanity';
 
+function MeenemenIcon({ label, className = 'w-7 h-7' }: { label: string; className?: string }) {
+  const key = label.toLowerCase();
+
+  if (key.includes('zonnebrand')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" className={className}>
+        <rect x="8" y="8" width="8" height="13" rx="2" />
+        <rect x="9.5" y="4" width="5" height="4" rx="1" />
+        <path d="M10.5 12h3M10.5 15h3" />
+      </svg>
+    );
+  }
+  if (key.includes('pet') || key.includes('hoed')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" className={className}>
+        <path d="M5 14a7 7 0 0 1 14 0" />
+        <path d="M12 7V5.5" />
+        <path d="M5 14h14l3 2H8" />
+      </svg>
+    );
+  }
+  if (key.includes('zwemkleding') || key.includes('badkleding') || key.includes('zwembroek') || key.includes('badpak')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M8 4c0 4-1 8-3 11l4 4c2-2 4-2 6 0l4-4c-2-3-3-7-3-11" />
+        <path d="M8 4h2M14 4h2" />
+      </svg>
+    );
+  }
+  if (key.includes('handdoek')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" className={className}>
+        <path d="M6 4h9a3 3 0 0 1 3 3v13H9a3 3 0 0 1-3-3Z" />
+        <path d="M18 7v13" />
+        <path d="M6 4v13a3 3 0 0 0 3 3" />
+      </svg>
+    );
+  }
+  if (key.includes('drink') || key.includes('water') || key.includes('fles')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" className={className}>
+        <path d="M9 3h6v3l1.5 2.5v10a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-10L9 6Z" />
+        <path d="M9 11h6" />
+      </svg>
+    );
+  }
+
+  // Fallback voor onbekende items uit Sanity
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M8.5 12.5 11 15l4.5-5" />
+    </svg>
+  );
+}
+
 const staticWeekDays = [
   { dayLabel: 'MA', title: 'KENNISMAKEN & ONTDEKKEN', description: 'We leren elkaar kennen, maken samen een teamvlag, bouwen de mooiste zandkastelen en gaan op zoek naar bijzondere schelpen langs de vloedlijn.' },
   { dayLabel: 'DI', title: 'WIND & BEWEGING', description: 'Een actieve dag met windspelletjes, powerkiten met kleine trainerkites, beach games en spannende estafettes op het strand.' },
@@ -313,10 +369,17 @@ export function KidsCamps() {
           </ul>
 
           <div className="bg-background rounded-xl p-8 mb-10">
-            <h3 className="text-primary mb-4 tracking-wide font-display" style={{ fontSize: '1.25rem' }}>
+            <h3 className="text-primary mb-6 tracking-wide font-display" style={{ fontSize: '1.25rem' }}>
               {meenemenTitle}
             </h3>
-            <p className="text-primary/80">{meenemenItems.join(' · ')}</p>
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
+              {meenemenItems.map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-2 w-20">
+                  <MeenemenIcon label={item} className="w-7 h-7 text-primary" />
+                  <span className="text-primary/80 text-sm text-center leading-tight">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {hasBookingWidget ? (
