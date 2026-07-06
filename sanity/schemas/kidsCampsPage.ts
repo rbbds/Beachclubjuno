@@ -30,9 +30,9 @@ export default defineType({
         { name: 'brochureUrl', title: 'Brochure PDF URL', type: 'url', description: 'Link naar downloadbare brochure PDF. Laat leeg om knop te verbergen.' },
         {
           name: 'bookingWidgetId',
-          title: 'Booking widget ID (MICE Operations)',
+          title: 'Viking Bookings widget-ID',
           type: 'string',
-          description: 'Widget-ID van Gijs voor het aanmeldsysteem. Zolang dit leeg is, staat de boekknop uitgeschakeld op de site.',
+          description: 'De widget-ID uit de Viking Bookings link voor het Mini Beach Camp product, bijvoorbeeld "0100000005000000c52f569e" uit https://app.vikingbookings.com/widget/booking/0100000005000000c52f569e. Vraag deze specifieke ID op bij Gijs — niet de algemene kitesurfles-widget. Zolang dit leeg is, staat de boekknop uitgeschakeld op de site.',
         },
       ],
     }),
