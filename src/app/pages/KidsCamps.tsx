@@ -10,7 +10,7 @@ import { EventFaqSection } from '../components/EventFaqSection';
 import { Shield, Users, Clock } from 'lucide-react';
 import { images } from '../data/images';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { openMiceWidget } from '../utils/miceWidget';
+import { openVikingWidget } from '../utils/vikingWidget';
 import { setPageMeta } from '../utils/seo';
 import { sanityClient, urlFor } from '../../lib/sanity';
 
@@ -225,7 +225,7 @@ export function KidsCamps() {
   const hasBookingWidget = !!bookingWidgetId;
 
   const handleBooking = () => {
-    if (hasBookingWidget) openMiceWidget(bookingWidgetId);
+    if (hasBookingWidget) openVikingWidget(bookingWidgetId);
   };
 
   return (
